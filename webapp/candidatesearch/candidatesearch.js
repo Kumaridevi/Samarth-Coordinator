@@ -8,7 +8,7 @@ angular.module('samarth-coordinator')
 			views: {
 				"main":{
 					templateUrl:'candidatesearch/templates/candidatesearchhome.html',
-					controller: 'searchController'
+					controller: 'candidatesearchcontroller'
 				}
 			}
 		})
