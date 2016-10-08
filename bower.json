@@ -1,0 +1,24 @@
+{
+  "name": "candidatesearch",
+  "homepage": "https://github.com/username/repo",
+  "authors": [
+    "kishanlalbj <kishanlalbj@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-material": "^1.1.1",
+    "angular-ui-router": "^0.3.1",
+    "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#intgbranch_wave9",
+    "google-material-icons": "#2.1.3"
+  }
+}
