@@ -1,9 +1,9 @@
-<<<<<<< HEAD
-// angular.module('samarth-coordinator',['ngMaterial',
-// 	'ngAnimate',
-// 	'ui.router',
-// 	'samarth-webcomponents']);
-angular.module("samarth-coordinator", ["ngMaterial", "ui.router", "ngMessages", "LocalStorageModule"])
+// << << << < HEAD
+// // angular.module('samarth-coordinator',['ngMaterial',
+// //  'ngAnimate',
+// //  'ui.router',
+// //  'samarth-webcomponents']);
+angular.module("samarth-coordinator", ["ngMaterial", "ui.router", "ngMessages", "LocalStorageModule", 'samarth-webcomponents'])
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/home');
@@ -47,13 +47,13 @@ angular.module("samarth-coordinator", ["ngMaterial", "ui.router", "ngMessages", 
 
 
     }]); // config ends
-=======
-angular.module('samarth-coordinator',['ngMaterial',
-	'ngAnimate',
-	'ui.router',
-	'ngMessages',
-	'samarth-webcomponents']).config(function ($mdThemingProvider) {
-		
-	});
-	;
->>>>>>> 479c2e3a62cb437d68197d892ed3e8b9aa46c554
+
+// angular.module('samarth-coordinator',['ngMaterial',
+//  'ngAnimate',
+//  'ui.router',
+//  'ngMessages',
+//  'samarth-webcomponents']).config(function ($mdThemingProvider) {
+
+//  });
+//  ;
+// >>>>>>> 479c2e3a62cb437d68197d892ed3e8b9aa46c554

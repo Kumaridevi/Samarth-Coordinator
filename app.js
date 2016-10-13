@@ -18,11 +18,9 @@ var app = express();
 mongoose.connect('mongodb://localhost:27017/samarthplatformdb');
 
 app.onAppStart = function(addr) {
-<<<<<<< HEAD
-    console.log("Samarth-SkillProfile web app is now Running on port:", addr.port);
-=======
-	console.log("Samarth-Coordinator web app is now Running on port:", addr.port);
->>>>>>> 479c2e3a62cb437d68197d892ed3e8b9aa46c554
+
+    console.log("Samarth-Coordinator web app is now Running on port:", addr.port);
+
 }
 
 app.use(morgan('dev'));

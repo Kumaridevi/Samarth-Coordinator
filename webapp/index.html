@@ -2,66 +2,17 @@
 <html>
 
 <head>
-<<<<<<< HEAD
     <title>Samarth-Coordinator | NIIT Foundation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="Samarth-WebComponents/skillcard/css/skillcard.css">
+    <link rel="stylesheet" type="text/css" href="samarth-webComponents/skillcard/css/skillcard.css">
     <link rel="stylesheet" type="text/css" href="angular-material/angular-material.css">
-    <!-- <link rel="stylesheet" type="text/css" href="google-material-icons/"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="google-material-icons/">
+ -->
     <link rel="stylesheet" href="google-material-icons/dist/material-icons-font.css">
-    <link href="home/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="home/css/style.css">
 </head>
-=======
-	<title>Samarth-Coordinator | NIIT Foundation</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="samarth-webComponents/skillcard/css/skillcard.css">
-	<link rel="stylesheet" type="text/css" href="angular-material/angular-material.css">
-	<link rel="stylesheet" type="text/css" href="google-material-icons/">	
-	<link rel="stylesheet" href="google-material-icons/dist/material-icons-font.css">
-</head>
-<body ng-app="samarth-coordinator">
-
-	<md-toolbar>
-		<h1 class="md-title">Samarth sahayak</h1>
-	</md-toolbar>
-
-	<md-content>
-		<md-button class="md-raised md-primary" ui-sref="candidatessearch">Search candidate</md-button>
-		<md-button class="md-raised md-primary" ui-sref="registercandidate">Register candidate</md-button>
-
-		<div ui-view="main" layout="column"></div>
-		<div ui-view="registercandidate"></div>
-	</md-content>
-	<!-- Vendor Scripts -->
-	<script type="text/javascript" src="angular/angular.js"></script>
-	<script type="text/javascript" src="angular-material/angular-material.js"></script>
-	<script type="text/javascript" src="angular-animate/angular-animate.js"></script>
-	<script type="text/javascript" src="angular-aria/angular-aria.js"></script>
-	<script type="text/javascript" src="angular-ui-router/release/angular-ui-router.js"></script>
-	<script type="text/javascript" src="angular-messages/angular-messages.js"></script>
-
-
-	<!-- Samarth-Coordinator Scripts -->
-	
-	<script type="text/javascript" src="samarthcoordinator.js"></script>
-	<script type="text/javascript" src="candidatesearch/controller/candidatesearchctrl.js"></script>
-	<script type="text/javascript" src="candidatesearch/candidatesearch.js"></script>
-	<script type="text/javascript" src="candidatesearch/services/candidatesearchservice.js"></script>
-	<script type="text/javascript" src="candidatesearch/controller/candidateregistration.js"></script>
-
-
-	<script type="text/javascript" src="samarth-webcomponents/samarth-webcomponents.js"></script>
-	<script type="text/javascript" src="samarth-webcomponents/skillcard/skillcard.js"></script>
->>>>>>> 479c2e3a62cb437d68197d892ed3e8b9aa46c554
 
 <body ng-app="samarth-coordinator" ng-controller="Maincontroller" ng-cloak>
-    <!--  <md-toolbar>
-        <h1 class="md-title">Samarth sahayak</h1>
-    </md-toolbar>
-    <md-content>
-        <md-button class="md-raised md-primary" ui-sref="candidatessearch">Search candidate</md-button>
-        <div ui-view="main" layout="column"></div>
-    </md-content> -->
     <div ui-view="appbar"></div>
     <div ui-view="content" layout-fill></div>
     <div ui-view="footer"></div>

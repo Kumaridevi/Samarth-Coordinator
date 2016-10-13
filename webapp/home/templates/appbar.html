@@ -57,7 +57,7 @@
                         <md-list-item ng-repeat="x in usersidenavdata.functionality track by $index">
                             <!-- ng-repeat="x in response track by $index" -->
                             <md-button>
-                                <a ui-sref="x.state"> {{x.func}}</a>
+                                <a ui-sref="{{x.state}}"> {{x.func}}</a>
                             </md-button>
                         </md-list-item>
                         <!-- <md-divider></md-divider> -->
