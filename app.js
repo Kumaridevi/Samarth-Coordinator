@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.onAppStart = function(addr) {
-	console.log("Samarth-SkillProfile web app is now Running on port:", addr.port);
+	console.log("Samarth-Coordinator web app is now Running on port:", addr.port);
 }
 
 app.use(morgan('dev'));

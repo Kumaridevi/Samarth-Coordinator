@@ -1,4 +1,8 @@
 angular.module('samarth-coordinator',['ngMaterial',
 	'ngAnimate',
 	'ui.router',
-	'samarth-webcomponents']);
+	'ngMessages',
+	'samarth-webcomponents']).config(function ($mdThemingProvider) {
+		
+	});
+	;

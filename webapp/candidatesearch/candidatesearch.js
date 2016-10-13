@@ -8,7 +8,7 @@ angular.module('samarth-coordinator')
 			views: {
 				"main":{
 					templateUrl:'candidatesearch/templates/candidatesearchhome.html',
-					controller: 'candidatesearchcontroller'
+					controller: 'candidatesearchctrl'
 				}
 			}
 		})
@@ -17,6 +17,16 @@ angular.module('samarth-coordinator')
 			views:{
 				"results":{
 					templateUrl:'candidatesearch/templates/candidatesearchresults.html',
+					controller: 'candidatesearchctrl'
+				}
+			}
+		})
+		.state('registercandidate',{
+			url:'candidateregistration',
+			views:{
+				"registercandidate":{
+					templateUrl:'candidatesearch/templates/candidateregistration.html',
+					controller:'candidateregistrationctrl'
 				}
 			}
 		});
