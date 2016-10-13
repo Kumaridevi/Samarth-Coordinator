@@ -1,0 +1,24 @@
+<div layout="row" layout-xs="column" layout-sm="column" layout-fill ng-cloak>
+    <div class="main" flex>
+    </div>
+    <div ng-cloak class="md-inline-form md-whiteframe-15dp login-form-wrapper" flex>
+        <md-content class="md-no-momentum">
+            <div layout="column" layout-align="start center" class="login-form-wrapper">
+                <form name="loginForm" class="login-form-wrapper" ng-submit="login()">
+                    <md-input-container class="md-block">
+                        <!-- Use floating placeholder instead of label -->
+                        <md-icon class="material-icons">email</md-icon>
+                        <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <!-- Use floating placeholder instead of label -->
+                        <md-icon class="material-icons">lock</md-icon>
+                        <input ng-model="user.pwd" type="password" placeholder="Password (required)" ng-required="true">
+                    </md-input-container>
+                    <md-button class="md-raised md-primary ng-scope md-ink-ripple" type="submit" aria-label="LOG IN" ng-disabled="loginForm.$invalid || loginForm.$pristine">LOG IN</md-button>
+                    <a class="md-accent-color ng-scope md-default-theme" href="#">Forgot Password?</a>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</div>

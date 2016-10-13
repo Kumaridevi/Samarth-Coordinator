@@ -1,0 +1,81 @@
+<div>
+    <md-toolbar class="md-whiteframe-15dp md-hue-2">
+        <div class="md-toolbar-tools" layout="row" layout-align="start center">
+            <div layout="row" layout-align="start center" flex flex-sm="30">
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()" ng-show="showmenu">
+                    <md-icon class="material-icons">menu</md-icon>
+                </md-button>
+                <h2>
+          <span>SAMARTH-SAHAYAK</span>
+        </h2>
+            </div>
+            <!-- <span flex></span> -->
+            <!-- <div class="toolbar-separator"></div> -->
+            <div flex-sm="70">
+                <!-- <md-button class="md-raised" ui-sref="loginView">Sign-in</md-button> -->
+                <md-menu>
+                    <md-button aria-label="LanguageSelector" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                        <md-icon class="material-icons">flag</md-icon>
+                    </md-button>
+                    <md-menu-content width="2">
+                        <md-menu-item>
+                            <md-button ng-click="func()" ng-disabled="true">
+                                <!-- <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon> -->
+                                English
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="checkVoicemail()">
+                                <!-- <md-icon md-svg-icon="call:voicemail"></md-icon> -->
+                                Hindi
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleRight()">
+                    <md-icon>notifications_active</md-icon>
+                </md-button>
+            </div>
+        </div>
+    </md-toolbar>
+</div>
+<div>
+    <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+        <md-content ng-click="toggleLeft()">
+            <div layout="column">
+                <!-- <md-toolbar class="md-hue-2">
+                    <h1 class="md-toolbar-tools">Welcome!</h1>
+                </md-toolbar> -->
+                <!-- <md-content layout layout-align="center center" class="md-padding">
+                    <img class="md-avatar" ng-src="/home/images/user.jpg" alt="Image">
+                </md-content> -->
+                <md-content layout='column' layout-align="center center">
+                    <h4 class='md-title'>{{usersidenavdata.name}}</h4>
+                </md-content>
+                <md-content layout='column' layout-align="center center">
+                    <md-list>
+                        <md-list-item ng-repeat="x in usersidenavdata.functionality track by $index">
+                            <!-- ng-repeat="x in response track by $index" -->
+                            <md-button>
+                                <a ui-sref="x.state"> {{x.func}}</a>
+                            </md-button>
+                        </md-list-item>
+                        <!-- <md-divider></md-divider> -->
+                        <!--  <md-list-item>
+                            <a href="#">{{response[0].second}}</a>
+                        </md-list-item> -->
+                        <md-list-item>
+                            <md-button>
+                                <a ui-sref="signout">Logout</a>
+                            </md-button>
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+            </div>
+        </md-content>
+    </md-sidenav>
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+        <!-- <md-content ng-include src="'/sidenavcontents.html'" ng-click="toggleRight()"></md-content> -->
+        <md-content ng-click="toggleRight()"></md-content>
+    </md-sidenav>
+</div>
