@@ -27,8 +27,8 @@ apiRoutes.post('/User/', function(req, res) {
 
         if (!user) {
             res.json({ success: false, message: 'Authentication failed. User not found.' });
-        } else if (!user.validPassword(req.body.pwd)) {
-            res.json({ success: false, message: 'Invalid password.' });
+            // } else if (!user.validPassword(req.body.pwd)) {
+            //     res.json({ success: false, message: 'Invalid password.' });
         } else {
 
             // if user is found and password is right, create a token
