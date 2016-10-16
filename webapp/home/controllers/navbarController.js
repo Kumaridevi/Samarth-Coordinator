@@ -1,8 +1,8 @@
 angular.module("samarth-coordinator")
     .controller("Navbarcontroller", ['$rootScope', '$http', '$state', '$window', '$mdDialog', '$mdSidenav', '$stateParams',
-        '$scope', '$timeout', 'signinFactory', 'localStorageService',
+        '$scope', '$timeout', 'signinFactory',
         function myResponse($rootScope, $http, $state, $window, $mdDialog, $mdSidenav, $stateParams,
-            $scope, $timeout, signinFactory, localStorageService) {
+            $scope, $timeout, signinFactory) {
 
             var originatorEv;
 
@@ -37,8 +37,6 @@ angular.module("samarth-coordinator")
 
             $scope.sidenavcontents = function() {
 
-                    // var user = signinFactory.loginUser();
-                    // $scope.functionality = user.data.functionality;
                     var user = signinFactory.loginUser();
                     $scope.usersidenavdata = user.data;
                     console.log(user.data);

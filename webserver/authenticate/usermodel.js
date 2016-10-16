@@ -13,22 +13,6 @@ var login = mongoose.Schema({
     //functionality: [{ type: String, required: true }]
 });
 
-//define model
-// var login = mongoose.model('login', {
-//     // name: { type: String, required: true },
-//     "email": {
-//         type: String,
-//         required: true,
-//         match: /.+@.+\..+/,
-//         lowercase: true
-//     },
-//     // contactno: { type: Number, required: true },
-//     "password": { type: String, required: true },
-//     "role": { type: String, required: true },
-//     "functionality": [{ type: String, required: true }]
-// });
-
-
 login.virtual('pwd')
     .set(function(pwd) {
         this._pwd = pwd;

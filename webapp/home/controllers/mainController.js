@@ -1,6 +1,8 @@
 angular.module("samarth-coordinator")
     .controller("Maincontroller", ['$scope', '$state', '$rootScope', 'signinFactory', function myResponse($scope, $state, $rootScope, signinFactory) {
 
+        $rootScope.homebtn = false;
+
         $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState) {
                 //index does not need authentication
@@ -27,4 +29,4 @@ angular.module("samarth-coordinator")
         //         });
         // }); 
 
-    }]); // myCtrl ends
+    }]); // Maincontroller ends

@@ -17,7 +17,12 @@
                     </md-input-container>
                     <md-button class="md-raised md-primary ng-scope md-ink-ripple" type="submit" aria-label="LOG IN" ng-disabled="loginForm.$invalid || loginForm.$pristine">LOG IN</md-button>
                     <a class="md-accent-color ng-scope md-default-theme" href="#">Forgot Password?</a>
+                    <md-divider class="inset"></md-divider>
+                    <a class="md-accent-color md-default-theme" href="#">Register Coordinator</a>
                 </form>
+                <div ng-show="showdiv">
+                    <p class="textfont">Invalid Credentials! Please try again</p>
+                </div>
             </div>
         </md-content>
     </div>
