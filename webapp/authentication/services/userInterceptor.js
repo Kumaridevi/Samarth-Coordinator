@@ -4,7 +4,7 @@ angular.module('samarth-coordinator')
             return {
                 'request': function(config) {
                     var u = $window.localStorage['member-user'];
-                    alert(u);
+                    // alert(u);
                     if (u !== undefined) {
                         u = JSON.parse(u);
                         config.headers['x-user-access-token'] = u.token;
