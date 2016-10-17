@@ -1,5 +1,5 @@
 <div>
-<<<<<<< HEAD
+
 	<md-content>
 		<form name="registrationform" layout="column" layout-align="center center" ng-submit="signup()">
 			
@@ -7,7 +7,7 @@
 				<md-icon class="material-icons"> person</md-icon>
 				<label>Name</label>
 				<input type="text" name="name" required ng-model="user.name">
-				s
+				
 				<div ng-messages="registrationform.name.$error">
 					<div ng-message="required">Plese provide username </div>
 				</div>
@@ -18,7 +18,7 @@
 				
 				<md-icon class="material-icons">phone</md-icon>
 				<label>Mobile</label>
-				<input name="phone" required ng-model="user.phone" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+				<input name="phone" required ng-model="user.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
 				<div ng-messages="registrationform.phone.$error">
 					<div ng-message="pattern">Please enter a valid phone number.</div>
 					<div ng-message="required">Please provide a  phone number</div>
@@ -40,7 +40,7 @@
 			<md-input-container md-no-float class="md-block">
 				<md-icon class="material-icons"> place</md-icon>
 				<label>Location</label>
-				<input type="text" name="location" required>
+				<input type="text" name="location" required ng-model="user.location">
 				<div ng-messages="registrationform.location.$error">
 					<div ng-message="required">Please enter your location</div>
 				</div>
@@ -72,41 +72,4 @@
 			</form>
 		</md-content>
 	</div>
-=======
-    <md-content>
-        <form name="registrationform" layout="column" layout-align="center center">
-            <md-input-container md-block>
-                <md-icon class="material-icons">phone</md-icon>
-                <label>Mobile</label>
-                <input name="phone" required ng-model="user.phone" ng-pattern="/^[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}$/" />
-                <div ng-messages="registrationform.phone.$error">
-                    <div ng-message="pattern">Please enter a valid phone number.</div>
-                    <div ng-message="required">Please provide a phone number</div>
-                </div>
-            </md-input-container>
-            <md-input-container>
-                <md-icon class="material-icons"> account</md-icon>
-                <label>Name</label>
-                <input md-maxlength="4" type="text" name="name" required ng-model="name">
-                <div ng-messages="registrationform.name.$error">
-                    <div ng-message="required">Please provide username </div>
-                    <div ng-message="md-maxlength">Please provide username </div>
-                </div>
-            </md-input-container>
-            <md-input-container>
-                <md-icon class="material-icons"> email</md-icon>
-                <label>Email</label>
-                <input type="text" name="email" ng-model="email" required>
-                <div ng-messages="registrationform.email.$error">
-                    <div ng-message="required">Please provide a email ID</div>
-                </div>
-            </md-input-container>
-            <md-input-container>
-                <md-icon class="material-icons"> place</md-icon>
-                <label>Location</label>
-                <input type="text" name="location">
-            </md-input-container>
-        </form>
-    </md-content>
-</div>
->>>>>>> 4bddf81361063b5a364eb1d7c49b055a94e61d5a
+	
