@@ -1,5 +1,5 @@
 angular.module("samarth-coordinator", ["ngMaterial", "ui.router", "ngMessages", "LocalStorageModule", 'samarth-webcomponents'])
-<<<<<<< HEAD
+
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/home');
@@ -40,30 +40,29 @@ angular.module("samarth-coordinator", ["ngMaterial", "ui.router", "ngMessages", 
         // }
 
         // })
-=======
-    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+        // .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/home');
+        //     $urlRouterProvider.otherwise('/home');
 
-        $stateProvider
-            .state("index", {
-                url: '/home',
-                views: {
-                    "appbar": {
-                        templateUrl: 'home/templates/appbar.html',
-                        controller: 'Navbarcontroller'
-                    },
-                    "content@": {
-                        templateUrl: "home/templates/loginView.html",
-                        controller: "Logincontroller"
-                    },
-                    "footer": {
-                        templateUrl: 'home/templates/footer.html',
-                    }
+        //     $stateProvider
+        //     .state("index", {
+        //         url: '/home',
+        //         views: {
+        //             "appbar": {
+        //                 templateUrl: 'home/templates/appbar.html',
+        //                 controller: 'Navbarcontroller'
+        //             },
+        //             "content@": {
+        //                 templateUrl: "home/templates/loginView.html",
+        //                 controller: "Logincontroller"
+        //             },
+        //             "footer": {
+        //                 templateUrl: 'home/templates/footer.html',
+        //             }
 
-                }
-            });
->>>>>>> 83868fca0618ec7a2c1a0016a46f8b64d3cf0cb4
+        //         }
+        //     });
+
 
 
     }]); // config ends

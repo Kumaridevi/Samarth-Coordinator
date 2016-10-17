@@ -1,23 +1,27 @@
 angular.module("samarth-coordinator")
-.controller("Maincontroller", ['$scope', '$state', '$rootScope', 'signinFactory', function myResponse($scope, $state, $rootScope, signinFactory) {
+.controller("Maincontroller", ['$scope', 
+    '$state',
+    '$rootScope', 
+    'signinFactory',
+    function myResponse($scope, $state, $rootScope, signinFactory) {
 
-<<<<<<< HEAD
+
     // $rootScope.$on('$stateChangeStart',
     //     function(event, toState, toParams, fromState) {
     //             //index does not need authentication
     //             if (toState.name == 'index') {
     //                 return;
     //             }
-=======
-        $rootScope.homebtn = false;
 
-        $rootScope.$on('$stateChangeStart',
-            function(event, toState, toParams, fromState) {
+    $rootScope.homebtn = false;
+
+    $rootScope.$on('$stateChangeStart',
+        function(event, toState, toParams, fromState) {
                 //index does not need authentication
                 if (toState.name == 'index') {
                     return;
                 }
->>>>>>> 83868fca0618ec7a2c1a0016a46f8b64d3cf0cb4
+
 
     //             //If user is not authenticated, but trying to navigate to a state, force the user to login
     //             // if (!signinFactory.isMember()) {
@@ -36,6 +40,6 @@ angular.module("samarth-coordinator")
         //             console.log('Error in signing out ', res)
         //             $state.go("index");
         //         });
-        // }); 
+    }); 
 
     }]); // Maincontroller ends
