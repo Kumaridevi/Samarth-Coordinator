@@ -6,6 +6,7 @@
                     <md-icon class="material-icons">menu</md-icon>
                 </md-button>
                 <h2>
+<<<<<<< HEAD
                   <span>SAMARTH-SAHAYAK</span>
               </h2>
           </div>
@@ -16,6 +17,14 @@
             <md-menu>
                 <md-button aria-label="LanguageSelector" class="md-icon-button" ng-click="$mdOpenMenu($event)">
                     <md-icon class="material-icons">flag</md-icon>
+=======
+          <span>SAMARTH-COORDINATOR</span>
+        </h2>
+            </div>
+            <div>
+                <md-button class="md-icon-button md-ink-ripple" ui-sref="home" ng-show="homebtn">
+                    <md-icon class="material-icons">home</md-icon>
+>>>>>>> 83868fca0618ec7a2c1a0016a46f8b64d3cf0cb4
                 </md-button>
                 <md-menu-content width="2">
                     <md-menu-item>
@@ -43,31 +52,56 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
         <md-content ng-click="toggleLeft()">
             <div layout="column">
-                <!-- <md-toolbar class="md-hue-2">
-                    <h1 class="md-toolbar-tools">Welcome!</h1>
-                </md-toolbar> -->
-                <!-- <md-content layout layout-align="center center" class="md-padding">
-                    <img class="md-avatar" ng-src="/home/images/user.jpg" alt="Image">
-                </md-content> -->
-                <md-content layout='column' layout-align="center center">
+                <md-content class="md-default-theme" layout layout-align="center center" class="md-padding">
+                    <img class="imgcircle" ng-src="/home/images/user.png">
+                </md-content>
+                <md-content class="md-default-theme" layout='column' layout-align="center center">
                     <h4 class='md-title'>{{usersidenavdata.name}}</h4>
                 </md-content>
-                <md-content layout='column' layout-align="center center">
+                <md-content layout='column'>
                     <md-list>
+<<<<<<< HEAD
                         <md-list-item ng-repeat="x in usersidenavdata.functionality track by $index">
                             <!-- ng-repeat="x in response track by $index" -->
                             <md-button ui-sref="{{x.state}}">{{x.func}}</md-button>
                             <!-- <a ui-sref="{{x.state}}"> {{x.func}}</a> -->
                             
+=======
+                        <md-list-item ui-sref="{{x.state}}" ng-repeat="x in usersidenavdata.functionality track by $index">
+                            <md-item-content layout="row" layout-align="start center">
+                                <div>
+                                    <md-icon class="material-icons">{{x.icon}}</md-icon>
+                                    <span>{{x.func}}</span>
+                                </div>
                         </md-list-item>
-                        <!-- <md-divider></md-divider> -->
-                        <!--  <md-list-item>
-                            <a href="#">{{response[0].second}}</a>
-                        </md-list-item> -->
-                        <md-list-item>
-                            <md-button>
-                                <a ui-sref="signout">Logout</a>
-                            </md-button>
+                        <md-divider></md-divider>
+                        <md-subheader class="md-no-sticky">Management</md-subheader>
+                        <md-list-item ui-sref="#">
+                            <md-item-content layout="row" layout-align="start center">
+                                <div>
+                                    <md-icon class="material-icons">settings</md-icon>
+                                    <span style="cursor:pointer;">Settings</span>
+                                </div>
+                            </md-item-content>
+                        </md-list-item>
+                        <md-list-item ui-sref="#">
+                            <md-item-content layout="row" layout-align="start center">
+                                <div>
+                                    <md-icon class="material-icons">dns</md-icon>
+                                    <span style="cursor:pointer;">Extensions</span>
+                                </div>
+                            </md-item-content>
+>>>>>>> 83868fca0618ec7a2c1a0016a46f8b64d3cf0cb4
+                        </md-list-item>
+                        <md-list-item ui-sref="signout">
+                            <md-item-content layout="row" layout-align="start center">
+                                <div>
+                                    <!-- <md-button ui-sref="signout"> -->
+                                    <md-icon class="material-icons">exit_to_app</md-icon>
+                                    <span>Logout</span>
+                                </div>
+                            </md-item-content>
+                            <!-- </md-button> -->
                         </md-list-item>
                     </md-list>
                 </md-content>
@@ -75,7 +109,6 @@
         </md-content>
     </md-sidenav>
     <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-        <!-- <md-content ng-include src="'/sidenavcontents.html'" ng-click="toggleRight()"></md-content> -->
         <md-content ng-click="toggleRight()"></md-content>
     </md-sidenav>
 </div>

@@ -1,11 +1,7 @@
 angular.module("samarth-coordinator")
-    .factory('signinFactory', ['$http', '$q', '$window', 'localStorageService', function($http, $q, $window, localStorageService) {
+    .factory('signinFactory', ['$http', '$q', '$window', function($http, $q, $window) {
 
         var signinFactory = {};
-
-        // signinFactory.getUser = function(email) {
-        //     return $http.post('/api/login/' + email);
-        // }; //getUser ends
 
         signinFactory.saveUser = function(user) {
             // alert(JSON.stringify(user));
@@ -50,7 +46,6 @@ angular.module("samarth-coordinator")
             if (user === undefined) {
                 return false;
             } else {
-                //@TODO check expiry timestamp on user session object
                 return true;
             }
         };
@@ -65,7 +60,7 @@ angular.module("samarth-coordinator")
         };
 
         signinFactory.getUser = function(userinfo) {
-            alert(JSON.stringify(userinfo));
+            // alert(JSON.stringify(userinfo));
             //Returning a promise object
             return $q(function(resolve, reject) {
                 $http.post('/api/User/', userinfo)
@@ -99,8 +94,6 @@ angular.module("samarth-coordinator")
         };
 
         signinFactory.signout = function() {
-            //remove the local user object
-            // localStorageService.remove('User');
             signinFactory.removeUser();
             //Returning promise object
             return $q(function(resolve, reject) {

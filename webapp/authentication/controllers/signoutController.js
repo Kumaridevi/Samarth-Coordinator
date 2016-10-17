@@ -1,18 +1,18 @@
 angular.module("samarth-coordinator")
-    .controller("Signoutcontroller", ['$scope', '$state', '$rootScope', 'signinFactory', 'localStorageService',
-        function($scope, $state, $rootScope, signinFactory, localStorageService) {
+    .controller("Signoutcontroller", ['$scope', '$state', '$rootScope', 'signinFactory',
+        function($scope, $state, $rootScope, signinFactory) {
 
             $scope.signout = function() {
-                // localStorageService.remove("User");
                 signinFactory.signout()
                     .then(function(res) {
                             //Alternatively you can redirect user to landing page
-                            // $rootScope.$emit("callparentmethod", {});
                             $state.go("index");
+                            $rootScope.homebtn = false;
                         },
                         function(err) {
                             // $scope.error = err;
                             $state.go("index");
+                            $rootScope.homebtn = false;
                         });
             }
             $scope.signout();
