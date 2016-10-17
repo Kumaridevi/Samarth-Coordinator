@@ -6,38 +6,38 @@
                     <md-icon class="material-icons">menu</md-icon>
                 </md-button>
                 <h2>
-          <span>SAMARTH-SAHAYAK</span>
-        </h2>
-            </div>
-            <!-- <span flex></span> -->
-            <!-- <div class="toolbar-separator"></div> -->
-            <div flex-sm="70">
-                <!-- <md-button class="md-raised" ui-sref="loginView">Sign-in</md-button> -->
-                <md-menu>
-                    <md-button aria-label="LanguageSelector" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-                        <md-icon class="material-icons">flag</md-icon>
-                    </md-button>
-                    <md-menu-content width="2">
-                        <md-menu-item>
-                            <md-button ng-click="func()" ng-disabled="true">
-                                <!-- <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon> -->
-                                English
-                            </md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button ng-click="checkVoicemail()">
-                                <!-- <md-icon md-svg-icon="call:voicemail"></md-icon> -->
-                                Hindi
-                            </md-button>
-                        </md-menu-item>
-                    </md-menu-content>
-                </md-menu>
-                <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleRight()">
-                    <md-icon>notifications_active</md-icon>
+                  <span>SAMARTH-SAHAYAK</span>
+              </h2>
+          </div>
+          <!-- <span flex></span> -->
+          <!-- <div class="toolbar-separator"></div> -->
+          <div flex-sm="70">
+            <!-- <md-button class="md-raised" ui-sref="loginView">Sign-in</md-button> -->
+            <md-menu>
+                <md-button aria-label="LanguageSelector" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon class="material-icons">flag</md-icon>
                 </md-button>
-            </div>
+                <md-menu-content width="2">
+                    <md-menu-item>
+                        <md-button ng-click="func()" ng-disabled="true">
+                            <!-- <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon> -->
+                            English
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="checkVoicemail()">
+                            <!-- <md-icon md-svg-icon="call:voicemail"></md-icon> -->
+                            Hindi
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleRight()">
+                <md-icon>notifications_active</md-icon>
+            </md-button>
         </div>
-    </md-toolbar>
+    </div>
+</md-toolbar>
 </div>
 <div>
     <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
@@ -56,9 +56,9 @@
                     <md-list>
                         <md-list-item ng-repeat="x in usersidenavdata.functionality track by $index">
                             <!-- ng-repeat="x in response track by $index" -->
-                            <md-button>
-                                <a ui-sref="{{x.state}}"> {{x.func}}</a>
-                            </md-button>
+                            <md-button ui-sref="{{x.state}}">{{x.func}}</md-button>
+                            <!-- <a ui-sref="{{x.state}}"> {{x.func}}</a> -->
+                            
                         </md-list-item>
                         <!-- <md-divider></md-divider> -->
                         <!--  <md-list-item>
