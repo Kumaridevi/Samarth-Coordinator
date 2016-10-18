@@ -1,8 +1,14 @@
 angular.module("samarth-coordinator")
-    .controller("Navbarcontroller", ['$rootScope', '$http', '$state', '$window', '$mdDialog', '$mdSidenav', '$stateParams',
-        '$scope', '$timeout', 'signinFactory',
-        function myResponse($rootScope, $http, $state, $window, $mdDialog, $mdSidenav, $stateParams,
-            $scope, $timeout, signinFactory) {
+    .controller("appbarctrl", ['$rootScope',
+        '$http',
+        '$state',
+        '$window',
+        '$mdSidenav',
+        '$scope',
+        '$timeout',
+        'signinfactory',
+        function($rootScope, $http, $state, $window, $mdSidenav,
+            $scope, $timeout, signinfactory) {
 
             var originatorEv;
 
@@ -26,7 +32,7 @@ angular.module("samarth-coordinator")
             }
 
             $scope.showsidemenu = function() {
-                if (signinFactory.loginUser() == undefined) {
+                if (signinfactory.getUser() == undefined) {
                     $scope.showmenu = false;
                 } else {
                     $scope.showmenu = true;
@@ -37,9 +43,8 @@ angular.module("samarth-coordinator")
 
             $scope.sidenavcontents = function() {
 
-                    var user = signinFactory.loginUser();
-                    $scope.usersidenavdata = user.data;
-                    console.log(user.data);
+                    var user = signinfactory.getUser();
+                    $scope.usersidenavdata = user;
                     // $log.info(user.data);
 
 
@@ -49,4 +54,4 @@ angular.module("samarth-coordinator")
 
 
         }
-    ]); // appCtrl ends
+    ]); // appbarctrl ends

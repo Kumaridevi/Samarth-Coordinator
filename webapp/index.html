@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="samarth-webcomponents/rubric/css/style.css">
 </head>
 
-<body ng-app="samarth-coordinator" ng-controller="Maincontroller" ng-cloak>
+<body ng-app="samarth-coordinator" ng-controller="approotctrl" ng-cloak>
     <div ui-view="appbar"></div>
     <div ui-view="content" layout-fill></div>
     <div ui-view="footer"></div>
@@ -24,35 +24,35 @@
     <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.js"></script>
     <script src="angular-messages/angular-messages.min.js"></script>
     <!-- Samarth-Coordinator Scripts -->
-    <!--candidatesearch module-->
     <script type="text/javascript" src="samarthcoordinator.js"></script>
+    <script src="home/controllers/approotctrl.js"></script>
+    <!-- Auth module -->
+    <script src="auth/authroute.js"></script>
+    <script src="auth/services/signinfactory.js"></script>
+    <script src="auth/controllers/signinctrl.js"></script>
+    <script src="auth/controllers/signoutctrl.js"></script>
+    <script src="auth/services/userinterceptor.js"></script>
+    <!-- Coordinator module -->
+    <script src="coordinator/coordinateroute.js"></script>
+    <script src="coordinator/controllers/crdtrdashboardctrl.js"></script>
+    <!--candidatesearch module-->
     <script type="text/javascript" src="candidatesearch/candidatesearch.js"></script>
     <script type="text/javascript" src="candidatesearch/controller/candidatesearchctrl.js"></script>
     <script type="text/javascript" src="candidatesearch/services/candidatesearchservice.js"></script>
-    
     <!-- candidate registration -->
     <script type="text/javascript" src="candidateregistration/candidateregistration.js"></script>
     <script type="text/javascript" src="candidateregistration/controller/candidateregistrationctrl.js"></script>
     <script type="text/javascript" src="candidateregistration/services/registrationservice.js"></script>
-
     <!-- <script src="script.js"></script> -->
-
-
-    <script src="home/homeroute.js"></script>
-    <script src="home/controllers/navbarController.js"></script>
-    <script src="home/controllers/loginController.js"></script>
-    <script src="home/controllers/mainController.js"></script>
-    <script src="home/services/signinService.js"></script>
-    <!--authentication module-->
-    <script src="authentication/authroute.js"></script>
-    <script src="authentication/services/signinFactory.js"></script>
-    <!-- <script src="authentication/services/userInterceptor.js"></script> -->
-    <script src="authentication/controllers/signoutController.js"></script>
     <!--Samarth-Webcomponents Scripts-->
     <script type="text/javascript" src="samarth-webcomponents/samarth-webcomponents.js"></script>
     <script type="text/javascript" src="samarth-webcomponents/skillcard/skillcard.js"></script>
     <script type="text/javascript" src="samarth-webcomponents/skillcard/services/skillcardservice.js"></script>
     <script type="text/javascript" src="samarth-webcomponents/rubric/rubriccomponent.js"></script>
+    <!-- Home module should come almost towards end, as it might be dependent on many other modules -->
+    <script src="home/homeroute.js"></script>
+    <script src="home/controllers/indexctrl.js"></script>
+    <script src="home/controllers/appbarctrl.js"></script>
 </body>
 
 </html>

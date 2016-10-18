@@ -31,18 +31,16 @@ apiRoutes.post('/User/', function(req, res) {
             //     res.json({ success: false, message: 'Invalid password.' });
         } else {
 
+
             // if user is found and password is right, create a token
             var token = jwt.sign(user, configure.secret, {
                 // expiresInMinutes: 1440 // expires in 24 hours
             });
 
-            res.json({
-                success: true,
-                message: 'Enjoy your token!',
-                data: user,
-                token: token
-            });
+            console.log("Token generated: ", token);
+            user['token'] = "token";
 
+            res.json(user);
         }
 
     });
