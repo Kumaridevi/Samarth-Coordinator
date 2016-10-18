@@ -44,6 +44,7 @@ angular.module("samarth-coordinator")
             $scope.sidenavcontents = function() {
 
                     var user = signinfactory.getUser();
+
                     $scope.usersidenavdata = user;
                     // $log.info(user.data);
 
