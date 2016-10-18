@@ -8,7 +8,7 @@ angular.module('samarth-coordinator')
             views: {
                 "appbar": {
                     templateUrl: 'home/templates/appbar.html',
-                    controller: 'Navbarcontroller'
+                    controller: 'appbarctrl'
                 },
                 "content@": {
                     templateUrl: 'candidatesearch/templates/candidatesearchhome.html',
@@ -20,7 +20,7 @@ angular.module('samarth-coordinator')
             }
         })
         .state('candidatessearch.results', {
-            url: 'searchlist',
+            url: '/searchlist',
             views: {
                 "results": {
                     templateUrl: 'candidatesearch/templates/candidatesearchresults.html',

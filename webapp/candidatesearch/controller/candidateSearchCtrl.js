@@ -1,6 +1,6 @@
 angular.module('samarth-coordinator')
-.controller('candidatesearchctrl',['$scope','candidateservice','skillcardservice'
-	,function($scope,candidateservice,skillcardservice) {
+.controller('candidatesearchctrl',['$scope','candidateservice'
+	,function($scope,candidateservice) {
 
 		$scope.openMenu = function($mdOpenMenu,ev) {
 			$mdOpenMenu(ev);
@@ -12,7 +12,5 @@ angular.module('samarth-coordinator')
 				console.log("ctrl",$scope.results);
 			});
 		}
-
-		
 
 	}]);

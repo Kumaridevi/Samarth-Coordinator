@@ -5,18 +5,33 @@ angular.module('samarth-coordinator')
 		.state('verifyprofile', {
 			url:'/verifyprofile/:candidateid',
 			views: {
-				"main":{
-					templateUrl:'completeprofile/templates/completeprofile.html',
+				"appbar": {
+					templateUrl: 'home/templates/appbar.html',
+					controller: 'appbarctrl'
+				},
+				"content@": {
+					templateUrl: 'completeprofile/templates/completeprofile.html',
 					controller: 'completeprofilectrl'
+				},
+				"footer": {
+					templateUrl: 'home/templates/footer.html',
 				}
 			}
 		})
 		.state('back', {
-			url:'/viewprofile/:candidateid',
+			url:'/viewprofile',
 			views: {
-				"main":{
-					templateUrl:'completeprofile/templates/completeprofileview.html',
-					controller: 'completeprofilectrl'
+				"appbar": {
+					templateUrl: 'home/templates/appbar.html',
+					controller: 'appbarctrl'
+				},
+				"content@":{
+					templateUrl:'../candidatesearch/templates/candidatesearchhome.html',
+					controller: 'candidatesearchctrl'
+				},
+
+				"footer": {
+					templateUrl: 'home/templates/footer.html',
 				}
 			}
 		});
