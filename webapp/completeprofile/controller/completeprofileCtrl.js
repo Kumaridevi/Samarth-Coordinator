@@ -4,6 +4,7 @@ angular.module('samarth-coordinator')
 
         $scope.id = $stateParams.candidateid;
         console.log($scope.id);
+        //$scope.date = new Date();
 
         //get the verification status from the api.
         candidateprofileservice.getverificationdata($scope.id)
@@ -11,6 +12,7 @@ angular.module('samarth-coordinator')
                 console.log("cpCtrlinside", response.data[0]);
                 $scope.rat = response.data[0].verification_ratings;
                 $scope.bad = response.data[0].verification_status;
+                $scope.updated_on = response.data[0].updated_on;
             }, function(err) {
                 console.log(err);
             });
@@ -29,10 +31,10 @@ angular.module('samarth-coordinator')
                 // $scope.id = id;
                 $scope.rat = obj.x;
                 $scope.bad = obj.y;
-
+                $scope.updated_on = obj.z;
                 console.log("showdi", obj.x);
                 console.log("showdi", obj.y);
-
+                console.log("showdi", obj.z);
                 //console.log("from dialog outcome", $scope.name);
             }, function() {
                 //$scope.name = 1;
@@ -68,11 +70,12 @@ angular.module('samarth-coordinator')
             if (b == 0) {
                 $scope.bad = "fiber_new";
             }
-
+            var date = new Date();
             var newobj = {
                 candidateid: $scope.id,
                 verification_status: $scope.bad,
-                verification_ratings: b
+                verification_ratings: b,
+                updated_on: date
             }
 
             candidateprofileservice.updateverificationdata(newobj).
@@ -85,7 +88,8 @@ angular.module('samarth-coordinator')
 
             var obj = {
                 x: b,
-                y: $scope.bad
+                y: $scope.bad,
+                z: date
             }
 
             $mdDialog.hide(obj);
