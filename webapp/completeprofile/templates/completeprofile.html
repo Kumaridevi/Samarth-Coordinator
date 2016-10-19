@@ -1,16 +1,18 @@
-<div ng-controller="completeprofilectrl">
-	<!-- <my-skillcard candidateid='id'></my-skillcard> -->
-
-	<div layout="row">
+<div>
+    <!-- <my-skillcard candidateid='id'></my-skillcard> -->
+    <div layout="row">
         <md-button class="md-raised md-primary" ui-sref="back">Back</md-button>
-        <span flex></span>
-        <md-button class="md-raised md-primary" ng-click="showdialog(ev)">VerifyProfile</md-button>
+        <span flex>
+             <div flex="10"> 
+            <md-icon class="material-icons">{{bad}}</md-icon>
+            <p>{{rat}}</p>
+       </div>
+        </span>
+        <md-button class="md-raised md-primary" ng-click="showdialog(ev)">Verify</md-button>
     </div>
     <my-personalinfocard candidateid="id"></my-personalinfocard>
     <mysection-skill-card candidateid="id"></mysection-skill-card>
     <my-educationcard candidateid="id"></my-educationcard>
     <my-projectsectioncard candidateid="id"></my-projectsectioncard>
     <my-workexperiencecard candidateid="id"></my-workexperiencecard>
-    
 </div>
-
