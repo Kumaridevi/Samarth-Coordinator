@@ -10,8 +10,8 @@ angular.module("samarth-coordinator")
                     url: '/index',
                     views: {
                         "appbar": {
-                            templateUrl: '/home/templates/appbar.html',
-                            controller: 'appbarctrl'
+                            templateUrl: '/home/templates/appbar.html'
+                                // controller: 'appbarctrl'
                         },
                         "content": {
                             controller: "indexctrl"

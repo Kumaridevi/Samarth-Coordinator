@@ -10,6 +10,7 @@ angular.module("samarth-coordinator")
                 .then(function(res) {
                         //redirect the user to sign-in page
                         $state.go("index");
+                        $rootScope.showmenu = false;
                     },
                     function(err) {
                         $state.go("index");

@@ -5,6 +5,8 @@ angular.module("samarth-coordinator")
         'signinfactory',
         function($scope, $state, $rootScope, signinfactory) {
 
+            $rootScope.showmenu = false;
+
             //Any Event, which trigger member as unauthorised, signout the user
             $rootScope.$on('member-unauthorized', function() {
                 signinfactory.signout().then(function(res) {

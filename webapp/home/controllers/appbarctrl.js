@@ -7,12 +7,15 @@ angular.module("samarth-coordinator")
         '$scope',
         '$timeout',
         'signinfactory',
+        'sidenavfactory',
         function($rootScope, $http, $state, $window, $mdSidenav,
-            $scope, $timeout, signinfactory) {
+            $scope, $timeout, signinfactory, sidenavfactory) {
 
             var originatorEv;
 
-            $scope.showmenu = false;
+            // alert("inside appbarctrl");
+
+            // $scope.showmenu = false;
 
             this.openMenu = function($mdOpenMenu, ev) {
                 originatorEv = ev;
@@ -31,27 +34,36 @@ angular.module("samarth-coordinator")
                 }
             }
 
-            $scope.showsidemenu = function() {
-                if (signinfactory.getUser() == undefined) {
-                    $scope.showmenu = false;
-                } else {
-                    $scope.showmenu = true;
-                }
-            }
-
-            $scope.showsidemenu();
-
             $scope.sidenavcontents = function() {
-
                     var user = signinfactory.getUser();
+                    if (user == undefined) {
+                        $scope.showmenu = false;
+                    } else {
+                        var role = user.role;
+                        sidenavfactory.loadSidenav(role)
+                            .then(function(contents) {
+                                $scope.sidebarcontents = contents;
+                                $rootScope.showmenu = true;
+                            }, function(err) {
+                                console.log("Error in fetching details: ", err);
+                            });
+                        // $scope.showmenu = true;
+                    }
+                } //sidenavcontents ends
 
-                    $scope.usersidenavdata = user;
-                    // $log.info(user.data);
+            $scope.sidenavcontents();
+
+            // $scope.sidenavcontents = function() {
+
+            //         // var user = signinfactory.getUser();
+            //         // alert(user);
+            //         // $scope.usersidenavdata = user;
+            //         // $log.info(user.data);
 
 
-                } // sidenavcontents ends
+            //     } // sidenavcontents ends
 
-            $timeout($scope.sidenavcontents, 3000);
+            // $timeout($scope.sidenavcontents, 3000);
 
 
         }

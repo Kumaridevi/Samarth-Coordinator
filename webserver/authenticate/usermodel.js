@@ -33,4 +33,14 @@ login.methods.validPassword = function(password) {
     return bCrypt.compareSync(password, this.password);
 };
 
-module.exports = login;
+var sidenavcontent = mongoose.Schema({
+    // sidenavcontent: {
+    role: { type: String, required: true },
+    functions: [{ name: String, state: String, icon: String }]
+        // }]
+}); //coordinator ends
+
+module.exports = {
+    "login": login,
+    "sidenavcontent": sidenavcontent
+};
