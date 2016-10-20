@@ -1,7 +1,8 @@
 <div ng-repeat="x in results">
     <my-skillcard candidateid="x.candidateid" flex-xs="100" flex-gt-xs="100">
         <badges>
-            <span>Verified</span>
+            <verification-badge candidateid="x.candidateid">
+            </verification-badge>
         </badges>
         <cardactions>
             <md-menu>
