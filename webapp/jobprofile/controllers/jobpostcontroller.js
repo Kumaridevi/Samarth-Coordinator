@@ -150,6 +150,17 @@ angular.module("samarth-coordinator")
             jobProfileService.postJob($scope.job)
                 .then(function successCallback(response) {
                         $scope.message = "The job is posted successfully.. !!";
+                        var confirm = $mdDialog.confirm()
+                            .title('The job is posted successfully.. !!')
+                            .targetEvent(ev)
+                            .ok('View')
+                            .cancel('One more Entry ?!');
+                        $mdDialog.show(confirm)
+                            .then(function() {
+                                $state.go("index.jobProfileView({jobID:" + $scope.job.jobID + ",employerID:" + $scope.job.employer.employerID + ")")
+                            }, function() {
+                                $scope.job = {};
+                            });
                     },
                     function errorCallback(response) {
                         console.log("some error occured");
