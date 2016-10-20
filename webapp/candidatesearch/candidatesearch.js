@@ -28,14 +28,24 @@ angular.module('samarth-coordinator')
                         }
                     }
                 })
-                .state('registercandidate', {
-                    url: 'candidateregistration',
-                    views: {
-                        "registercandidate": {
-                            templateUrl: 'candidatesearch/templates/candidateregistration.html',
-                            controller: 'candidateregistrationctrl'
-                        }
+
+            .state('registercandidate', {
+                url: 'registercandidate',
+
+                views: {
+                    "appbar": {
+                        templateUrl: 'home/templates/appbar.html',
+                        controller: 'Navbarcontroller'
+                    },
+                    "content@": {
+                        templateUrl: 'candidatesearch/templates/candidateregistration.html',
+                        controller: 'candidateregistrationctrl'
+                    },
+                    "footer": {
+                        templateUrl: 'home/templates/footer.html',
                     }
-                });
+                }
+
+            });
         }
     ]);
