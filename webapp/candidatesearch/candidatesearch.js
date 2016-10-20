@@ -3,30 +3,31 @@ angular.module('samarth-coordinator')
         function($stateProvider, $urlRouterProvider) {
 
             $stateProvider
-                .state('candidatessearch', {
+                .state('index.candidatessearch', {
                     url: '/candidatessearch',
                     views: {
-                        "appbar": {
+                        "appbar@": {
                             templateUrl: 'home/templates/appbar.html',
-                            controller: 'Navbarcontroller'
+                            controller: 'appbarctrl'
                         },
                         "content@": {
                             templateUrl: 'candidatesearch/templates/candidatesearchhome.html',
                             controller: 'candidatesearchctrl'
-                        },
-                        "footer": {
-                            templateUrl: 'home/templates/footer.html',
                         }
+                        // "footer": {
+                        //     templateUrl: 'home/templates/footer.html',
+                        // }
                     }
                 })
-                .state('candidatessearch.results', {
-                    url: 'searchlist',
+                .state('index.candidatessearch.results', {
+                    url: '/searchlist',
                     views: {
                         "results": {
                             templateUrl: 'candidatesearch/templates/candidatesearchresults.html',
                             controller: 'candidatesearchctrl'
                         }
                     }
+<<<<<<< HEAD
                 })
 
             .state('registercandidate', {
@@ -47,5 +48,8 @@ angular.module('samarth-coordinator')
                 }
 
             });
+=======
+                });
+>>>>>>> 338ce6e5ada9c6254b665a3bd9fbb303e4825a3c
         }
     ]);

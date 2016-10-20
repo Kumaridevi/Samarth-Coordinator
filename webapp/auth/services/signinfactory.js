@@ -1,17 +1,14 @@
 angular.module("samarth-coordinator")
-    .factory('signinFactory', ['$http', '$q', '$window', function($http, $q, $window) {
+    .factory('signinfactory', ['$http', '$q', '$window', function($http, $q, $window) {
 
         var signinFactory = {};
 
+        //if the user successfully signs in, save his details to local storage
         signinFactory.saveUser = function(user) {
-            // alert(JSON.stringify(user));
             if (user !== undefined) {
-                // alert("entered first if");
-                if (user.data.email) {
-
-                    // alert("entered 2nd if");
+                if (user.email) {
+                    //@TODO Encrypt the data
                     $window.localStorage['member-user'] = JSON.stringify(user);
-                    // alert("my local storage" + $window.localStorage['member-user']);
                 } else {
                     console.log("Invalid user data for auth: ", user);
                     signinFactory.removeUser();
@@ -22,13 +19,14 @@ angular.module("samarth-coordinator")
             }
         };
 
+        //Called when user signs out or user state has to be destroyed
         signinFactory.removeUser = function() {
             $window.localStorage.removeItem('member-user');
         };
 
-        signinFactory.loginUser = function() {
+        //to get the user details from the local storage
+        signinFactory.getUser = function() {
             var u = $window.localStorage['member-user'];
-            // alert(u);
             if (u !== undefined)
                 u = JSON.parse(u);
             return u;
@@ -39,10 +37,9 @@ angular.module("samarth-coordinator")
             return guest;
         };
 
-
+        //to check if the user is signed in user or not
         signinFactory.isMember = function() {
-            var user = signinFactory.loginUser();
-
+            var user = signinFactory.getUser();
             if (user === undefined) {
                 return false;
             } else {
@@ -50,33 +47,34 @@ angular.module("samarth-coordinator")
             }
         };
 
-
+        //to get the current user, which returned either a valid user object or a guest depending on signin state of the user 
         signinFactory.getCurrentUser = function() {
             if (signinFactory.isMember()) {
-                return signinFactory.loginUser();
+                return signinFactory.getUser();
             } else {
                 return signinFactory.getGuest();
             }
         };
 
-        signinFactory.getUser = function(userinfo) {
-            // alert(JSON.stringify(userinfo));
-            //Returning a promise object
+        // sign in the user with the details provided by him
+        signinFactory.signin = function(usrname, pwd) {
+            var userinfo = {
+                email: usrname,
+                pwd: pwd
+            };
+
             return $q(function(resolve, reject) {
                 $http.post('/api/User/', userinfo)
                     .then(function(res) {
-                            // alert("post success email" + email);
                             //success
                             if (res.status >= 400) {
                                 //can be unauthorized and hence error
                                 signinFactory.removeUser(); //ensuring user is not saved locally
                                 reject(res.data);
                             } else if (res.status >= 200 && res.status <= 299) {
-                                // alert("success else if");
-                                // alert(JSON.stringify(res));
-                                if (res.data.data.email && res.data.token) {
+                                //Check if the required data is returned by the server
+                                if (res.data.email) {
                                     //Successfully authenticated
-                                    // alert("entered if");
                                     signinFactory.saveUser(res.data);
                                     resolve(signinFactory.getCurrentUser());
                                 } else {
@@ -87,15 +85,17 @@ angular.module("samarth-coordinator")
                             }
                         },
                         function(res) {
+                            //If HTTP Request returned with 500 state or some other network error
                             reject(res.data);
                         }
                     );
             });
         };
 
+        // signout the user when he clicks on sign-out
         signinFactory.signout = function() {
+            //Immediately invalidate the user state by removing the user object from the local storage
             signinFactory.removeUser();
-            //Returning promise object
             return $q(function(resolve, reject) {
                 $http
                     .get('/api/signout/')

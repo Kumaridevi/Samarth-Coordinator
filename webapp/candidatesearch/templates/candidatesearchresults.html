@@ -1,34 +1,26 @@
-<div>
-    <sm-verification-rubric brand="'Brand'" data="'Candidate'" outcome="0">
-    </sm-verification-rubric>
-    <my-skillcard data=results flex-xs="100" flex-gt-xs="100">
-        <md-menu>
-            <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
-                <md-icon class="material-icons">more horiz</md-icon>
-            </md-button>
-            <md-menu-content width="4">
-                </menu-content>
-                <md-menu-item>
-                    <md-button>
-                        View profile
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button>
-                        Verify profile
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button>
-                        Show Similar profiles
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button>
-                        Add to Circles
-                    </md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
+<div ng-repeat="x in results">
+    <my-skillcard candidateid="x.candidateid" flex-xs="100" flex-gt-xs="100">
+        <badges>
+            <span>Verified</span>
+        </badges>
+        <cardactions>
+            <md-menu>
+                <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
+                    <md-icon class="material-icons">more horiz</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ui-sref="verifyprofile({candidateid:x.candidateid})">
+                            View profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Show Similar profiles
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </cardactions>
     </my-skillcard>
 </div>
