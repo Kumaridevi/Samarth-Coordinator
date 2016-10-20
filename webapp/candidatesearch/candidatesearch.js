@@ -27,7 +27,6 @@ angular.module('samarth-coordinator')
                             controller: 'candidatesearchctrl'
                         }
                     }
-<<<<<<< HEAD
                 })
 
             .state('registercandidate', {
@@ -48,8 +47,5 @@ angular.module('samarth-coordinator')
                 }
 
             });
-=======
-                });
->>>>>>> 338ce6e5ada9c6254b665a3bd9fbb303e4825a3c
         }
     ]);

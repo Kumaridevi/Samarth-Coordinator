@@ -3,12 +3,12 @@ angular.module('samarth-coordinator')
         function($stateProvider, $urlRouterProvider) {
 
             $stateProvider
-                .state('searchjob', {
+                .state('index.searchjob', {
                     url: '/JobSearch',
                     views: {
-                        "appbar": {
+                        "appbar@": {
                             templateUrl: 'home/templates/appbar.html',
-                            controller: 'Navbarcontroller'
+                            controller: 'appbarctrl'
                         },
                         "content@": {
                             templateUrl: 'jobsearch/templates/jobsearchhome.html',
@@ -19,10 +19,10 @@ angular.module('samarth-coordinator')
                         }
                     }
                 })
-                .state('searchjob.results', {
+                .state('index.searchjob.results', {
                     url: 'joblist',
                     views: {
-                        "results": {
+                        "results@": {
                             templateUrl: 'jobsearch/templates/jobsearchresult.html'
                         }
                     }

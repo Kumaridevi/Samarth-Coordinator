@@ -3,12 +3,12 @@ angular.module('samarth-coordinator')
         function($stateProvider, $urlRouterProvider) {
 
             $stateProvider
-                .state('registerEmployer', {
+                .state('index.registerEmployer', {
                     url: '/employerRegister',
                     views: {
-                        "appbar": {
+                        "appbar@": {
                             templateUrl: 'home/templates/appbar.html',
-                            controller: 'Navbarcontroller'
+                            controller: 'appbarctrl'
                         },
                         "content@": {
                             templateUrl: 'employerregistration/templates/employerregistration.html',
