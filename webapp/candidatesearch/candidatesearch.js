@@ -28,6 +28,15 @@ angular.module('samarth-coordinator')
                         }
                     }
                 })
+                .state('index.candidatessearch.results', {
+                    url: '/searchlist',
+                    views: {
+                        "results": {
+                            templateUrl: 'candidatesearch/templates/candidatesearchresults.html',
+                            controller: 'candidatesearchctrl'
+                        }
+                    }
+                })
 
             .state('registercandidate', {
                 url: 'registercandidate',
