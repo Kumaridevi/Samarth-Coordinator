@@ -1,0 +1,27 @@
+<div ng-repeat="x in results">
+    <my-skillcard candidateid="x.candidateid" flex-xs="100" flex-gt-xs="100">
+        <badges>
+            <verification-badge candidateid="x.candidateid">
+            </verification-badge>
+        </badges>
+        <cardactions>
+            <md-menu>
+                <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
+                    <md-icon class="material-icons">more horiz</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ui-sref="verifyprofile({candidateid:x.candidateid})">
+                            View profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Show Similar profiles
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </cardactions>
+    </my-skillcard>
+</div>
