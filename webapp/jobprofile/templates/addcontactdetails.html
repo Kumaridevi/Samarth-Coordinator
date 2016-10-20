@@ -1,0 +1,21 @@
+<md-dialog>
+    <form name="addContact">
+        <md-dialog-content>
+            <div layout="column">
+                <md-input-container>
+                    <input ng-model="newContact.contactPerson" name="contactPerson" placeholder="Contact person name" required>
+                </md-input-container>
+                <md-input-container>
+                    <input ng-model="newContact.contactNumber" name="contactNumber" pattern="[0-9]{10}" placeholder="Contact number" required>
+                </md-input-container>
+                <md-input-container>
+                    <input type="email" ng-model="newContact.emailID" name="emailID" placeholder="email ID" required>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="md-primary" ng-click='addNew()' ng-disabled="addContact.$invalid || addContact.$pristine">Add</md-button>
+            <md-button class="md-primary" ng-click="cancel()">Cancel</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
