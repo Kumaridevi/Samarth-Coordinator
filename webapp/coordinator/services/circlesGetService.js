@@ -19,7 +19,7 @@ angular.module('samarth-webcomponents')
 
         //adds the circle to mongodb and neo4j
         objcircle.addCircle = function(circle) {
-            //console.log("service circle", circle);
+            console.log("service circle", circle);
             return $http({
                     url: "http://localhost:8081/circle/",
                     method: "POST",

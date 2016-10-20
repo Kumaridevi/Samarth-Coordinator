@@ -1,18 +1,19 @@
 angular.module("samarth-coordinator")
-    .controller("crdtrdashboardctrl", ['$scope', '$mdDialog', 'circlesGetService',
-        function($scope, $mdDialog, circlesGetService) {
+    .controller("crdtrdashboardctrl", ['$scope', '$mdDialog', '$log', 'circlesGetService',
+        function($scope, $mdDialog, $log, circlesGetService) {
             circlesGetService.getCircle()
                 .then(function(response) {
                     $scope.profiling = response.data;
-                    $log.log(profiling);
+                    //   $log.info(profiling);
+                    console.log($scope.profiling);
 
                 }, function(err) {
-                    $log.log(err);
+                    // $log.log(err);
                 });
             $scope.showForm = function(ev) {
                 $mdDialog.show({
                         templateUrl: 'coordinator/templates/addCircle.html',
-                        controller: 'dialogController',
+                        controller: dialogController,
                         parent: angular.element(document.body),
                         targetEvent: ev,
                         clickOutsideToClose: true,
@@ -25,7 +26,7 @@ angular.module("samarth-coordinator")
                     }).then(function success(response) {
                         //alert("circle added");
                     }, function(err) {
-                        $log.log(err);
+                        //  $log.log(err);
                     });
             };
         }
