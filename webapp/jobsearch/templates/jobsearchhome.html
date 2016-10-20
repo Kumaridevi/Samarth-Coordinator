@@ -1,0 +1,10 @@
+<div layout="row" layout-align="center center">
+    <md-input-container>
+        <input type="text" name="searchBox" ng-model="searchText" class="md-block">
+    </md-input-container>
+    <md-button class="md-raised" ui-sref="searchjob.results" ng-click="searchJob()">search</md-button>
+</div>
+<span>{{message}}</span>
+<div>
+    <div ui-view="results"></div>
+</div>

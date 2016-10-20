@@ -1,0 +1,21 @@
+<md-dialog>
+    <form name="addEducation">
+        <md-dialog-content>
+            <div layout="column">
+                <md-input-container>
+                    <input ng-model="newEducation.courseName" name="courseName" placeholder="Course name" required>
+                </md-input-container>
+                <md-input-container>
+                    <input ng-model="newEducation.yearOfPassing" name="yearOfPassing" placeholder="year of passing" required>
+                </md-input-container>
+                <md-input-container>
+                    <input ng-model="newEducation.minimumPercentage" name="percentage" placeholder="Minimum percentage or aggregate" required>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="md-primary" ng-click='addNew()' ng-disabled="addEducation.$invalid || addEducation.$pristine">Add</md-button>
+            <md-button class="md-primary" ng-click="cancel()">Cancel</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
