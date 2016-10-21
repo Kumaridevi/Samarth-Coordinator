@@ -1,15 +1,18 @@
 <div>
     <!-- <my-skillcard candidateid='id'></my-skillcard> -->
     <div layout="row">
-        <md-button class="md-raised md-primary" ui-sref="back">Back</md-button>
+        <!-- <md-button class="md-raised md-primary" ui-sref="back">Back</md-button> -->
         <div flex-offset="40" flex="90">
             <div layout="column">
-                <md-icon class="material-icons md-36" title="{{bad}}">{{bad}}</md-icon>
-                <span> Last Verified On: {{updated_on|date:'medium'}} </span>
+                <md-icon class="material-icons md-36 md-warn" title="{{bad}}">{{bad}}</md-icon>
+                <p>
+                    <time am-time-ago="updated_on"></time>
+                </p>
+                <!--  <span> Last Verified On: {{updated_on|date:'medium'}} </span> -->
                 <span> Ratings: {{rat}} / 4</span>
             </div>
         </div>
-        <md-button class="md-raised md-primary md-hue-2" ng-click="showdialog(ev)">Verify</md-button>
+        <md-button class="md-raised md-primary md-hue-2" ng-click="showdialog($event)">Verify</md-button>
     </div>
     <my-personalinfocard candidateid="id"></my-personalinfocard>
     <mysection-skill-card candidateid="id"></mysection-skill-card>

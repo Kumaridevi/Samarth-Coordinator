@@ -4,6 +4,7 @@ angular.module('samarth-coordinator')
 
         $scope.id = $stateParams.candidateid;
         console.log($scope.id);
+
         //$scope.date = new Date();
 
         //get the verification status from the api.
@@ -23,8 +24,11 @@ angular.module('samarth-coordinator')
                 locals: { id: $scope.id, rat: $scope.rat, bad: $scope.bad },
                 templateUrl: 'completeprofile/templates/newtemplate.html',
                 controller: 'ListCtrl',
-                clickoutsidetoclose: true,
-                targetEvent: env
+                targetEvent: env,
+                fullscreen: false
+
+
+
             }).then(function(obj) {
                 //console.log("from dialog", answer);
                 // $scope.name = answer;
@@ -62,13 +66,13 @@ angular.module('samarth-coordinator')
 
             //check the value of b and decide the verification_status
             if (b == 4) {
-                $scope.bad = "verified_user";
+                $scope.bad = "grade";
             }
             if (b < 4 && b > 0) {
-                $scope.bad = "error";
+                $scope.bad = "grade";
             }
             if (b == 0) {
-                $scope.bad = "fiber_new";
+                $scope.bad = "grade";
             }
             var date = new Date();
             var newobj = {
