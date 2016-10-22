@@ -1,4 +1,4 @@
-<div layout="column" flex="50">
+<div flex="40">
     <md-dialog>
         <form ng-cloak ng-submit="submit(circle)">
             <md-toolbar>
@@ -10,12 +10,14 @@
                     </md-button>
                 </div>
             </md-toolbar>
-            <md-content layout-gt-sm="column">
+            <md-content layout="column" layout-align="center center">
                 <div>
                     <md-input-container>
                         <label>name</label>
                         <input ng-model="circle.name" required>
                     </md-input-container>
+                </div>
+                <div>
                     <md-input-container>
                         <label>Discription</label>
                         <input ng-model="circle.circleDiscription">
@@ -23,16 +25,11 @@
                 </div>
                 <div>
                     <md-input-container>
-                        <label>circleType</label>
-                        <md-select ng-model=circle.circleType value={{circle.circleType}}>
-                            <md-option value='Profiling'>
-                                Profiling
-                            </md-option>
-                            <md-option value="social">
-                                social
-                            </md-option>
-                        </md-select>
+                        <label>Domain</label>
+                        <input ng-model="circle.domain">
                     </md-input-container>
+                </div>
+                <div>
                     <md-input-container>
                         <label>Visuality</label>
                         <md-select ng-model=circle.visuality value={{circle.visuality}}>
@@ -47,11 +44,16 @@
                             </md-option>
                         </md-select>
                     </md-input-container>
-                </div>
-                <div>
                     <md-input-container>
-                        <label>Domain</label>
-                        <input ng-model="circle.domain">
+                        <label>circleType</label>
+                        <md-select ng-model=circle.circleType value={{circle.circleType}}>
+                            <md-option value='Profiling'>
+                                Profiling
+                            </md-option>
+                            <md-option value="social">
+                                social
+                            </md-option>
+                        </md-select>
                     </md-input-container>
                 </div>
                 <md-dialog-actions layout="row">

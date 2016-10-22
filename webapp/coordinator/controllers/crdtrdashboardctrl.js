@@ -24,8 +24,8 @@ angular.module("samarth-coordinator")
                     .then(function(circle) {
                         //    console.log(circle);
                         circle.profilePic = "http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/artheader.jpg";
-                        console.log("mdDialog", +circle);
-                        circlesGetService.addCircle(circle);
+                        // console.log("mdDialog", +circle);
+                        circlesGetService.addCircle();
                     }).then(function success(response) {
                         //alert("circle added");
                     }, function(err) {
