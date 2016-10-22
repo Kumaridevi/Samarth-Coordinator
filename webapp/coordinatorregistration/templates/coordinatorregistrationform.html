@@ -58,7 +58,7 @@
                 <md-input-container md-no-float class="md-block" layout="row">
                     <md-icon class="material-icons"> perm_identity</md-icon>
                     <label>Select Role</label>
-                    <md-select ng-model=coordinator.role value={{coordinator.role}}>
+                    <md-select ng-model="coordinator.role" value={{coordinator.role}}>
                         <md-option value='coordinator'>
                             Coordinator
                         </md-option>
@@ -73,7 +73,7 @@
                 <md-input-container md-no-float class="md-block" layout="row">
                     <md-icon class="material-icons">supervisor_account</md-icon>
                     <label>Gender</label>
-                    <md-select ng-model=coordinator.gender value={{coordinator.gender}}>
+                    <md-select ng-model="coordinator.gender" value={{coordinator.gender}}>
                         <md-option value='Male'>
                             Male
                         </md-option>
@@ -87,6 +87,7 @@
                 <md-button type="submit" class="md-primary md-raised">
                     Register
                 </md-button>
+                <md-button class="button" ng-click="reset()">Reset</md-button>
             </div>
         </form>
     </md-content>

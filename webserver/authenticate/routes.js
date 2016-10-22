@@ -3,8 +3,9 @@ var configure = require("./config");
 var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var apiRoutes = require('express').Router();
+var authByToken = require("./authbytoken");
 
-var login = mongoose.model('login', UserModel.login);
+// var login = mongoose.model('login', UserModel.login);
 var sidenavcontent = mongoose.model('sidenavcontent', UserModel.sidenavcontent);
 
 apiRoutes.post('/User/', function(req, res) {
@@ -16,34 +17,36 @@ apiRoutes.post('/User/', function(req, res) {
         return;
     }
 
-    // find the user
-    login.findOne({
-        // email: req.params.email
-        email: req.body.email,
-        password: req.body.pwd
-    }, function(err, user) {
+    try {
 
-        if (err) throw err;
+        authByToken.signin(req.body.email, req.body.pwd,
+            function(err, user, jwtToken) {
+                if (err) {
+                    return res.status(500).json({
+                        error: "Internal error in processing request, please retry later..!"
+                    });
+                }
 
-        if (!user) {
-            res.json({ success: false, message: 'Authentication failed. User not found.' });
-            // } else if (!user.validPassword(req.body.pwd)) {
-            //     res.json({ success: false, message: 'Invalid password.' });
-        } else {
+                if (!jwtToken) {
+                    console.error("Empty token generated...!");
+                    res.status(403).json({
+                        error: "Internal error in processing request, please retry later..!"
+                    });
+                }
 
-
-            // if user is found and password is right, create a token
-            var token = jwt.sign(user, configure.secret, {
-                // expiresInMinutes: 1440 // expires in 24 hours
+                user['token'] = jwtToken;
+                return res.status(200).json(user);
+            },
+            function(err) {
+                return res.status(403).json(err);
             });
+    } catch (err) {
+        console.error("Error in signin ", err);
+        return res.status(500).json({
+            error: "Internal error in processing request, please retry later..!"
+        });
+    }
 
-            // console.log("Token generated: ", token);
-            user['token'] = "token";
-
-            res.json(user);
-        }
-
-    });
 }); // signin post ends
 
 apiRoutes.get('/role/:role', function(req, res) {
@@ -84,3 +87,34 @@ apiRoutes.get('/signout/', function(req, res) {
 // });
 
 module.exports = apiRoutes;
+
+
+
+// // find the user
+// login.findOne({
+//     // email: req.params.email
+//     email: req.body.email,
+//     password: req.body.pwd
+// }, function(err, user) {
+
+//     if (err) throw err;
+
+//     if (!user) {
+//         res.json({ success: false, message: 'Authentication failed. User not found.' });
+//         // } else if (!user.validPassword(req.body.pwd)) {
+//         //     res.json({ success: false, message: 'Invalid password.' });
+//     } else {
+
+
+//         // if user is found and password is right, create a token
+//         var token = jwt.sign(user, configure.secret, {
+//             // expiresInMinutes: 1440 // expires in 24 hours
+//         });
+
+//         // console.log("Token generated: ", token);
+//         user['token'] = "token";
+
+//         res.json(user);
+//     }
+
+// });

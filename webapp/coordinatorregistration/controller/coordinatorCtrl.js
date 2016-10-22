@@ -3,8 +3,7 @@ angular.module('samarth-coordinator')
 
         return {
             registercoordinator: function(newcoordinator) {
-                console.log("from service", newcoordinator);
-
+                alert("Registration Successful");
                 return $http.post('http://localhost:8081/coordinatorregister/createcoordinator', newcoordinator);
             }
         }
@@ -13,16 +12,23 @@ angular.module('samarth-coordinator')
 
 .controller('CoordinatorRegisterCtrl', ['$scope', 'register', function($scope, register) {
     $scope.signin = function(coordinator) {
-        console.log($scope.coordinator);
-        console.log("enter to ctrler");
         register.registercoordinator($scope.coordinator)
             .then(function success(response) {
-                console.log("success");
-                console.log("from service", response)
-                showSuccessAlert("Success" + response.name);
                 return response;
             }, function error(error) {
                 console.log("Error on inserting data");
             });
+    }
+    $scope.reset = function() {
+        var master = {
+            name: '',
+            email: '',
+            mobile: '',
+            pwd: '',
+            role: ''
+
+        };
+        $scope.temp = angular.copy(master);
+        $scope.registrationform.$setPristine();
     }
 }]);
