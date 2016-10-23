@@ -9,7 +9,7 @@ angular.module('samarth-coordinator').service('registrationservice',function($ht
                 url:'http://localhost:8081/candidate',
                 data:newcandidate
             }).then(function success(response) {
-                console.log("from service",response)
+                // console.log("from service",response)
                 return response;
             });
         }
