@@ -88,6 +88,17 @@
 					</div>
 
 				</div>
+
+				<div>
+					<md-input-container md-no-float>
+						<label>Profession</label>
+						<md-icon class="material-icons">work</md-icon>
+						<input type="text" name="work" required ng-model="user.profession">
+						<div ng-messages="registrationform.work.$error">
+							<div ng-message="reqiured">Please tell us your profession </div>
+						</div>
+					</md-input-container>
+				</div>
 				<md-button type="submit" class="md-primary md-raised">
 					Register
 				</md-button>
