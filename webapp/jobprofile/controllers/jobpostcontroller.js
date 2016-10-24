@@ -1,5 +1,5 @@
 angular.module("samarth-coordinator")
-    .controller('jobPostCtrl', ['$scope', '$mdDialog', 'jobProfileService', '$q', '$timeout', function($scope, $mdDialog, jobProfileService, $q, $timeout) {
+    .controller('jobPostCtrl', ['$scope', '$mdDialog', 'jobProfileService', '$q', '$state', function($scope, $mdDialog, jobProfileService, $q, $state) {
         $scope.job = {};
         $scope.updateButtonShow = false;
         $scope.postButtonShow = true;
@@ -34,7 +34,7 @@ angular.module("samarth-coordinator")
                     templateUrl: 'jobprofile/templates/addskillform.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
-                    fullscreen: true
+                    fullscreen: false
                 })
                 .then(function(skill) {
                     if (skill != null) {
@@ -60,7 +60,7 @@ angular.module("samarth-coordinator")
                     templateUrl: 'jobprofile/templates/addeducationdetails.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
-                    fullscreen: true
+                    fullscreen: false
                 })
                 .then(function(newEducation) {
                     if (newEducation != null) {
@@ -86,7 +86,7 @@ angular.module("samarth-coordinator")
                     templateUrl: 'jobprofile/templates/addcertification.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
-                    fullscreen: true
+                    fullscreen: false
                 })
                 .then(function(newCertificationName) {
                     if (newCertificationName != null) {
@@ -119,7 +119,7 @@ angular.module("samarth-coordinator")
                     templateUrl: 'jobprofile/templates/addcontactdetails.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
-                    fullscreen: true
+                    fullscreen: false
                 })
                 .then(function(newContact) {
                     if (newContact != null) {
@@ -152,14 +152,15 @@ angular.module("samarth-coordinator")
                         $scope.message = "The job is posted successfully.. !!";
                         var confirm = $mdDialog.confirm()
                             .title('The job is posted successfully.. !!')
-                            .targetEvent(ev)
+                            //.targetEvent(ev)
                             .ok('View')
                             .cancel('One more Entry ?!');
                         $mdDialog.show(confirm)
                             .then(function() {
-                                $state.go("index.jobProfileView({jobID:" + $scope.job.jobID + ",employerID:" + $scope.job.employer.employerID + ")")
+                                $state.go("index.jobProfileView", { "jobID": $scope.job.jobID, "employerID": $scope.job.employer.employerID });
                             }, function() {
                                 $scope.job = {};
+                                $scope.visibleShow = false;
                             });
                     },
                     function errorCallback(response) {

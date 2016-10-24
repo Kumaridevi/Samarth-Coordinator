@@ -6,7 +6,7 @@ angular.module('samarth-coordinator')
                 .state('index.postjob', {
                     url: '/postjob',
                     views: {
-                        "appbar": {
+                        "appbar@": {
                             templateUrl: 'home/templates/appbar.html',
                             controller: 'appbarctrl'
                         },
@@ -22,7 +22,7 @@ angular.module('samarth-coordinator')
                 .state('index.jobProfileView', {
                     url: '/jobProfileView/:jobID/:employerID',
                     views: {
-                        "appbar": {
+                        "appbar@": {
                             templateUrl: 'home/templates/appbar.html',
                             controller: 'appbarctrl'
                         },
@@ -48,7 +48,7 @@ angular.module('samarth-coordinator')
                 .state('index.editJob', {
                     url: '/editJob/:jobID/:employerID',
                     views: {
-                        "appbar": {
+                        "appbar@": {
                             templateUrl: 'home/templates/appbar.html',
                             controller: 'appbarctrl'
                         },

@@ -1,5 +1,5 @@
 angular.module("samarth-coordinator")
-    .controller('jobEditCtrl', ['$scope', 'jobProfileService', '$stateParams', '$mdDialog', function($scope, jobProfileService, $stateParams, $mdDialog) {
+    .controller('jobEditCtrl', ['$scope', 'jobProfileService', '$stateParams', '$mdDialog', '$state', function($scope, jobProfileService, $stateParams, $mdDialog, $state) {
         $scope.updateButtonShow = true;
         $scope.postButtonShow = false;
         $scope.editDisabled = true;
@@ -134,6 +134,14 @@ angular.module("samarth-coordinator")
             jobProfileService.updateJob($scope.job)
                 .then(function successCallback(response) {
                         $scope.message = "The job is updated successfully.. !!";
+                        var confirm = $mdDialog.confirm()
+                            .title('The job is updated successfully.. !!')
+                            //.targetEvent(ev)
+                            .ok('View')
+                        $mdDialog.show(confirm)
+                            .then(function() {
+                                $state.go("index.jobProfileView", { "jobID": $scope.job.jobID, "employerID": $scope.job.employer.employerID });
+                            }, function() {});
                     },
                     function errorCallback(response) {
                         console.log("some error occured");

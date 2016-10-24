@@ -1,3 +1,6 @@
+<div layout layout-align="center center">
+    <span class="md-display-3">Employer Registration</span>
+</div>
 <div layout="column">
     <form name="employerRegistration" ng-submit="registerEmployer()">
         <div layout="column">
@@ -5,7 +8,7 @@
                 <label>Employer name</label>
                 <input type="text" name="employerName" ng-model="employer.employerName">
                 <div ng-messages="employerRegistration.employerName.$error">
-                    <div ng-message="required">Please specify the job role</div>
+                    <div ng-message="required">Please specify name</div>
                 </div>
             </md-input-container>
             <div layout="row">
@@ -14,7 +17,7 @@
                         <label>Employer ID</label>
                         <input type="text" name="employerID" ng-model="employer.employerID" ng-minlength="4" ng-change="availability()">
                         <div ng-messages="employerRegistration.employerID.$error">
-                            <div ng-message="required">Please specify the job role</div>
+                            <div ng-message="required">Please specify ID</div>
                             <div ng-message="minlength">Please Enter minimum 4 letters</div>
                         </div>
                     </md-input-container>

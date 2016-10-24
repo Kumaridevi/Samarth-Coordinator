@@ -23,7 +23,8 @@ angular.module('samarth-coordinator')
                     url: 'joblist',
                     views: {
                         "results@": {
-                            templateUrl: 'jobsearch/templates/jobsearchresult.html'
+                            templateUrl: 'jobsearch/templates/jobsearchresult.html',
+                            controller: 'jobSearchCtrl'
                         }
                     }
                 })
