@@ -1,11 +1,11 @@
 <!-- <h2>This is Coordinator Dashboard</h2> -->
 <md-button class="md-fab" class="md-primary md-raised" ng-click="showForm($event)" aria-label="Add circles">
-    <ng-md-icon icon="add"></ng-md-icon>
+    <md-icon class="material-icon md-36">add</md-icon>
 </md-button>
 <div flex-xs="100" flex-gt-xs="100">
     <div layout="row" layout-xs="column" flex>
-        <a ui-sref="circleDetail" ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25 ">
-            <my-circle prof=prof></my-circle>
-        </a>
+        <div ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25 ">
+            <my-circle data='prof'></my-circle>
+        </div>
     </div>
 </div>

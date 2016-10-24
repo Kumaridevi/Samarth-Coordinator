@@ -1,13 +1,14 @@
 angular.module('samarth-webcomponents')
-    .service('circlesGetService', function($http, $window) {
+    .service('circlesGetService', function($http, signinfactory) {
         var objcircle = {};
         // var userdata = $window.localStorage["member-user"];
-        // var username = userdata.data.email;
+        // console.log(userdata);
+        var userdata = signinfactory.getUser();
+        console.log(userdata.email);
 
         //gets the circle from neo4j and mongo
         objcircle.getCircle = function() {
-            var username = 'ak@gmail.com';
-            return $http.get('http://localhost:8081/circle/' + username)
+            return $http.get('http://localhost:8081/circle/' + userdata.email)
                 .then(function(res) {
                     //console.log("got circles data");
                     return res;
@@ -19,7 +20,7 @@ angular.module('samarth-webcomponents')
 
         //adds the circle to mongodb and neo4j
         objcircle.addCircle = function(circle) {
-            //console.log("service circle", circle);
+            console.log("service circle", circle);
             return $http({
                     url: "http://localhost:8081/circle/",
                     method: "POST",

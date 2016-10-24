@@ -22,7 +22,7 @@ angular.module("samarth-coordinator")
             $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
                 //if user is already traversing to index stage, ignore this check
                 //Here ignore all those states, which need not have authentication 
-                if (toState.name == 'index' || toState.name == 'index.signin' || toState.name == 'signout') {
+                if (toState.name == 'index' || toState.name == 'index.signin' || toState.name == 'signout' || toState.name == 'registercoordinator') {
                     //index state does not need prior authentication
                     return;
                 }

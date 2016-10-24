@@ -23,6 +23,7 @@
         "angular-local-storage": "^0.5.2",
         "angular-sanitize": "^1.5.8",
         "angular-material-data-table": "^0.10.9",
-        "html2canvas": "^0.4.1"
+        "angular-moment": "^1.0.0",
+        "moment": "^2.15.1"
     }
 }

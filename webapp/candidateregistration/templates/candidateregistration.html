@@ -1,75 +1,114 @@
-<div>
+<div layout layout-align="center center">
+	<md-card flex="50" md-padding>
 
-	<md-content>
-		<form name="registrationform" layout="column" layout-align="center center" ng-submit="signup()">
-			
-			<md-input-container>
-				<md-icon class="material-icons"> person</md-icon>
-				<label>Name</label>
-				<input type="text" name="name" required ng-model="user.name">
-				
-				<div ng-messages="registrationform.name.$error">
-					<div ng-message="required">Plese provide username </div>
-				</div>
-			</md-input-container>
+		<md-card-title layout layout-align="center center">
+			<span class="md-display-1">Candidate Registration</span>
+		</md-card-title>
 
+		<md-card-content md-padding>
 
-			<md-input-container md-no-float class="md-block">
-				
-				<md-icon class="material-icons">phone</md-icon>
-				<label>Mobile</label>
-				<input name="phone" required ng-model="user.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
-				<div ng-messages="registrationform.phone.$error">
-					<div ng-message="pattern">Please enter a valid phone number.</div>
-					<div ng-message="required">Please provide a  phone number</div>
-				</div> 
-			</md-input-container>
+			<form name="registrationform" layout-gt-xs="column"  layout-align="center center">
+				<div layout="row" layout-xs="column">
+					<div>
+						<md-input-container md-no-float class="md-block">
+							<md-icon class="material-icons"> person</md-icon>
+							<label>Name</label>
+							<input type="text" name="name" required ng-model="user.name">
 
-			<md-input-container md-no-float class="md-block">
-				<md-icon class="material-icons"> email</md-icon>
-
-				<label>Email</label>
-				<input type="text" name="email" ng-model="user.email" required ng-pattern="/^.+@.+\..+$/">
-				<div ng-messages="registrationform.email.$error">
-					<div  ng-message="required">Please provide a email ID</div>
-					<div  ng-message="pattern">Please provide a valid email ID</div>
-
-				</div>	
-			</md-input-container>
-
-			<md-input-container md-no-float class="md-block">
-				<md-icon class="material-icons"> place</md-icon>
-				<label>Location</label>
-				<input type="text" name="location" required ng-model="user.location">
-				<div ng-messages="registrationform.location.$error">
-					<div ng-message="required">Please enter your location</div>
-				</div>
-			</md-input-container>
-
-			<md-input-container md-no-float class="md-block">
-				<label>password</label>
-				<md-icon class="material-icons">lock</md-icon>
-				<input ng-model="user.pwd" type="password" name="password" required md-no-asterisk ng-required="true" minlength="8" maxlength="20" ng-pattern="/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^*()_+])[A-Za-z\d][A-Za-z\d!@#$%^*()_+]{7,19}$/">
-				<div flex layout-align="right" ng-messages="registrationform.password.$error" class="error" role="alert">
-					<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Password should be 8-20 characters </div>
-				</div>
-			</md-input-container>
-
-			<md-input-container md-no-float class="md-block">
-				<label>Confirm Password</label>
-				<md-icon class="material-icons">lock</md-icon>
-				<input ng-model="user.cpwd" type="password" required md-no-asterisk name="Cfpassword" valid-password-c required>
-				<div flex layout-align="right" ng-messages="registrationform.Cfpassword.$error" class="error" role="alert">
-					<div ng-message-exp="required">This is required </div>
-					<div class="msg-error" ng-show="signupForm.Cfpassword.$error.noMatch">
-						passwords donot match</div>
+							<div ng-messages="registrationform.name.$error">
+								<div ng-message="required">Plese tell us  your name </div>
+							</div>
+						</md-input-container>
 					</div>
-				</md-input-container>
 
-				<md-button type="submit" class="md-primary md-raised">
-					Register
-				</md-button>
-			</form>
-		</md-content>
+					<div>
+						<md-input-container md-no-float class="md-block">
+
+							<md-icon class="material-icons">phone</md-icon>
+							<label>Mobile</label>
+							<input name="phone" required ng-model="user.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+							<div ng-messages="registrationform.phone.$error">
+								<div ng-message="pattern">Please enter a valid phone number.</div>
+								<div ng-message="required">Please provide a  phone number</div>
+							</div> 
+						</md-input-container>
+					</div>
+
+				</div>
+
+
+				<div layout="row" layout-xs="column">
+					<div>
+						<md-input-container md-no-float class="md-block">
+							<md-icon class="material-icons"> email</md-icon>
+
+							<label>Email</label>
+							<input type="text" name="email" ng-model="user.email" required ng-pattern="/^.+@.+\..+$/">
+							<div ng-messages="registrationform.email.$error">
+								<div  ng-message="required">Please provide a email ID</div>
+								<div  ng-message="pattern">Please provide a valid email ID</div>
+
+							</div>	
+						</md-input-container>
+					</div>
+
+					<div>
+						<md-input-container md-no-float class="md-block">
+							<md-icon class="material-icons"> place</md-icon>
+							<label>Location</label>
+							<input type="text" name="location" required ng-model="user.location">
+							<div ng-messages="registrationform.location.$error">
+								<div ng-message="required">Please tell us your location</div>
+							</div>
+						</md-input-container>
+					</div>
+				</div>
+
+
+				<div layout="row" layout-xs="column">
+					<div>
+						<md-input-container md-no-float class="md-block">
+							<label>Password</label>
+							<md-icon class="material-icons">lock</md-icon>
+							<input ng-model="user.pwd" type="password" name="password" required md-no-asterisk ng-required="true" minlength="8" maxlength="20" ng-pattern="/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^*()_+])[A-Za-z\d][A-Za-z\d!@#$%^*()_+]{7,19}$/">
+							<div flex layout-align="right" ng-messages="registrationform.password.$error" class="error" role="alert">
+								<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Password should be 8-20 characters </div>
+							</div>
+						</md-input-container>
+					</div>
+
+					<div>
+						<md-input-container md-no-float class="md-block">
+							<label>Confirm Password</label>
+							<md-icon class="material-icons">lock</md-icon>
+							<input ng-model="user.cpwd" type="password" required md-no-asterisk name="Cfpassword" valid-password-c required>
+							<div flex layout-align="right" ng-messages="registrationform.Cfpassword.$error" class="error" role="alert">
+								<div ng-message-exp="required">This is required </div>
+								<div class="msg-error" ng-show="signupForm.Cfpassword.$error.noMatch">
+									passwords donot match</div>
+								</div>
+							</md-input-container>
+						</div>
+
+					</div>
+
+					<div>
+						<md-input-container md-no-float>
+							<label>Profession</label>
+							<md-icon class="material-icons">work</md-icon>
+							<input type="text" name="work" required ng-model="user.profession" required>
+							<div ng-messages="registrationform.work.$error">
+								<div ng-message="required">Please tell us your profession </div>
+							</div>
+						</md-input-container>
+					</div>
+					<md-button type="submit" ng-click="signup()" class="md-primary md-raised">
+						Register
+					</md-button>
+					<p ng-model="signUpStatus" style="color:blue">{{signUpStatus}}</p>
+					<p ng-model="signUpStatus" style="color:red">{{error}}</p>
+
+				</form>
+			</md-card-content>
+		</md-card>
 	</div>
-	

@@ -3,97 +3,200 @@ angular.module('samarth-coordinator')
         $stateParams, $mdDialog, candidateprofileservice) {
 
         $scope.id = $stateParams.candidateid;
-        console.log($scope.id);
-        //$scope.date = new Date();
+        // console.log($scope.id);
 
         //get the verification status from the api.
         candidateprofileservice.getverificationdata($scope.id)
             .then(function(response) {
-                console.log("cpCtrlinside", response.data[0]);
-                $scope.rat = response.data[0].verification_ratings;
-                $scope.bad = response.data[0].verification_status;
+                $scope.arr = [];
+                console.log(response.data[0].Skills);
+                //  console.log("cpCtrlinside", response.data[0]);
+                $scope.candidatename = response.data[0].candidatename;
                 $scope.updated_on = response.data[0].updated_on;
+                $scope.personalinfo = response.data[0].Personal_Information;
+                $scope.skills = response.data[0].Skills;
+                $scope.qualification = response.data[0].Qualification;
+                $scope.project = response.data[0].Project;
+                $scope.work = response.data[0].Work_History;
+
+                $scope.arr.push($scope.personalinfo);
+                $scope.arr.push($scope.skills);
+                $scope.arr.push($scope.qualification);
+                $scope.arr.push($scope.project);
+                $scope.arr.push($scope.work);
+
+                console.log("----", $scope.arr);
+                //$scope.arr1 = $scope.arr;
+
+
+
+
+
+
+
+                $scope.perval = $scope.personalinfo.value;
+                $scope.perrem = $scope.personalinfo.remarks;
+
+                $scope.sklval = $scope.skills.value;
+                $scope.sklrem = $scope.skills.remarks;
+
+                $scope.qulval = $scope.qualification.value;
+                $scope.qulrem = $scope.qualification.remarks;
+
+                $scope.pjctval = $scope.project.value;
+                $scope.pjctrem = $scope.project.remarks;
+
+                $scope.wrkval = $scope.work.value;
+                $scope.wrkrem = $scope.work.remarks;
+
             }, function(err) {
                 console.log(err);
             });
 
-
-        $scope.showdialog = function(env) {
+        $scope.showAdvanced = function(ev, typename) {
+            console.log("inside showad", typename);
             $mdDialog.show({
-                locals: { id: $scope.id, rat: $scope.rat, bad: $scope.bad },
+                locals: { typename: typename, id: $scope.id },
                 templateUrl: 'completeprofile/templates/newtemplate.html',
                 controller: 'ListCtrl',
-                clickoutsidetoclose: true,
-                targetEvent: env
+                clickOutsideToClose: true,
+                targetEvent: ev
             }).then(function(obj) {
-                //console.log("from dialog", answer);
-                // $scope.name = answer;
-                // $scope.id = id;
-                $scope.rat = obj.x;
-                $scope.bad = obj.y;
+
                 $scope.updated_on = obj.z;
-                console.log("showdi", obj.x);
-                console.log("showdi", obj.y);
-                console.log("showdi", obj.z);
-                //console.log("from dialog outcome", $scope.name);
+
+                if (obj.a == 'Personal_Information') {
+                    $scope.perval = obj.x;
+                    $scope.perrem = obj.y;
+
+                }
+                if (obj.a == 'SKills') {
+                    $scope.sklval = obj.x;
+                    $scope.sklrem = obj.y;
+                }
+                if (obj.a == 'Qualification') {
+                    $scope.qulval = obj.x;
+                    $scope.qulrem = obj.y;
+                }
+                if (obj.a == 'Project') {
+                    $scope.pjctval = obj.x;
+                    $scope.pjctrem = obj.y;
+                }
+                if (obj.a == 'Work_History') {
+                    $scope.wrkval = obj.x;
+                    $scope.wrkval = obj.y;
+                }
             }, function() {
-                //$scope.name = 1;
+
             });
-        }
 
 
-
+        };
 
     }])
-    .controller('ListCtrl', function($scope, id, rat, bad, $mdDialog, candidateprofileservice) {
-
-        //console.log("ListCtrl", id);
-        $scope.rat = rat;
+    .controller('ListCtrl', function($scope, typename, id, $mdDialog, candidateprofileservice) {
+        //use them to make a new object
+        $scope.typename = typename;
         $scope.id = id;
-        $scope.bad = bad;
-        console.log(rat);
-        console.log(id);
-        console.log(bad);
-        $scope.answer = function(b, id) {
 
 
-            console.log("inside ListCtrl" + b);
-            console.log("inside ListCtrl" + id);
 
-            //check the value of b and decide the verification_status
-            if (b == 4) {
-                $scope.bad = "verified_user";
-            }
-            if (b < 4 && b > 0) {
-                $scope.bad = "error";
-            }
-            if (b == 0) {
-                $scope.bad = "fiber_new";
-            }
+        // this function gets called when the user clicks OK on rubric..
+        $scope.answer = function(b, id, remarks) {
+
+            // b is the value.
+            // remarks are the comments.
+
+
+            //create current date.
             var date = new Date();
-            var newobj = {
-                candidateid: $scope.id,
-                verification_status: $scope.bad,
-                verification_ratings: b,
-                updated_on: date
+
+            //check what was the typename and make the object accordingly.
+            if ($scope.typename == 'Personal_Information') {
+                var newobj = {
+                    candidateid: $scope.id,
+                    updated_on: date,
+                    Personal_Information: {
+                        value: b,
+                        remarks: remarks
+                    }
+                }
+
+            }
+            if ($scope.typename == 'Skills') {
+                var newobj = {
+                    candidateid: $scope.id,
+                    updated_on: date,
+                    Skills: {
+                        value: b,
+                        remarks: remarks
+                    }
+                }
+
+            }
+            if ($scope.typename == 'Qualification') {
+                var newobj = {
+                    candidateid: $scope.id,
+                    updated_on: date,
+                    Qualification: {
+                        value: b,
+                        remarks: remarks
+                    }
+                }
+
+            }
+            if ($scope.typename == 'Project') {
+                var newobj = {
+                    candidateid: $scope.id,
+                    updated_on: date,
+                    Project: {
+                        value: b,
+                        remarks: remarks
+                    }
+                }
+
+            }
+            if ($scope.typename == 'Work_History') {
+                var newobj = {
+                    candidateid: $scope.id,
+                    updated_on: date,
+                    Work_History: {
+                        value: b,
+                        remarks: remarks
+                    }
+                }
+
             }
 
-            candidateprofileservice.updateverificationdata(newobj).
+
+            // console.log("made this newobj", newobj);
+            // pass the new object to update.
+            //give a api call to update the verification
+            candidateprofileservice.updateverificationdata($scope.typename, newobj).
             then(function(res) {
                 console.log("successfully updated the data");
             }, function(err) {
                 console.log(err);
             });
-            //give a api call to update the verification
 
+            // pass what you need to render in the background.
             var obj = {
                 x: b,
-                y: $scope.bad,
-                z: date
+                y: remarks,
+                z: date,
+                a: typename
             }
+
+            // console.log("formed this obj", obj);
 
             $mdDialog.hide(obj);
         }
+
+        //cancels the dialog box.
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
 
 
 
