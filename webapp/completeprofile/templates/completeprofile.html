@@ -1,22 +1,60 @@
-<div>
-    <!-- <my-skillcard candidateid='id'></my-skillcard> -->
-    <div layout="row">
-        <!-- <md-button class="md-raised md-primary" ui-sref="back">Back</md-button> -->
-        <div flex-offset="40" flex="90">
-            <div layout="column">
-                <md-icon class="material-icons md-36 md-warn" title="{{bad}}">{{bad}}</md-icon>
-                <p>
+<div layout="row" layout-align="center center">
+    <div>
+        <!--Make as a component-->
+        <md-card>
+            <md-card-title>
+                <md-card-title-text layout-align="row">
+                    <div flex="90" class="md-headline">{{candidatename}} 's Verification Details</div>
+                </md-card-title-text>
+                <div class="md-caption">
+                    Last Verified:
                     <time am-time-ago="updated_on"></time>
-                </p>
-                <!--  <span> Last Verified On: {{updated_on|date:'medium'}} </span> -->
-                <span> Ratings: {{rat}} / 4</span>
+                </div>
+            </md-card-title>
+            <div>
+                <md-card-content>
+                    <md-table-container>
+                        <table md-table>
+                            <tr md-row ng-repeat="(key,val) in arr">
+                                <div>
+                                    <td flex="10">{{key}}</td>
+                                </div>
+                                <div>
+                                    <td flex="10">{{val.value}}</td>
+                                    <td flex="10">{{val.remarks}}</td>
+                                </div>
+                            </tr>
+                        </table>
+                    </md-table-container>
+                </md-card-content>
             </div>
-        </div>
-        <md-button class="md-raised md-primary md-hue-2" ng-click="showdialog($event)">Verify</md-button>
+        </md-card>
     </div>
-    <my-personalinfocard candidateid="id"></my-personalinfocard>
-    <mysection-skill-card candidateid="id"></mysection-skill-card>
-    <my-educationcard candidateid="id"></my-educationcard>
-    <my-projectsectioncard candidateid="id"></my-projectsectioncard>
-    <my-workexperiencecard candidateid="id"></my-workexperiencecard>
+</div>
+<md-button class="md-raised md-primary md-hue-2" ng-click="showAdvanced($event)">Verify</md-button>
+<div layout="column">
+    <my-personalinfocard candidateid="id">
+        <verify>
+            <md-button style="color:green" ng-click="showAdvanced($event,'Personal_Information')">Verify</md-button>
+        </verify>
+    </my-personalinfocard>
+    <mysection-skill-card candidateid="id">
+        <verify>
+            <md-button style="color:green" ng-click="showAdvanced($event,'Skills')">Verify</md-button>
+    </mysection-skill-card>
+    <my-educationcard candidateid="id">
+        <verify>
+            <md-button style="color:green" ng-click="showAdvanced($event,'Qualification')">Verify</md-button>
+        </verify>
+    </my-educationcard>
+    <my-projectsectioncard candidateid="id">
+        <verify>
+            <md-button style="color:green" ng-click="showAdvanced($event,'Project')">Verify</md-button>
+        </verify>
+    </my-projectsectioncard>
+    <my-workexperiencecard candidateid="id">
+        <verify>
+            <md-button style="color:green" ng-click="showAdvanced($event,'Work_History')">Verify</md-button>
+        </verify>
+    </my-workexperiencecard>
 </div>

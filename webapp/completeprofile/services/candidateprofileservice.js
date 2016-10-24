@@ -8,8 +8,8 @@ angular.module('samarth-coordinator')
             },
 
 
-            updateverificationdata: function(candidatedata) {
-                return $http.patch('http://localhost:8081/verification/updateverification', candidatedata);
+            updateverificationdata: function(typename, candidatedata) {
+                return $http.patch('http://localhost:8081/verification/updateverification/' + typename, candidatedata);
             }
 
         }
@@ -23,3 +23,10 @@ angular.module('samarth-coordinator')
 
 
     }]);
+
+/*
+
+candidateid,
+
+
+*/
