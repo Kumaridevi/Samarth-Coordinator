@@ -1,9 +1,9 @@
-<div layout="row" layout-xs="column" layout-sm="column" layout-fill>
-    <div class="main" flex>
-    </div>
-    <div class="md-inline-form md-whiteframe-15dp login-form-wrapper" flex>
+<div layout="row" class="main" layout-xs="column" layout-sm="column" layout-align="center center" layout-fill>
+    <!-- <div class="main" hide-xs flex>
+    </div> -->
+    <div class="md-inline-form transparent" flex="66">
         <md-content class="md-no-momentum">
-            <div layout="column" layout-align="start center" class="login-form-wrapper">
+            <div layout="column" layout-align="center center">
                 <form name="signinForm" ng-submit="signin()">
                     <md-input-container class="md-block">
                         <!-- Use floating placeholder instead of label -->
@@ -15,10 +15,12 @@
                         <md-icon class="material-icons">lock</md-icon>
                         <input ng-model="user.pwd" type="password" placeholder="Password" ng-required="true">
                     </md-input-container>
-                    <md-button class="md-raised md-primary" type="submit" aria-label="Sign-in">Sign-in</md-button>
-                    <a class="md-accent-color" href="#">Forgot Password?</a>
+                    <div layout="row" layout-align="center center">
+                        <md-button class="md-raised md-primary" type="submit" aria-label="Sign-in">Sign-in</md-button>
+                    </div>
+                    <!-- <a class="md-accent-color" href="#">Forgot Password?</a> -->
                     <md-divider class="inset"></md-divider>
-                    <md-button class="md-accent-color md-default-theme" ui-sref="registercoordinator">Register Coordinator</md-button>
+                    <a class="md-accent-color md-default-theme" ui-sref="registercoordinator">Register Coordinator</a>
                 </form>
                 <div>
                     <p class="textfont">{{errmsg}}</p>
