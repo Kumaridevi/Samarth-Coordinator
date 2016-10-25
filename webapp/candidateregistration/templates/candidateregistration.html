@@ -1,67 +1,66 @@
 <div layout layout-align="center center" md-pading>
-	<md-card flex="50" md-padding>
+	<md-card flex="40" flex-xs="100"  md-padding>
 
 		<md-card-title layout layout-align="center center">
-			<span class="md-display-1">Candidate Registration</span>
+			<span class="md-display-1" hide-xs>Candidate Registration</span>
+			<span class="md-headline"  hide-gt-md hide-gt-xs>Candidate Registration</span>
+
 		</md-card-title>
 
 		<md-card-content md-padding>
 
 			<form name="registrationform" layout-gt-xs="column"  layout-align="center center">
-				<div layout="row" layout-xs="column">
-					<div>
-						<md-input-container md-no-float class="md-block">
-							<md-icon class="material-icons"> person</md-icon>
-							<label>Name</label>
-							<input type="text" name="name" required ng-model="user.name">
+				
+				<div>
+					<md-input-container md-no-float class="md-block">
+						<md-icon class="material-icons"> person</md-icon>
+						<label>Name</label>
+						<input type="text" name="name" required ng-model="user.name">
 
-							<div ng-messages="registrationform.name.$error">
-								<div ng-message="required">Plese tell us  your name </div>
-							</div>
-						</md-input-container>
-					</div>
+						<div ng-messages="registrationform.name.$error">
+							<div ng-message="required">Plese tell us  your name </div>
+						</div>
+					</md-input-container>
+				</div>
 
-					<div>
-						<md-input-container md-no-float class="md-block">
+				<div>
+					<md-input-container md-no-float class="md-block">
 
-							<md-icon class="material-icons">phone</md-icon>
-							<label>Mobile</label>
-							<input name="phone" required ng-model="user.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
-							<div ng-messages="registrationform.phone.$error">
-								<div ng-message="pattern">Please enter a valid phone number.</div>
-								<div ng-message="required">Please provide a  phone number</div>
-							</div> 
-						</md-input-container>
-					</div>
-
+						<md-icon class="material-icons">phone</md-icon>
+						<label>Mobile</label>
+						<input name="phone" required ng-model="user.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+						<div ng-messages="registrationform.phone.$error">
+							<div ng-message="pattern">Please enter a valid phone number.</div>
+							<div ng-message="required">Please provide a  phone number</div>
+						</div> 
+					</md-input-container>
 				</div>
 
 
-				<div layout="row" layout-xs="column">
-					<div>
-						<md-input-container md-no-float class="md-block">
-							<md-icon class="material-icons"> email</md-icon>
 
-							<label>Email</label>
-							<input type="text" name="email" ng-model="user.email" required ng-pattern="/^.+@.+\..+$/">
-							<div ng-messages="registrationform.email.$error">
-								<div  ng-message="required">Please provide a email ID</div>
-								<div  ng-message="pattern">Please provide a valid email ID</div>
+				<div>
+					<md-input-container md-no-float class="md-block">
+						<md-icon class="material-icons"> email</md-icon>
 
-							</div>	
-						</md-input-container>
-					</div>
+						<label>Email</label>
+						<input type="text" name="email" ng-model="user.email" required ng-pattern="/^.+@.+\..+$/">
+						<div ng-messages="registrationform.email.$error">
+							<div  ng-message="required">Please provide a email ID</div>
+							<div  ng-message="pattern">Please provide a valid email ID</div>
 
-					<div>
-						<md-input-container md-no-float class="md-block">
-							<md-icon class="material-icons"> place</md-icon>
-							<label>Location</label>
-							<input type="text" name="location" required ng-model="user.location">
-							<div ng-messages="registrationform.location.$error">
-								<div ng-message="required">Please tell us your location</div>
-							</div>
-						</md-input-container>
-					</div>
+						</div>	
+					</md-input-container>
+				</div>
+
+				<div>
+					<md-input-container md-no-float class="md-block">
+						<md-icon class="material-icons"> place</md-icon>
+						<label>Location</label>
+						<input type="text" name="location" required ng-model="user.location">
+						<div ng-messages="registrationform.location.$error">
+							<div ng-message="required">Please tell us your location</div>
+						</div>
+					</md-input-container>
 				</div>
 
 
@@ -102,13 +101,16 @@
 							</div>
 						</md-input-container>
 					</div>
-					<md-button type="submit" ng-click="signup()" class="md-primary md-raised">
+				</md-card-content>
+				<md-card-actions layout="row" layout-align="center center">
+					<md-button type="submit" ng-click="signup()" aria-label="registercandidate" class="md-primary md-raised">
 						Register
 					</md-button>
-					<p ng-model="signUpStatus" style="color:blue">{{signUpStatus}}</p>
-					<p ng-model="signUpStatus" style="color:red">{{error}}</p>
+				</md-card-actions>
+				<span ng-model="signUpStatus" style="color:blue">{{signUpStatus}}</span>
+				<span ng-model="signUpStatus" style="color:red">{{error}}</span>
 
-				</form>
-			</md-card-content>
+			</form>
+			
 		</md-card>
 	</div>
