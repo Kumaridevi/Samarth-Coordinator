@@ -1,64 +1,68 @@
 <div layout layout-align="center center">
-    <span class="md-display-3">Employer Registration</span>
+    <span class="md-display-2">Employer Registration</span>
 </div>
-<div layout="column">
-    <form name="employerRegistration" ng-submit="registerEmployer()">
-        <div layout="column">
-            <md-input-container>
-                <label>Employer name</label>
-                <input type="text" name="employerName" ng-model="employer.employerName">
-                <div ng-messages="employerRegistration.employerName.$error">
-                    <div ng-message="required">Please specify name</div>
+<div layout layout-align="center center">
+    <div flex-gt-sm="20" flex-sm="0"></div>
+    <div layout="column" flex-gt-sm="60" flex-sm>
+        <form name="employerRegistration" ng-submit="registerEmployer()">
+            <div layout="column">
+                <md-input-container>
+                    <label>Employer name</label>
+                    <input type="text" name="employerName" ng-model="employer.employerName">
+                    <div ng-messages="employerRegistration.employerName.$error">
+                        <div ng-message="required">Please specify name</div>
+                    </div>
+                </md-input-container>
+                <div layout="row">
+                    <div flex="80">
+                        <md-input-container>
+                            <label>Employer ID</label>
+                            <input type="text" name="employerID" ng-model="employer.employerID" ng-minlength="4" ng-change="availability()">
+                            <div ng-messages="employerRegistration.employerID.$error">
+                                <div ng-message="required">Please specify ID</div>
+                                <div ng-message="minlength">Please Enter minimum 4 letters</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div flex="20">
+                        <span ng-show="availableShow" class="available"><i class="material-icons">verified_user</i>Employer ID is Available</span>
+                        <span ng-show="notAvailableShow" class="notAvailable"><i class="material-icons">security</i>Please try any other employer ID</span>
+                    </div>
                 </div>
-            </md-input-container>
-            <div layout="row">
-                <div flex="80">
-                    <md-input-container>
-                        <label>Employer ID</label>
-                        <input type="text" name="employerID" ng-model="employer.employerID" ng-minlength="4" ng-change="availability()">
-                        <div ng-messages="employerRegistration.employerID.$error">
-                            <div ng-message="required">Please specify ID</div>
-                            <div ng-message="minlength">Please Enter minimum 4 letters</div>
-                        </div>
-                    </md-input-container>
-                </div>
-                <div flex="20">
-                    <span ng-show="availableShow" class="available"><i class="material-icons">verified_user</i>Employer ID is Available</span>
-                    <span ng-show="notAvailableShow" class="notAvailable"><i class="material-icons">security</i>Please try any other employer ID</span>
+                <md-input-container>
+                    <label>About Employer</label>
+                    <textarea name="aboutEmployer" ng-model="employer.aboutEmployer"></textarea>
+                    <div ng-messages="employerRegistration.aboutEmployer.$error">
+                        <div ng-message="required">Please enter something about employer</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Employer mail ID</label>
+                    <input type="email" name="emailID" ng-model="employer.emailID">
+                    <div ng-messages="employerRegistration.emailID.$error">
+                        <div ng-message="required">Please specify the email ID</div>
+                        <div ng-message="email">Please Enter a valid email ID</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Employer contact Number</label>
+                    <input type="text" name="contactNumber" pattern="[0-9]{7,}" ng-model="employer.contactNumber">
+                    <div ng-messages="employerRegistration.contactNumber.$error">
+                        <div ng-message="required">Please specify the contact number</div>
+                        <div ng-message="pattern">Please enter a valid contact number</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Employer logo</label>
+                    <input type="text" name="employerLogo" ng-model="employer.employerLogo">
+                </md-input-container>
+                <div layout="row">
+                    <md-button class="md-raised md-primary" type="submit">Register</md-button>
+                    <md-button class="md-raised md-warn">Cancel</md-button>
                 </div>
             </div>
-            <md-input-container>
-                <label>About Employer</label>
-                <textarea name="aboutEmployer" ng-model="employer.aboutEmployer"></textarea>
-                <div ng-messages="employerRegistration.aboutEmployer.$error">
-                    <div ng-message="required">Please enter something about employer</div>
-                </div>
-            </md-input-container>
-            <md-input-container>
-                <label>Employer mail ID</label>
-                <input type="email" name="emailID" ng-model="employer.emailID">
-                <div ng-messages="employerRegistration.emailID.$error">
-                    <div ng-message="required">Please specify the email ID</div>
-                    <div ng-message="email">Please Enter a valid email ID</div>
-                </div>
-            </md-input-container>
-            <md-input-container>
-                <label>Employer contact Number</label>
-                <input type="text" name="contactNumber" pattern="[0-9]{7,}" ng-model="employer.contactNumber">
-                <div ng-messages="employerRegistration.contactNumber.$error">
-                    <div ng-message="required">Please specify the contact number</div>
-                    <div ng-message="pattern">Please enter a valid contact number</div>
-                </div>
-            </md-input-container>
-            <md-input-container>
-                <label>Employer logo</label>
-                <input type="text" name="employerLogo" ng-model="employer.employerLogo">
-            </md-input-container>
-            <div layout="row">
-                <md-button class="md-raised md-primary" type="submit">Register</md-button>
-                <md-button class="md-raised md-warn">Cancel</md-button>
-            </div>
-        </div>
-    </form>
-    <span class="md-display-2">{{message}}</span>
+        </form>
+        <span class="md-display-2">{{message}}</span>
+    </div>
+    <div flex-sm="0" flex-gt-sm="20"></div>
 </div>

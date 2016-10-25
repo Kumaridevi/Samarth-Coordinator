@@ -7,10 +7,15 @@
                         <span class="md-display-2">{{job.jobRole}}</span>
                         <span class="md-display-1">{{job.departmentName}}</span>
                     </div>
-                    <div hide-xs flex-gt-xs="10">
-                        <md-card-avatar class="avatar">
-                            <img class="md-user-avatar avatar" src="{{job.employer.employerLogo}}" alt="Logo">
-                        </md-card-avatar>
+                    <div flex-gt-xs="10" layout="column">
+                        <div>
+                            <i class="material-icons md-36" style="color:green" layout-align="end end">verified_user</i>
+                        </div>
+                        <div hide-xs>
+                            <md-card-avatar class="avatar">
+                                <img class="md-user-avatar avatar" src="{{job.employer.employerLogo}}" alt="Logo">
+                            </md-card-avatar>
+                        </div>
                     </div>
                 </div>
                 <div layout-xs="column" layout-gt-xs="row" flex>
