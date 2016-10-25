@@ -30,7 +30,7 @@
             <md-input-container class="md-block" flex>
                 <div layout="row">
                     <div flex="80">
-                        <label>Job Code{{jobPosting.jobID.$error}}</label>
+                        <label>Job Code</label>
                         <input required name="jobID" ng-model="job.jobID" ng-disabled="editDisabled || jobPosting.companyName.$pristine || jobPosting.companyName.$invalid" ng-change="checkAvailabilitilty()" ng-minlength="4" />
                     </div>
                     <div flex="20">
