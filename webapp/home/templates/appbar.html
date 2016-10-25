@@ -9,11 +9,11 @@
           <span>SAMARTH-COORDINATOR</span>
         </h2>
             </div>
-            <div>
+            <!-- <div>
                 <md-button class="md-icon-button md-ink-ripple" ui-sref="home" ng-show="homebtn">
                     <md-icon class="material-icons">home</md-icon>
                 </md-button>
-            </div>
+            </div> -->
         </div>
     </md-toolbar>
 </div>
@@ -21,19 +21,19 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
         <md-content ng-click="toggleLeft()">
             <div layout="column">
-                <!--  <md-content class="md-default-theme" layout layout-align="center center" class="md-padding">
-                    <img class="imgcircle" ng-src="/home/images/user.png">
-                </md-content> -->
-                <!-- <md-content class="md-default-theme" layout='column' layout-align="center center">
-                    <h4 class='md-title'>Name</h4>
-                </md-content> -->
+                <md-content class="md-primary" layout layout-align="center center" class="md-padding">
+                    <img class="imgcircle" ng-src="/home/images/recruiter.png">
+                </md-content>
+                <md-content class="md-primary" layout='column' layout-align="center center">
+                    <h4 class='md-title'>Samarth-Coordinator</h4>
+                </md-content>
                 <md-content layout='column'>
                     <md-list>
-                        <md-list-item ui-sref="{{x.state}}" ng-repeat="x in sidebarcontents.functions track by $index">
+                        <md-list-item ui-sref="{{x.state}}" ng-repeat="x in sidebarcontents.sidenavmenuitems track by $index">
                             <md-item-content layout="row" layout-align="start center">
                                 <div>
                                     <md-icon class="material-icons">{{x.icon}}</md-icon>
-                                    <span>{{x.name}}</span>
+                                    <span flex="66">{{x.name}}</span>
                                 </div>
                         </md-list-item>
                         <md-divider></md-divider>

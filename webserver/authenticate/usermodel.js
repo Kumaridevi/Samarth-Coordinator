@@ -37,9 +37,9 @@ login.methods.validPassword = function(password) {
 var sidenavcontent = mongoose.Schema({
     // sidenavcontent: {
     role: { type: String, required: true },
-    functions: [{ name: String, state: String, icon: String }]
+    sidenavmenuitems: [{ name: String, state: String, icon: String }]
         // }]
-}); //coordinator ends
+}); //sidenavcontent ends
 
 module.exports = {
     "login": login,
