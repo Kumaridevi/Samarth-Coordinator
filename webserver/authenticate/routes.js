@@ -33,10 +33,11 @@ apiRoutes.post('/user/', function(req, res) {
                     res.status(403).json({
                         error: "Internal error in processing request, please retry later..!"
                     });
-                }
+                } else {
 
-                user['token'] = jwtToken;
-                return res.status(200).json(user);
+                    user['token'] = jwtToken;
+                    return res.status(200).json(user);
+                }
             },
             function(err) {
                 return res.status(403).json(err);
