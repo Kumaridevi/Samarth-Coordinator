@@ -3,10 +3,10 @@ var jwt = require('jsonwebtoken');
 var UserModel = require("./usermodel");
 var authUser = require("./authuser");
 
-var login = mongoose.model('login', UserModel.login);
+var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 
 var signin = function(email, pwd, callback, unauthCB) {
-    login.findOne({
+    coordinatoruser.findOne({
             email: email,
             password: pwd
         },
