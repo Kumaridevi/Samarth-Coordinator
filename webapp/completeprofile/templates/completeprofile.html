@@ -6,22 +6,69 @@
                 <md-card-title-text layout-align="row">
                     <div flex="90" class="md-headline">{{candidatename}} 's Verification Details</div>
                 </md-card-title-text>
-                <div class="md-caption">
+                <verification-badge candidateid="id">
+                </verification-badge>
+                <!-- <div class="md-caption">
                     Last Verified:
                     <time am-time-ago="updated_on"></time>
-                </div>
+                </div> -->
             </md-card-title>
             <div>
                 <md-card-content>
                     <md-table-container>
-                        <table md-table>
-                            <tr md-row ng-repeat="(key,val) in arr">
+                        <table md-table class="tableclass">
+                            <tr md-row>
                                 <div>
-                                    <td flex="10">{{key}}</td>
+                                    <td flex="10" class="md-title">Criteria</td>
                                 </div>
                                 <div>
-                                    <td flex="10">{{val.value}}</td>
-                                    <td flex="10">{{val.remarks}}</td>
+                                    <td flex layout-padding class="md-title">Remarks</td>
+                                    <td flex layout-padding class="md-title">Ratings</td>
+                                </div>
+                            </tr>
+                            <tr md-row>
+                                <div>
+                                    <td flex="10">Personal Information</td>
+                                </div>
+                                <div>
+                                    <td flex layout-padding>{{perrem}}</td>
+                                    <td flex layout-padding>{{perval}}</td>
+                                </div>
+                            </tr>
+                            <tr md-row>
+                                <div>
+                                    <td flex="10">Skills</td>
+                                </div>
+                                <div>
+                                    <td flex layout-padding>{{sklrem}}</td>
+                                    <td flex layout-padding>{{sklval}}</td>
+                                </div>
+                            </tr>
+                            <tr md-row>
+                                <div>
+                                    <td flex="10">Qualification</td>
+                                </div>
+                                <div>
+                                    <td flex layout-padding>{{qulrem}}</td>
+                                    <td flex layout-padding>{{qulval}}</td>
+                                </div>
+                            </tr>
+                            <tr md-row>
+                                <div>
+                                    <td flex="10">Project</td>
+                                </div>
+                                <div>
+                                    <td flex layout-padding>{{pjctrem}}</td>
+                                    <td flex layout-padding>{{pjctval}}</td>
+                                </div>
+                            </tr>
+                            <tr md-row>
+                                <div>
+                                    <td flex="10">Work History</td>
+                                </div>
+                                <div>
+                                    <td flex layout-padding>{{wrkrem}}</td>
+                                    <td flex layout-padding>{{wrkval}}</td>
                                 </div>
                             </tr>
                         </table>

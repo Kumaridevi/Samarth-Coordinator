@@ -1,3 +1,7 @@
 .vis {
     display: none;
 }
+
+.tableclass {
+    border-style: dotted;
+}

@@ -11,6 +11,7 @@ angular.module('samarth-coordinator')
                 $scope.arr = [];
                 console.log(response.data[0].Skills);
                 //  console.log("cpCtrlinside", response.data[0]);
+                console.log($scope.candidatename);
                 $scope.candidatename = response.data[0].candidatename;
                 $scope.updated_on = response.data[0].updated_on;
                 $scope.personalinfo = response.data[0].Personal_Information;
@@ -84,7 +85,7 @@ angular.module('samarth-coordinator')
                 }
                 if (obj.a == 'Work_History') {
                     $scope.wrkval = obj.x;
-                    $scope.wrkval = obj.y;
+                    $scope.wrkrem = obj.y;
                 }
             }, function() {
 
