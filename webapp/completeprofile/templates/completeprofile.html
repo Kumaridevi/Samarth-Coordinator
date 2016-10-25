@@ -1,82 +1,4 @@
 <div layout="row" layout-align="center center">
-    <div>
-        <!--Make as a component-->
-        <md-card>
-            <md-card-title>
-                <md-card-title-text layout-align="row">
-                    <div flex="90" class="md-headline">{{candidatename}} 's Verification Details</div>
-                </md-card-title-text>
-                <verification-badge candidateid="id">
-                </verification-badge>
-                <!-- <div class="md-caption">
-                    Last Verified:
-                    <time am-time-ago="updated_on"></time>
-                </div> -->
-            </md-card-title>
-            <div>
-                <md-card-content>
-                    <md-table-container>
-                        <table md-table class="tableclass">
-                            <tr md-row>
-                                <div>
-                                    <td flex="10" class="md-title">Criteria</td>
-                                </div>
-                                <div>
-                                    <td flex layout-padding class="md-title">Remarks</td>
-                                    <td flex layout-padding class="md-title">Ratings</td>
-                                </div>
-                            </tr>
-                            <tr md-row>
-                                <div>
-                                    <td flex="10">Personal Information</td>
-                                </div>
-                                <div>
-                                    <td flex layout-padding>{{perrem}}</td>
-                                    <td flex layout-padding>{{perval}}</td>
-                                </div>
-                            </tr>
-                            <tr md-row>
-                                <div>
-                                    <td flex="10">Skills</td>
-                                </div>
-                                <div>
-                                    <td flex layout-padding>{{sklrem}}</td>
-                                    <td flex layout-padding>{{sklval}}</td>
-                                </div>
-                            </tr>
-                            <tr md-row>
-                                <div>
-                                    <td flex="10">Qualification</td>
-                                </div>
-                                <div>
-                                    <td flex layout-padding>{{qulrem}}</td>
-                                    <td flex layout-padding>{{qulval}}</td>
-                                </div>
-                            </tr>
-                            <tr md-row>
-                                <div>
-                                    <td flex="10">Project</td>
-                                </div>
-                                <div>
-                                    <td flex layout-padding>{{pjctrem}}</td>
-                                    <td flex layout-padding>{{pjctval}}</td>
-                                </div>
-                            </tr>
-                            <tr md-row>
-                                <div>
-                                    <td flex="10">Work History</td>
-                                </div>
-                                <div>
-                                    <td flex layout-padding>{{wrkrem}}</td>
-                                    <td flex layout-padding>{{wrkval}}</td>
-                                </div>
-                            </tr>
-                        </table>
-                    </md-table-container>
-                </md-card-content>
-            </div>
-        </md-card>
-    </div>
 </div>
 <div layout="column">
     <my-personalinfocard candidateid="id">
@@ -103,4 +25,5 @@
             <md-button style="color:green" ng-click="showAdvanced($event,'Work_History')">Verify</md-button>
         </verify>
     </my-workexperiencecard>
+    <md-button style="color:green" ng-click="showDialog(ev)">Full Verification Details</md-button>
 </div>
