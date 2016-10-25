@@ -8,12 +8,12 @@ angular.module("samarth-coordinator")
         //var id = $stateParams.jobID;
         jobProfileService.getJobDetails($stateParams.jobID, $stateParams.employerID)
             .then(function successCallback(response) {
-                    console.log("Connected successfully" + JSON.stringify(response.data));
+                    //console.log("Connected successfully" + JSON.stringify(response.data));
                     var job = response.data;
                     $scope.job = job[0];
                     $scope.job.jobLastDate = new Date(Date.parse(job[0].jobLastDate));
                     $scope.company = $scope.job.employer;
-                    console.log("ID" + $scope.job.jobID);
+                    //console.log("ID" + $scope.job.jobID);
                 },
                 function errorCallback(response) {
                     console.log("some error occured");
@@ -40,7 +40,7 @@ angular.module("samarth-coordinator")
                 $mdDialog.hide($scope.newSkill);
             };
             $scope.cancel = function() {
-                console.log("nothing to add");
+                //console.log("nothing to add");
                 $mdDialog.hide();
             };
         }
@@ -66,7 +66,7 @@ angular.module("samarth-coordinator")
                 $mdDialog.hide($scope.newEducation);
             };
             $scope.cancel = function() {
-                console.log("nothing to add");
+                //console.log("nothing to add");
                 $mdDialog.hide();
             };
         }
@@ -90,7 +90,7 @@ angular.module("samarth-coordinator")
                 $mdDialog.hide($scope.newCertificationName);
             };
             $scope.cancel = function() {
-                console.log("nothing to add");
+                //console.log("nothing to add");
                 $mdDialog.hide();
             };
         }
@@ -113,7 +113,7 @@ angular.module("samarth-coordinator")
                 })
                 .then(function(newContact) {
                     if (newContact != null) {
-                        console.log("inside function");
+                        //console.log("inside function");
                         $scope.job.contactDetails.push(newContact);
                     }
                 }, function() {});
@@ -121,11 +121,11 @@ angular.module("samarth-coordinator")
 
         function addNewContactController($scope, $mdDialog) {
             $scope.addNew = function() {
-                console.log("inside add");
+                //console.log("inside add");
                 $mdDialog.hide($scope.newContact);
             };
             $scope.cancel = function() {
-                console.log("nothing to add");
+                //console.log("nothing to add");
                 $mdDialog.hide();
             };
         }
@@ -144,7 +144,7 @@ angular.module("samarth-coordinator")
                             }, function() {});
                     },
                     function errorCallback(response) {
-                        console.log("some error occured");
+                        //console.log("some error occured");
                         $scope.message = "Some error occured";
                     });
         }

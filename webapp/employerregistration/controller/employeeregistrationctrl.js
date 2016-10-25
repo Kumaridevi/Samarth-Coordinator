@@ -3,22 +3,22 @@ angular.module("samarth-coordinator")
         $scope.registerEmployer = function() {
             employerService.employerRegister($scope.employer)
                 .then(function successCallback(response) {
-                        console.log("Connected successfully" + response.data);
+                        //console.log("Connected successfully" + response.data);
                         $scope.message = "Employer Successfully registered";
                     },
                     function errorCallback(response) {
-                        console.log("some error occured");
+                        //console.log("some error occured");
                         $scope.message = response.data;
                     }
                 );
         }
         $scope.availability = function() {
-            console.log("Inside availability" + $scope.employer.employerID);
+            //console.log("Inside availability" + $scope.employer.employerID);
             employerService.getEmployerByID($scope.employer.employerID)
                 .then(function successCallback(response) {
-                        console.log("Connected successfully" + response.data);
+                        //console.log("Connected successfully" + response.data);
                         var job = response.data;
-                        console.log(job.length);
+                        //console.log(job.length);
                         //console.log("ID" + response.data);
                         if (job.length > 0) {
                             $scope.availableShow = false;

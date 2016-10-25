@@ -62,11 +62,11 @@ angular.module('samarth-coordinator')
                     },
                     resolve: {
                         jobID: ['$stateParams', function($stateParams) {
-                            console.log('ID: in edit ' + $stateParams.jobID);
+                            //console.log('ID: in edit ' + $stateParams.jobID);
                             return $stateParams.jobID;
                         }],
                         employerID: ['$stateParams', function($stateParams) {
-                            console.log('companyName: ' + $stateParams.employerID);
+                            //console.log('companyName: ' + $stateParams.employerID);
                             return $stateParams.employerID;
                         }]
                     }

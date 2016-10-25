@@ -24,7 +24,7 @@ angular.module("samarth-coordinator")
                         }
                     },
                     function errorCallback(response) {
-                        console.log("some error occured");
+                        //console.log("some error occured");
                         $scope.checkMessage = "Some error occured on checking the availability";
                     });
         }
@@ -50,7 +50,7 @@ angular.module("samarth-coordinator")
                 $mdDialog.hide($scope.newSkill);
             };
             $scope.cancel = function() {
-                console.log("nothing to add");
+                //console.log("nothing to add");
                 $mdDialog.hide();
             };
         }
@@ -76,7 +76,7 @@ angular.module("samarth-coordinator")
                 $mdDialog.hide($scope.newEducation);
             };
             $scope.cancel = function() {
-                console.log("nothing to add");
+                //console.log("nothing to add");
                 $mdDialog.hide();
             };
         }
@@ -100,7 +100,7 @@ angular.module("samarth-coordinator")
                 $mdDialog.hide($scope.newCertificationName);
             };
             $scope.cancel = function() {
-                console.log("nothing to add");
+                //console.log("nothing to add");
                 $mdDialog.hide();
             };
         }
@@ -123,7 +123,7 @@ angular.module("samarth-coordinator")
                 })
                 .then(function(newContact) {
                     if (newContact != null) {
-                        console.log("inside function");
+                        //console.log("inside function");
                         $scope.job.contactDetails.push(newContact);
                     }
                 }, function() {});
@@ -131,11 +131,11 @@ angular.module("samarth-coordinator")
 
         function addNewContactController($scope, $mdDialog) {
             $scope.addNew = function() {
-                console.log("inside add");
+                //console.log("inside add");
                 $mdDialog.hide($scope.newContact);
             };
             $scope.cancel = function() {
-                console.log("nothing to add");
+                //console.log("nothing to add");
                 $mdDialog.hide();
             };
         }
@@ -164,7 +164,7 @@ angular.module("samarth-coordinator")
                             });
                     },
                     function errorCallback(response) {
-                        console.log("some error occured");
+                        //      console.log("some error occured");
                         $scope.message = response.data;
                     });
         }
@@ -178,7 +178,7 @@ angular.module("samarth-coordinator")
         $scope.Querycompanies = queryList;
 
         function queryList(search) {
-            console.log("Array : " + JSON.stringify($scope.companies));
+            //console.log("Array : " + JSON.stringify($scope.companies));
             var results = search ? $scope.companies.filter(createFilterFor(search)) : $scope.companies,
                 deferred;
 
@@ -201,7 +201,7 @@ angular.module("samarth-coordinator")
                     });
         };
         $scope.selectedCompany = function(employer) {
-            console.log("Company selected : " + employer);
+            //console.log("Company selected : " + employer);
             $scope.job.employer.employerName = employer.employerName;
             $scope.job.employer.aboutEmployer = employer.aboutEmployer;
             $scope.job.employer.employerLogo = employer.employerLogo;
