@@ -12,23 +12,27 @@ angular.module('samarth-coordinator')
 
 .controller('CoordinatorRegisterCtrl', ['$scope', 'register', function($scope, register) {
     $scope.signin = function(coordinator) {
+        console.log("from service", coordinator);
         register.registercoordinator($scope.coordinator)
             .then(function success(response) {
+
                 return response;
             }, function error(error) {
                 console.log("Error on inserting data");
             });
     }
-    $scope.reset = function() {
-        var master = {
-            name: '',
-            email: '',
-            mobile: '',
-            pwd: '',
-            role: ''
+    // $scope.reset = function() {
+        //     var master = {
+        //         name: '',
+        //         email: '',
+        //         mobile: '',
+        //         pwd: '',
+        //         role: ''
 
-        };
-        $scope.temp = angular.copy(master);
-        $scope.registrationform.$setPristine();
-    }
+        //     };
+
+    //     $scope.temp = angular.copy(master);
+  //     $scope.registrationform.$setPristine();
+  // }
+
 }]);
