@@ -1,10 +1,12 @@
 angular.module('samarth-coordinator')
-.controller('candidatesearchctrl',['$scope','candidateservice'
-	,function($scope,candidateservice) {
+.controller('candidatesearchctrl',['$scope','$parse','candidateservice'
+	,function($scope,$parse,candidateservice) {
 
 		$scope.openMenu = function($mdOpenMenu,ev) {
 			$mdOpenMenu(ev);
 		}
+
+		$scope.bairava = $parse($scope.searchtext);
 
 		$scope.search = function() {
 			candidateservice.getcandidatedata().then(function (result) {

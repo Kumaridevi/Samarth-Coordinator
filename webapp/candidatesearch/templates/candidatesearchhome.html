@@ -1,7 +1,11 @@
-<div layout="row" layout-align="center center">
-	<md-input-container>
+<div layout="row" layout-align="center center" md-padding>
+<!-- 	<md-input-container>
 		<input type="text" name="searchBox" class="md-block">
-	</md-input-container>
+	</md-input-container> -->
+
+	<input name='search' type='text' size='50' ng-model="searchtext">
+
 	<md-button class="md-raised" ui-sref="index.candidatessearch.results" ng-click="search()" aria-label="search">search</md-button>
+	{{bairava}}
 </div>
 <div ui-view="results"></div>
