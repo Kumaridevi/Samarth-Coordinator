@@ -4,7 +4,7 @@ angular.module('samarth-coordinator')
 
         $stateProvider
         .state('index.candidatessearch', {
-            url: '/candidatessearch',
+            url: '/candidatessearch/:circleDomain?circleName',
             views: {
                 "appbar@": {
                     templateUrl: 'home/templates/appbar.html',
@@ -17,6 +17,14 @@ angular.module('samarth-coordinator')
                         // "footer": {
                         //     templateUrl: 'home/templates/footer.html',
                         // }
+                    },
+                    resolve:{
+                        circleDomain:['$stateParams',function($stateParams){
+                            return $stateParams.circleDomain;
+                        }],
+                        circleName:['$stateParams',function($stateParams){
+                            return $stateParams.circleName;
+                        }]
                     }
                 })
         .state('index.candidatessearch.results', {

@@ -1,15 +1,51 @@
 angular.module('samarth-coordinator')
-.controller('candidatesearchctrl',['$scope','$parse','candidateservice','parseservice','Pagination'
-	,function($scope,$parse,candidateservice,parseservice,Pagination) {
-
+.controller('candidatesearchctrl',['$scope',
+	'$parse',
+	'candidateservice',
+	'allcandidateservice',
+	'parseservice',
+	'Pagination',
+	'$stateParams',
+	'$state'
+	,function($scope,$parse,candidateservice,allcandidateservice,parseservice,Pagination,$stateParams,$state) {
+		// console.log("Values state : "+$stateParams.circleName+$stateParams.circleDomain);
 		$scope.openMenu = function($mdOpenMenu,ev) {
 			$mdOpenMenu(ev);
 		}
+
+
+		allcandidateservice.allcandidates().then(function(response) {
+			$scope.results = response;
+			console.log("all candidates ctrl",$scope.results[0].candidateid);
+
+			$state.go('index.candidatessearch.results');
+		},function(err) {
+			$scope.message = err;
+			console.log(err);
+		});
+
+
+
+		if($stateParams.circleName && $stateParams.circleDomain){
+
+			candidateservice.getcandidatedata($stateParams.circleName)
+			.then(function(candidates){
+				$scope.results = candidates;
+				console.log("from ctrl",$scope.results);	
+				$state.go('index.candidatessearch.results');
+			},function(err) {
+				$scope.message = err;
+			})
+		}
 		$scope.pagination=Pagination.getNew(3);
+
+
 		$scope.search = function(text) {
 			
 			var arr = text.split(/[ ,]+/);
-
+			// if($stateParams.circleName && $stateParams.circleDomain){
+			// 	arr.push($stateParams.circleName);	
+			// }
 
 			parseservice.parsetext(arr).then(function (results) {
 				
@@ -19,8 +55,6 @@ angular.module('samarth-coordinator')
 			},function err(err) {
 				$scope.message = err;
 			});
-
-			
 		}
 
 	}]);

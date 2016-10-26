@@ -1,7 +1,7 @@
     <!-- <span>Showing {{results.length}} results</span> -->
 
     <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
-        <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage"  flex-gt-sm="33" flex-sm="100">
+        <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage"  flex-gt-sm="50" flex-sm="100">
             <my-skillcard  candidateid="x.candidates">
                 <badges>
                     <verification-badge candidateid="x.candidates">
