@@ -1,134 +1,143 @@
-<div>
-    <md-card layout="column" flex>
-        <md-card-header layout-gt-sm="row" layout-sm="column" layout-xs="column" flex layout-padding class="headerSection">
-            <md-card-header-text layout="column" layout flex>
-                <div layout="row" layout-align="start center">
-                    <div flex-gt-xs="90" flex-xs layout="column">
-                        <span class="md-display-2">{{job.jobRole}}</span>
-                        <span class="md-display-1">{{job.departmentName}}</span>
-                    </div>
-                    <div flex-gt-xs="10" layout="column">
-                        <div>
-                            <i class="material-icons md-36" style="color:green" layout-align="end end">verified_user</i>
+<div layout layout-align="center center">
+    <div class="md-padding">
+        <md-card layout="column" flex>
+            <md-card-header layout-gt-sm="row" layout-sm="column" layout-xs="column" flex layout-padding>
+                <md-card-header-text layout="column" layout flex>
+                    <div layout="row" layout-align="start center">
+                        <div flex-gt-xs="75" flex-xs layout="column">
+                            <span class="md-display-2">{{job.jobRole}}</span>
+                            <span class="md-display-1">{{job.departmentName}}</span>
                         </div>
-                        <div hide-xs>
-                            <md-card-avatar class="avatar">
-                                <img class="md-user-avatar avatar" src="{{job.employer.employerLogo}}" alt="Logo">
-                            </md-card-avatar>
-                        </div>
-                    </div>
-                </div>
-                <div layout-xs="column" layout-gt-xs="row" flex>
-                    <div class="md-title" flex-xs flex-gt-xs="50">
-                        <i class="material-icons">business</i>
-                        <span>{{job.employer.employerName}}</span>
-                    </div>
-                    <div class="md-title" flex-xs flex-gt-xs="40">
-                        <i class="material-icons">location_on</i>
-                        <span>{{job.jobLocation}}</span>
-                    </div>
-                </div>
-            </md-card-header-text>
-        </md-card-header>
-        <md-card-content class="bodyContent" flex layout="column">
-            <div layout="column">
-                <label class="md-title">Skills Required</label>
-                <div layout="row" flex>
-                    <div flex-gt-xs="90" flex layout-gt-xs="row" layout-xs="column">
-                        <md-chips ng-model="job.skillsRequired" md-max-chips="3" readonly="true">
-                            <md-chip-template>
-                                <strong>{{$chip.skillName}}</strong>
-                                <em>({{$chip.experience}})</em>
-                            </md-chip-template>
-                        </md-chips>
-                    </div>
-                </div>
-            </div>
-            <div layout-xs="column" layout-gt-xs="row" layout-padding>
-                <span class="md-title" flex-xs flex-gt-xs="60">Experience:{{job.experience.experienceYear}}Years&nbsp;{{job.experience.experienceMonth}}&nbsp;months</span>
-                <span class="md-title" flex-xs flex-gt-xs="40">Posted on {{job.jobPostDate | date:'yyyy-MM-dd'}}</span>
-            </div>
-            <div layout-xs="column" layout-xs="column" layout-gt-xs="row" layout-padding>
-                <span class="md-title" flex-xs flex-gt-xs="60">Salary offered :&#8377; {{job.salaryOffered}}</span>
-                <span class="md-title" flex-xs flex-gt-xs="40">Last date: {{job.jobLastDate | date: 'yyyy-MM-dd'}}.</span>
-            </div>
-        </md-card-content>
-    </md-card>
-    <md-divider></md-divider>
-    <md-card layout="column" flex>
-        <md-card-content class="bodyContent" flex layout="column">
-            <div layout-xs="column">
-                <md-input-container class="md-block" flex>
-                    <label class="md-title">Role Description</label>
-                    <textarea ng-model="job.roleDescription" readonly="true"></textarea>
-                </md-input-container>
-                <div flex layout="column">
-                    <span class="md-title">Eligibility required</span>
-                    <div layout="row">
-                        <div flex="5"></div>
-                        <div flex="95">
-                            <div layout="column">
-                                <span class="md-subhead">Education Required</span>
-                                <div layout="column" layout-padding>
-                                    <md-grid-list md-cols-xs="1" md-cols-sm="3" md-cols-gt-sm="5" md-row-height-xs="2:1" md-row-height-sm="2:1" md-row-height-gt-sm="2:1" md-gutter="4">
-                                        <md-grid-tile ng-repeat="education in job.educationRequired" class="headerSection">
-                                            <md-grid-tile-content>
-                                                <span>{{education.courseName}}</span>
-                                                <br>
-                                                <span>Passed on {{education.yearOfPassing}}</span>
-                                                <br>
-                                                <span>Minimum {{education.minimumPercentage}}% aggregate </span>
-                                            </md-grid-tile-content>
-                                        </md-grid-tile>
-                                    </md-grid-list>
-                                </div>
-                                <md-divider></md-divider>
-                                <span class="md-subhead">Certification Required</span>
-                                <md-chips ng-model="job.certificationRequired" readonly="true">
-                                </md-chips>
+                        <div flex-gt-xs="25" layout="column" hide-xs>
+                            <!-- <div>
+    <i class="material-icons md-36" style="color:green" layout-align="end end">verified_user</i>
+</div>
+ -->
+                            <div hide-xs>
+                                <md-card-avatar class="avatar">
+                                    <img class="md-user-avatar avatar" src="{{job.employer.employerLogo}}" alt="Logo">
+                                </md-card-avatar>
                             </div>
                         </div>
                     </div>
-                </div>
-                <md-divider></md-divider>
+                    <div layout-xs="column" layout-gt-xs="row" flex>
+                        <div class="md-title" flex-xs flex-gt-xs="50">
+                            <i class="material-icons">business</i>
+                            <span>{{job.employer.employerName}}</span>
+                        </div>
+                        <div class="md-title" flex-xs flex-gt-xs="40">
+                            <i class="material-icons">location_on</i>
+                            <span>{{job.jobLocation}}</span>
+                        </div>
+                    </div>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-content flex layout="column">
                 <div layout="column">
-                    <md-input-container class="md-block" flex>
-                        <label class="md-title">About Employer</label>
-                        <textarea ng-model="job.employer.aboutEmployer" readonly="true"></textarea>
-                    </md-input-container>
-                    <div layout="row">
-                        <div flex="5"></div>
-                        <div flex="95">
-                            <div layout="column">
-                                <span class="md-subhead">Employer Contact Details</span>
-                                <div layout="column" layout-padding>
-                                    <md-grid-list md-cols-sm="3" md-cols-xs="1" md-cols-gt-sm="4" md-row-height="1.5:1" md-gutter="4">
-                                        <md-grid-tile ng-repeat="contacts in job.contactDetails" class="headerSection">
-                                            <md-grid-tile-content layout-align="center center" layout-padding>
-                                                <span><i class="material-icons">contacts</i>{{contacts.contactPerson}}</span>
-                                                <br>
-                                                <span><i class="material-icons">contact_phone</i>{{contacts.contactNumber}}</span>
-                                                <br>
-                                                <span><i class="material-icons">contact_mail</i>{{contacts.emailID}}</span>
-                                            </md-grid-tile-content>
-                                        </md-grid-tile>
-                                    </md-grid-list>
+                    <label class="md-title">Skills Required</label>
+                    <div layout="row" flex>
+                        <div flex-gt-xs="90" flex layout-gt-xs="row" layout-xs="column">
+                            <md-chips ng-model="job.skillsRequired" md-max-chips="3" readonly="true">
+                                <md-chip-template>
+                                    <strong>{{$chip.skillName}}</strong>
+                                    <em>({{$chip.experience}})</em>
+                                </md-chip-template>
+                            </md-chips>
+                        </div>
+                    </div>
+                </div>
+                <div layout-xs="column" layout-gt-xs="row" layout-padding>
+                    <span class="md-title" flex-xs flex-gt-xs="60">Experience:{{job.experience.experienceYear}}Years&nbsp;{{job.experience.experienceMonth}}&nbsp;months</span>
+                    <span class="md-title" flex-xs flex-gt-xs="40">Posted on {{job.jobPostDate | date:'yyyy-MM-dd'}}</span>
+                </div>
+                <div layout-xs="column" layout-xs="column" layout-gt-xs="row" layout-padding>
+                    <span class="md-title" flex-xs flex-gt-xs="60">Salary offered :&#8377; {{job.salaryOffered}}</span>
+                    <span class="md-title" flex-xs flex-gt-xs="40">Last date: {{job.jobLastDate | date: 'yyyy-MM-dd'}}.</span>
+                </div>
+            </md-card-content>
+        </md-card>
+        <md-divider></md-divider>
+        <md-card>
+            <md-input-container class="md-block" flex>
+                <label class="md-title">Role Description</label>
+                <textarea ng-model="job.roleDescription" readonly="true"></textarea>
+            </md-input-container>
+        </md-card>
+        <md-card layout="column" flex>
+            <md-card-content flex layout="column">
+                <div layout-xs="column">
+                    <div flex layout="column">
+                        <span class="md-title">Eligibility required</span>
+                        <div layout="row">
+                            <div flex="5"></div>
+                            <div flex="95">
+                                <div layout="column">
+                                    <span class="md-subhead">Education Required</span>
+                                    <div layout="column" layout-padding>
+                                        <md-grid-list md-cols-xs="1" md-cols-sm="3" md-cols-gt-sm="5" md-row-height-xs="1:1" md-row-height-sm="1:1" md-row-height-gt-sm="1:1" md-gutter="4">
+                                            <md-grid-tile ng-repeat="education in job.educationRequired" class="headerSection">
+                                                <md-grid-tile-content>
+                                                    <span>{{education.courseName}}</span>
+                                                    <br>
+                                                    <span>Passed on {{education.yearOfPassing}}</span>
+                                                    <br>
+                                                    <span>Minimum {{education.minimumPercentage}}% aggregate </span>
+                                                </md-grid-tile-content>
+                                            </md-grid-tile>
+                                        </md-grid-list>
+                                    </div>
+                                    <md-divider></md-divider>
+                                    <span class="md-subhead">Certification Required</span>
+                                    <md-chips ng-model="job.certificationRequired" readonly="true">
+                                    </md-chips>
                                 </div>
-                                <md-divider></md-divider>
                             </div>
                         </div>
                     </div>
-                    <div layout-padding layout="column">
-                        <md-input-container>
-                            <label class="md-title">Any other Information</label>
-                            <textarea name="" ng-model="job.anyOtherInformation" readonly="true"></textarea>
-                        </md-input-container>
+                    <md-divider></md-divider>
+                </div>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <div layout="column">
+                <md-input-container class="md-block" flex>
+                    <label class="md-title">About Employer</label>
+                    <textarea ng-model="job.employer.aboutEmployer" readonly="true"></textarea>
+                </md-input-container>
+                <div layout="row">
+                    <div flex="5"></div>
+                    <div flex="95">
+                        <div layout="column">
+                            <span class="md-subhead">Employer Contact Details</span>
+                            <div layout="column" layout-padding>
+                                <md-grid-list md-cols-sm="3" md-cols-xs="1" md-cols-gt-sm="3" md-row-height="1:1" md-gutter="4">
+                                    <md-grid-tile ng-repeat="contacts in job.contactDetails" class="headerSection">
+                                        <md-grid-tile-content layout-align="center center" layout-padding>
+                                            <span><i class="material-icons">contacts</i>{{contacts.contactPerson}}</span>
+                                            <br>
+                                            <span><i class="material-icons">contact_phone</i>{{contacts.contactNumber}}</span>
+                                            <br>
+                                            <span><i class="material-icons">contact_mail</i>{{contacts.emailID}}</span>
+                                        </md-grid-tile-content>
+                                    </md-grid-tile>
+                                </md-grid-list>
+                            </div>
+                            <md-divider></md-divider>
+                        </div>
                     </div>
                 </div>
             </div>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button class="md-raised md-warn" ui-sref="index.editJob({jobID:job.jobID,employerID:job.employer.employerID})">Edit</md-button>
-        </md-card-actions>
-    </md-card>
+            <div layout-padding layout="column">
+                <md-input-container>
+                    <label class="md-title">Any other Information</label>
+                    <textarea name="" ng-model="job.anyOtherInformation" readonly="true"></textarea>
+                </md-input-container>
+            </div>
+        </md-card>
+        <md-card>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-raised md-warn" ui-sref="index.editJob({jobID:job.jobID,employerID:job.employer.employerID})">Edit</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
 </div>

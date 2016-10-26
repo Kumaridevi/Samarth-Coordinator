@@ -8,14 +8,16 @@
             </md-button>
         </div>
     </md-toolbar>
-    <sm-verification-rubric name="typename" outcome="b" remarks="remarks">
-    </sm-verification-rubric>
-    <div layout="row">
-        <span flex></span>
-        <md-button ng-click=answer(b,id,remarks)>Ok
-        </md-button>
+    <md-dialog-content>
+        <sm-verification-rubric name="typename" outcome="b" remarks="remarks">
+        </sm-verification-rubric>
+    </md-dialog-content>
+    <span flex></span>
+    <md-dialog-actions layout="row">
         <md-button ng-click="cancel()">
             Cancel
         </md-button>
-    </div>
+        <md-button ng-click=answer(b,id,remarks)>Ok
+        </md-button>
+    </md-dialog-actions>
 </md-dialog>

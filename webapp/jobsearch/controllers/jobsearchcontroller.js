@@ -3,7 +3,7 @@ angular.module('samarth-coordinator')
         $scope.openMenu = function($mdOpenMenu, ev) {
             $mdOpenMenu(ev);
         }
-        $scope.pagination = Pagination.getNew(1);
+        $scope.pagination = Pagination.getNew(2);
         $scope.searchJob = function() {
             //console.log("Search text: " + $scope.searchText);
             jobSearchService.jobResult($scope.searchText)

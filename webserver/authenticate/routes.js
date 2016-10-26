@@ -30,7 +30,7 @@ apiRoutes.post('/user/', function(req, res) {
 
                 if (!jwtToken) {
                     console.error("Empty token generated...!");
-                    res.status(403).json({
+                    return res.status(403).json({
                         error: "Internal error in processing request, please retry later..!"
                     });
                 } else {

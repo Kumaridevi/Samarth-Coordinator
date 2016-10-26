@@ -1,9 +1,11 @@
-<div layout="row" class="main" layout-xs="column" layout-sm="column" layout-align="center center" layout-fill>
-    <!-- <div class="main" hide-xs flex>
-    </div> -->
-    <div class="md-inline-form transparent" flex="66">
+<div layout="row" layout-xs="column" layout-sm="column" layout-fill>
+    <div class="main" layout="row" layout-align="center center" hide-xs hide-sm flex>
+        <p class="md-display-4">S A M A R T H</p>
+        <!-- <p class="md-display-1">Coordinator</p> -->
+    </div>
+    <div class="md-inline-form" layout="row" layout-align="center center" flex>
         <md-content class="md-no-momentum">
-            <div layout="column" layout-align="center center">
+            <div class="loginform" layout="column" layout-align="center center">
                 <form name="signinForm" ng-submit="signin()">
                     <md-input-container class="md-block">
                         <!-- Use floating placeholder instead of label -->
@@ -20,10 +22,12 @@
                     </div>
                     <!-- <a class="md-accent-color" href="#">Forgot Password?</a> -->
                     <md-divider class="inset"></md-divider>
-                    <a class="md-accent-color md-default-theme" ui-sref="registercoordinator">Register Coordinator</a>
+                    <div layout="row" layout-align="center center">
+                        <a class="md-accent-color md-default-theme" ui-sref="registercoordinator">Register Coordinator</a>
+                    </div>
                 </form>
                 <div>
-                    <p class="textfont">{{errmsg}}</p>
+                    <p ng-model="errmsg" style="color:red">{{errmsg}}</p>
                 </div>
             </div>
         </md-content>
