@@ -66,7 +66,7 @@ app.use(express.static(path.join(__dirname, 'webapp')));
 //     }
 // });
 
-app.use('/api', apiauthroute);
+app.use('/auth', apiauthroute);
 
 app.use(function(req, res, next) {
     var err = new Error('Resource not found');

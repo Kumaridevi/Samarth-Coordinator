@@ -11,6 +11,7 @@ angular.module('samarth-coordinator')
                 $scope.arr = [];
                 console.log(response.data[0].Skills);
                 //  console.log("cpCtrlinside", response.data[0]);
+                console.log($scope.candidatename);
                 $scope.candidatename = response.data[0].candidatename;
                 $scope.updated_on = response.data[0].updated_on;
                 $scope.personalinfo = response.data[0].Personal_Information;
@@ -59,6 +60,7 @@ angular.module('samarth-coordinator')
                 locals: { typename: typename, id: $scope.id },
                 templateUrl: 'completeprofile/templates/newtemplate.html',
                 controller: 'ListCtrl',
+
                 clickOutsideToClose: true,
                 targetEvent: ev
             }).then(function(obj) {
@@ -84,7 +86,7 @@ angular.module('samarth-coordinator')
                 }
                 if (obj.a == 'Work_History') {
                     $scope.wrkval = obj.x;
-                    $scope.wrkval = obj.y;
+                    $scope.wrkrem = obj.y;
                 }
             }, function() {
 
@@ -92,6 +94,20 @@ angular.module('samarth-coordinator')
 
 
         };
+        $scope.showDialog = function(ev) {
+
+
+            $mdDialog.show({
+                locals: { candidatename: $scope.candidatename, updated_on: $scope.updated_on, perval: $scope.perval, perrem: $scope.perrem, sklval: $scope.sklval, sklrem: $scope.sklrem, qulval: $scope.qulval, qulrem: $scope.qulrem, pjctval: $scope.pjctval, pjctrem: $scope.pjctrem, wrkval: $scope.wrkval, wrkrem: $scope.wrkrem },
+                templateUrl: 'completeprofile/templates/fullverification.html',
+                controller: 'Fullverifiy',
+
+                clickOutsideToClose: true,
+
+                targetEvent: ev
+            })
+        };
+
 
     }])
     .controller('ListCtrl', function($scope, typename, id, $mdDialog, candidateprofileservice) {
@@ -199,5 +215,31 @@ angular.module('samarth-coordinator')
 
 
 
+    })
+    .controller('Fullverifiy', function($scope, $mdDialog, candidatename, updated_on, perval, perrem, sklval, sklrem, qulval, qulrem, pjctval, pjctrem, wrkval, wrkrem) {
+        //use them to make a new object
+        ;
 
+
+        $scope.candidatename = candidatename;
+        console.log(candidatename);
+        $scope.updated_on = updated_on;
+        $scope.perval = perval;
+        $scope.perrem = perrem;
+
+        $scope.sklval = sklval;
+        $scope.sklrem = sklrem;
+
+        $scope.qulval = qulval;
+        $scope.qulrem = qulrem;
+
+        $scope.pjctval = pjctval;
+        $scope.pjctrem = pjctrem;
+
+        $scope.wrkval = wrkval;
+        $scope.wrkrem = wrkrem;
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
     });

@@ -27,6 +27,7 @@ angular.module("samarth-coordinator")
         //to get the user details from the local storage
         signinFactory.getUser = function() {
             var u = $window.localStorage['member-user'];
+            //  console.log("from getuser", u);
             if (u !== undefined)
                 u = JSON.parse(u);
             return u;
@@ -64,7 +65,7 @@ angular.module("samarth-coordinator")
             };
 
             return $q(function(resolve, reject) {
-                $http.post('/api/User/', userinfo)
+                $http.post('/auth/user/', userinfo)
                     .then(function(res) {
                             //success
                             if (res.status >= 400) {
@@ -98,7 +99,7 @@ angular.module("samarth-coordinator")
             signinFactory.removeUser();
             return $q(function(resolve, reject) {
                 $http
-                    .get('/api/signout/')
+                    .get('/auth/signout/')
                     .then(function(res) {
                         //success
                         resolve("Signed-out successfully..!");

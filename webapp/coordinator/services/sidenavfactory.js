@@ -7,7 +7,7 @@ angular.module("samarth-coordinator")
             // alert(role);
             return $q(function(resolve, reject) {
                 $http
-                    .get('/api/role/' + role)
+                    .get('/auth/role/' + role)
                     .then(function(res) {
                         //success
                         // alert(JSON.stringify(res));

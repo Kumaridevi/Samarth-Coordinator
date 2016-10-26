@@ -12,9 +12,10 @@
                 <md-input-container md-no-float class="md-block">
                     <md-icon class="material-icons"> person</md-icon>
                     <label>Name</label>
-                    <input type="text" name="name" required ng-model="coordinator.name">
+                    <input type="text" ng-minlength="1" ng-maxlength="30" name="name" required ng-model="coordinator.name">
                     <div ng-messages="registrationform.name.$error">
                         <div ng-message="required">Plese provide username </div>
+                        <div ng-if="!registrationform.name.$valid">User name should be max of 30 characters</div>
                     </div>
                 </md-input-container>
                 <md-input-container md-no-float class="md-block" layout="row">
@@ -82,9 +83,6 @@
                     <md-select ng-model="coordinator.role" value={{coordinator.role}}>
                         <md-option value='coordinator'>
                             Coordinator
-                        </md-option>
-                        <md-option value="Admin">
-                            Admin
                         </md-option>
                     </md-select>
                     <div ng-messages="registrationform.role.$error">

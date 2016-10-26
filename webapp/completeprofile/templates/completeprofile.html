@@ -1,35 +1,4 @@
 <div layout="row" layout-align="center center">
-    <div>
-        <!--Make as a component-->
-        <md-card>
-            <md-card-title>
-                <md-card-title-text layout-align="row">
-                    <div flex="90" class="md-headline">{{candidatename}} 's Verification Details</div>
-                </md-card-title-text>
-                <div class="md-caption">
-                    Last Verified:
-                    <time am-time-ago="updated_on"></time>
-                </div>
-            </md-card-title>
-            <div>
-                <md-card-content>
-                    <md-table-container>
-                        <table md-table>
-                            <tr md-row ng-repeat="(key,val) in arr">
-                                <div>
-                                    <td flex="10">{{key}}</td>
-                                </div>
-                                <div>
-                                    <td flex="10">{{val.value}}</td>
-                                    <td flex="10">{{val.remarks}}</td>
-                                </div>
-                            </tr>
-                        </table>
-                    </md-table-container>
-                </md-card-content>
-            </div>
-        </md-card>
-    </div>
 </div>
 <div layout="column">
     <my-personalinfocard candidateid="id">
@@ -56,4 +25,5 @@
             <md-button style="color:green" ng-click="showAdvanced($event,'Work_History')">Verify</md-button>
         </verify>
     </my-workexperiencecard>
+    <md-button style="color:green" ng-click="showDialog(ev)">Full Verification Details</md-button>
 </div>

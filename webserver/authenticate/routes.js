@@ -8,7 +8,8 @@ var authByToken = require("./authbytoken");
 // var login = mongoose.model('login', UserModel.login);
 var sidenavcontent = mongoose.model('sidenavcontent', UserModel.sidenavcontent);
 
-apiRoutes.post('/User/', function(req, res) {
+//Effective url /auth/user/
+apiRoutes.post('/user/', function(req, res) {
 
     if (!req.body.email || !req.body.pwd) {
         res.json({
@@ -32,10 +33,11 @@ apiRoutes.post('/User/', function(req, res) {
                     res.status(403).json({
                         error: "Internal error in processing request, please retry later..!"
                     });
-                }
+                } else {
 
-                user['token'] = jwtToken;
-                return res.status(200).json(user);
+                    user['token'] = jwtToken;
+                    return res.status(200).json(user);
+                }
             },
             function(err) {
                 return res.status(403).json(err);
@@ -49,6 +51,7 @@ apiRoutes.post('/User/', function(req, res) {
 
 }); // signin post ends
 
+//Effective url /auth/role/:role
 apiRoutes.get('/role/:role', function(req, res) {
 
     if (!req.params.role) {
@@ -77,6 +80,7 @@ apiRoutes.get('/role/:role', function(req, res) {
     });
 }); // get sidenav ends
 
+//Effective url /auth/signout/
 apiRoutes.get('/signout/', function(req, res) {
     res.json({ message: 'Signing out...' });
 

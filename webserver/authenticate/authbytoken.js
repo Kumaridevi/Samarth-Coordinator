@@ -7,8 +7,7 @@ var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 
 var signin = function(email, pwd, callback, unauthCB) {
     coordinatoruser.findOne({
-            email: email,
-            password: pwd
+            email: email
         },
         function(err, user) {
             if (err) {
@@ -27,12 +26,12 @@ var signin = function(email, pwd, callback, unauthCB) {
                 return;
             }
 
-            // if (!user.validPassword(pwd)) {
-            //     unauthCB({
-            //         error: "Invalid credentials...!"
-            //     });
-            //     return;
-            // }
+            if (!user.validPassword(pwd)) {
+                unauthCB({
+                    error: "Invalid credentials...!"
+                });
+                return;
+            }
 
             //Now that user is authenticated locally, fetch the corresponding candidate token
             authUser.getUserAuthToken(user).then(
