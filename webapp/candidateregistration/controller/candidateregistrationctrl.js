@@ -14,20 +14,22 @@ angular.module('samarth-coordinator').controller('candidateregistrationctrl', ['
 		function(err) {
 			console.log("Cannot get the professions", err);
 		};
+		 // $scope.user.profession = $scope.selected;
+		 $scope.signup = function() {
+		 	$scope.user.profession = $scope.selected.professions;
+		 	console.log($scope.user);
+		 	console.log("You selected",$scope.selected);
 
+		 	registrationservice.registercandidate($scope.user).then(function(response) {
 
-		$scope.signup = function() {
-			console.log($scope.user);
-			registrationservice.registercandidate($scope.user).then(function(response) {
-                // console.log(response);
-                $state.go("verifyprofile", { candidateid: $scope.user.mobile });
-                $scope.signUpStatus = "Candidate Registered successfully";
-                console.log($scope.signUpstatus);
-            }, function(err) {
-            	$scope.error = "Server Error..Please try again later..";
-            });
+		 		$state.go("verifyprofile", { candidateid: $scope.user.mobile });
+		 		$scope.signUpStatus = "Candidate Registered successfully";
+		 		console.log($scope.signUpstatus);
+		 	}, function(err) {
+		 		$scope.error = "Server Error..Please try again later..";
+		 	});
+		 }
+
 		}
-
-	}
-	]);
+		]);
 
