@@ -57,8 +57,8 @@
                 <md-input-container md-no-float class="md-block" layout="row">
                     <md-icon class="material-icons"> perm_identity</md-icon>
                     <label>Select Profession</label>
-                    <md-select ng-model="coordinator.profession" placeholder="select a profession">
-                        <md-option ng-value=profession ng-repeat="profession in professions">{{profession.professions}}</md-option>
+                    <md-select ng-model="selectedprof" placeholder="select a profession">
+                        <md-option ng-value=selectedprof ng-repeat="selectedprof in professions">{{selectedprof.professions}}</md-option>
                     </md-select>
                     <div ng-messages="registrationform.profession.$error">
                         <div ng-message="required">Please select a profession.</div>
