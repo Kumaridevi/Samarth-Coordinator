@@ -14,6 +14,9 @@ angular.module('samarth-coordinator').controller('candidateregistrationctrl',['$
 		};
 
 		$scope.signup = function() {
+			// console.log("from signup",$scope.user.profession.professions);
+			console.log($scope.selected);
+			// $scope.user.profession = $scope.selected.profession.professions;
 			console.log($scope.user);
 			registrationservice.registercandidate($scope.user).then(function(response) {
 				// console.log(response);
