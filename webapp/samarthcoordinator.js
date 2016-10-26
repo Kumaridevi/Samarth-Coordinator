@@ -7,6 +7,8 @@ angular.module("samarth-coordinator", ["ngMaterial",
 
 .config(function($mdThemingProvider) {
 
+
+
     var customPrimary = {
         '50': '#bef5ff',
         '100': '#72e9ff',
@@ -97,9 +99,11 @@ angular.module("samarth-coordinator", ["ngMaterial",
 });
 
 
-// { 
-//  "candidateid" : 1234567890,
-//   "verification_status" : "grade",
-//    "verification_ratings" : 0, 
-//    "updated_on" : new Date() 
-//    }
+
+/*{
+    "candidateid": 1234567890,
+    "verification_status": "grade",
+    "verification_ratings": 0,
+    "updated_on": new Date()
+}
+*/

@@ -1,5 +1,5 @@
 angular.module("samarth-coordinator")
-    .controller('employerCtrl', ['$scope', 'employerService', '$mdDialog', function($scope, employerService, $mdDialog) {
+    .controller('employerCtrl', ['$scope', 'employerService', '$mdDialog', '$state', function($scope, employerService, $mdDialog, $state) {
         $scope.registerEmployer = function() {
             employerService.employerRegister($scope.employer)
                 .then(function successCallback(response) {
@@ -11,7 +11,8 @@ angular.module("samarth-coordinator")
                             .ok('Done')
                             .fullscreen(false)
                         $mdDialog.show(confirm)
-                            .then(function() {
+                            .then(function(str) {
+                                console.log("Inside state go function");
                                 $state.go("index.postjob");
                             }, function() {
                                 $scope.job = {};
