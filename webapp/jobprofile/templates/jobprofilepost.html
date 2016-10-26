@@ -43,6 +43,14 @@
                         <div ng-message="minlength">jobID should have atleast 4 letters</div>
                     </div>
                     <md-input-container class="md-block" md-no-float flex>
+                        <md-icon class="material-icons">layer</md-icon>
+                        <label>Job Profession</label>
+                        <input required name="jobProfession" ng-model="job.jobProfession" />
+                        <div ng-messages="jobPosting.jobProfession.$error">
+                            <div ng-message="required">Please specify the job role</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" md-no-float flex>
                         <md-icon class="material-icons">school</md-icon>
                         <label>Job Role</label>
                         <input required name="jobRole" ng-model="job.jobRole" />
@@ -52,7 +60,7 @@
                     </md-input-container>
                     <md-input-container class="md-block" md-no-float flex>
                         <md-icon class="material-icons">group_work</md-icon>
-                        <label>Job Department / Industry</label>
+                        <label>Job Department</label>
                         <input required name="departmentName" ng-model="job.departmentName" />
                         <div ng-messages="jobPosting.departmentName.$error">
                             <div ng-message="required">Please enter the department.</div>
