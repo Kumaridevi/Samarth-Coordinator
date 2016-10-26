@@ -3,7 +3,7 @@ angular.module("samarth-coordinator", ["ngMaterial",
     "ui.router",
     "ngMessages",
     'samarth-webcomponents', 'angularMoment', 'simplePagination'
-]);
+    ])
 .config(function($mdThemingProvider) {
 
     var customPrimary = {
@@ -89,10 +89,10 @@ angular.module("samarth-coordinator", ["ngMaterial",
         customBackground);
 
     $mdThemingProvider.theme('default')
-        .primaryPalette('customPrimary')
-        .accentPalette('customAccent')
-        .warnPalette('customWarn')
-        .backgroundPalette('customBackground')
+    .primaryPalette('customPrimary')
+    .accentPalette('customAccent')
+    .warnPalette('customWarn')
+    .backgroundPalette('customBackground')
 });
 
 
