@@ -6,6 +6,7 @@ angular.module("samarth-coordinator", ["ngMaterial",
     ])
     .config(function($mdThemingProvider) {
 
+
         var customPrimary = {
             '50': '#bef5ff',
             '100': '#72e9ff',
@@ -94,7 +95,6 @@ angular.module("samarth-coordinator", ["ngMaterial",
             .warnPalette('customWarn')
             .backgroundPalette('customBackground')
     });
-
 
 
 // { 

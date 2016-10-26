@@ -1,4 +1,5 @@
-angular.module('samarth-coordinator').service('registrationservice',function($http) {
+angular.module('samarth-coordinator')
+.service('registrationservice',function($http) {
 
 
     return {
@@ -13,5 +14,26 @@ angular.module('samarth-coordinator').service('registrationservice',function($ht
                 return response;
             });
         }
+
+    }
+});
+
+
+
+angular.module('samarth-coordinator')
+.service('professionservice',function($http) {
+
+
+    return {
+        getProfession : function() {
+            return $http({
+                method:'get',
+                url:'http://localhost:8081/candidate/professions'
+            }).then(function success(professions) {
+                console.log("",professions);
+                return professions;
+            });
+        }
+        
     }
 });
