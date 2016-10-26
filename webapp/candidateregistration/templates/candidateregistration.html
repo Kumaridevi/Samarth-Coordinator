@@ -66,18 +66,12 @@
 					<md-input-container md-no-float class="md-block">
 						<label>Profession</label>
 						<md-icon class="material-icons">work</md-icon>
-						<!-- <input type="text" name="work" required ng-model="user.profession" required>
-						<div ng-messages="registrationform.work.$error">
-							<div ng-message="required">Please tell us your profession </div>
-						</div> -->
-						<md-select ng-model="profession" value="profession" placeholder="select a profession">
-							<md-select-header>
-								<span>Profession</span>
-							</md-select-header>
-							<md-option ng-value="prof.professions" ng-repeat="prof in profession"></md-option>
+						
+						<md-select ng-model="selected" placeholder="select a profession">
+							<md-option ng-value=selected ng-repeat="selected in profession">{{selected.professions}}</md-option>
 						</md-select>
 					</md-input-container>
-				</div>
+				</div> 
 			</md-card-content>
 			<md-card-actions layout="row" layout-align="center center">
 				<md-button type="submit" ng-click="signup()" aria-label="registercandidate" class="md-primary md-raised">
