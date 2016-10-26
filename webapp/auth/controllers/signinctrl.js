@@ -25,8 +25,8 @@ angular.module("samarth-coordinator")
                             redirectToIndex();
                         }, function(err) {
                             //If failed to signing, stay back in the same state and show the error message
-                            console.log("Error in signin: ", err);
-                            $scope.errmsg = err.message;
+                            console.log("Error in signin: ", err.error);
+                            $scope.errmsg = err.error;
                         });
                 } //signin ends
         }

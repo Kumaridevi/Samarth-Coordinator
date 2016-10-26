@@ -1,5 +1,5 @@
-<div>
-    <md-toolbar class="md-whiteframe-15dp md-hue-2">
+<div layout="column">
+    <md-toolbar class="md-whiteframe-3dp">
         <div class="md-toolbar-tools" layout="row" layout-align="start center">
             <div layout="row" layout-align="start center" flex flex-sm="30">
                 <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()" ng-show="showmenu">
@@ -21,12 +21,14 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
         <md-content ng-click="toggleLeft()">
             <div layout="column">
-                <md-content class="md-primary" layout layout-align="center center" class="md-padding">
+                <!--  <md-content class="md-primary" layout layout-align="center center" class="md-padding">
                     <img class="imgcircle" ng-src="/home/images/recruiter.png">
-                </md-content>
-                <md-content class="md-primary" layout='column' layout-align="center center">
-                    <h4 class='md-title'>Samarth-Coordinator</h4>
-                </md-content>
+                </md-content> -->
+                <div class="md-padding" layout='column' layout-align="center center">
+                    <div class='md-display-3'>Samarth</div>
+                    <div>Coordinator</div>
+                </div>
+                <md-divider></md-divider>
                 <md-content layout='column'>
                     <md-list>
                         <md-list-item ui-sref="{{x.state}}" ng-repeat="x in sidebarcontents.sidenavmenuitems track by $index">
@@ -38,14 +40,14 @@
                         </md-list-item>
                         <md-divider></md-divider>
                         <md-subheader class="md-no-sticky">Management</md-subheader>
-                        <md-list-item ui-sref="#">
+                        <!-- <md-list-item ui-sref="#">
                             <md-item-content layout="row" layout-align="start center">
                                 <div>
                                     <md-icon class="material-icons">settings</md-icon>
                                     <span style="cursor:pointer;">Settings</span>
                                 </div>
                             </md-item-content>
-                        </md-list-item>
+                        </md-list-item> -->
                         <md-list-item ui-sref="aboutus">
                             <md-item-content layout="row" layout-align="start center">
                                 <div>

@@ -5,12 +5,15 @@ angular.module('samarth-coordinator').controller('candidateregistrationctrl', ['
     function($scope, registrationservice, $state, professionservice) {
 
         console.log("Inside candidate register ");
+
         professionservice.getProfession().then(function(professions) {
-                $scope.profession = professions;
+                $scope.profession = professions.data;
+                console.log($scope.profession);
             }),
             function(err) {
                 console.log("Cannot get the professions", err);
             };
+
 
         $scope.signup = function() {
             console.log($scope.user);
