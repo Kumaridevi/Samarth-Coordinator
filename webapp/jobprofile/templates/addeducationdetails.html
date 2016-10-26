@@ -1,20 +1,37 @@
-<md-dialog>
+<md-dialog flex="50" class="md-padding" layout layout-align="center center">
     <form name="addEducation">
         <md-dialog-content>
             <div layout="column">
-                <md-input-container>
-                    <input ng-model="newEducation.courseName" name="courseName" placeholder="Course name" required>
+                <md-input-container class="md-block">
+                    <md-icon class="material-icons">layers</md-icon>
+                    <label>Course Name</label>
+                    <input ng-model="newEducation.courseName" name="courseName" required>
+                    <div ng-messages="addEducation.courseName.$error">
+                        <div ng-message="required">Please enter the Course name.</div>
+                    </div>
                 </md-input-container>
-                <md-input-container>
-                    <input ng-model="newEducation.yearOfPassing" name="yearOfPassing" placeholder="year of passing" required>
+                <md-input-container class="md-block">
+                    <md-icon class="material-icons">access_time</md-icon>
+                    <label>Course passed year</label>
+                    <input ng-model="newEducation.yearOfPassing" pattern="[0-9]{4}(,(\s)?[0-9]{4})*?" name="yearOfPassing" required>
+                    <div ng-messages="addEducation.yearOfPassing.$error">
+                        <div ng-message="required">Please specify the year of passing.</div>
+                        <div ng-message="pattern">Please enter a valid years</div>
+                    </div>
                 </md-input-container>
-                <md-input-container>
-                    <input ng-model="newEducation.minimumPercentage" name="percentage" placeholder="Minimum percentage or aggregate" required>
+                <md-input-container class="md-block" md-no-float>
+                    <md-icon class="material-icons">content_cut</md-icon>
+                    <label>Minimum percentage</label>
+                    <input ng-model="newEducation.minimumPercentage" pattern="[0-9]{2}(\.[0-9]{1,2})?" name="percentage" required>
+                    <div ng-messages="addEducation.percentage.$error">
+                        <div ng-message="required">Please specify the minimum percentage.</div>
+                        <div ng-message="pattern">Please enter a valid percentage</div>
+                    </div>
                 </md-input-container>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
-            <md-button class="md-primary" ng-click='addNew()' ng-disabled="addEducation.$invalid || addEducation.$pristine">Add</md-button>
+            <md-button class="md-primary" ng-click='addNew() && addEducation.$valid'>Add</md-button>
             <md-button class="md-primary" ng-click="cancel()">Cancel</md-button>
         </md-dialog-actions>
     </form>

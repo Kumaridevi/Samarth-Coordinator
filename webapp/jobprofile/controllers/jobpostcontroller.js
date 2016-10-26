@@ -154,6 +154,7 @@ angular.module("samarth-coordinator")
                             .title('The job is posted successfully.. !!')
                             //.targetEvent(ev)
                             .ok('View')
+                            .fullscreen(false)
                             .cancel('One more Entry ?!');
                         $mdDialog.show(confirm)
                             .then(function() {

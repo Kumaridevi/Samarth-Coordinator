@@ -2,11 +2,13 @@
     <md-input-container>
         <input type="text" name="searchBox" ng-model="searchText" class="md-block">
     </md-input-container>
-    <md-button class="md-raised" ui-sref="index.searchjob.results" ng-click="searchJob()">search</md-button>
+    <md-button class="md-raised md-primary" ng-click="searchJob()">search</md-button>
 </div>
-<span>{{message}}</span>
-<div>
-    <div ng-repeat="job in jobs">
+<div class="md-padding md-display-2" layout layout-align="center center">
+    <span>{{message}}</span>
+</div>
+<div class="md-padding">
+    <div ng-repeat="job in jobs | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" class="md-padding">
         <job-card data='{"jobID":job.jobID,"employerID":job.employer.employerID}'>
             <md-menu>
                 <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
@@ -38,5 +40,14 @@
             </md-menu>
         </job-card>
     </div>
-    <div ui-view="results"></div>
+    <!-- <div ui-view="results"></div>
+ -->
+    <div layout class="md-padding" flex>
+        <div layout layout-align="start start" flex="50">
+            <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+        </div>
+        <div layout layout-align="end end" flex="50">
+            <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+        </div>
+    </div>
 </div>

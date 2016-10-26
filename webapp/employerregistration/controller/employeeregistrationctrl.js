@@ -1,10 +1,22 @@
 angular.module("samarth-coordinator")
-    .controller('employerCtrl', ['$scope', 'employerService', function($scope, employerService) {
+    .controller('employerCtrl', ['$scope', 'employerService', '$mdDialog', function($scope, employerService, $mdDialog) {
         $scope.registerEmployer = function() {
             employerService.employerRegister($scope.employer)
                 .then(function successCallback(response) {
                         //console.log("Connected successfully" + response.data);
                         $scope.message = "Employer Successfully registered";
+                        var confirm = $mdDialog.confirm()
+                            .title('The Employer registered successfully.. !!')
+                            //.targetEvent(ev)
+                            .ok('Done')
+                            .fullscreen(false)
+                        $mdDialog.show(confirm)
+                            .then(function() {
+                                $state.go("index.postjob");
+                            }, function() {
+                                $scope.job = {};
+                                $scope.visibleShow = false;
+                            });
                     },
                     function errorCallback(response) {
                         //console.log("some error occured");

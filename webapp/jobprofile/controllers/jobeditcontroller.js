@@ -109,7 +109,7 @@ angular.module("samarth-coordinator")
                     templateUrl: 'jobprofile/templates/addcontactdetails.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
-                    fullscreen: true
+                    fullscreen: false
                 })
                 .then(function(newContact) {
                     if (newContact != null) {
@@ -138,6 +138,7 @@ angular.module("samarth-coordinator")
                             .title('The job is updated successfully.. !!')
                             //.targetEvent(ev)
                             .ok('View')
+                            .fullscreen(false)
                         $mdDialog.show(confirm)
                             .then(function() {
                                 $state.go("index.jobProfileView", { "jobID": $scope.job.jobID, "employerID": $scope.job.employer.employerID });

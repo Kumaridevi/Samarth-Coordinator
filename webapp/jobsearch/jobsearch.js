@@ -32,7 +32,7 @@ angular.module('samarth-coordinator')
                     views: {
                         "results@": {
                             templateUrl: 'jobsearch/templates/jobsearchresult.html',
-                            controller: 'jobSearchCtrl'
+                            //controller: 'jobSearchCtrl'
                         }
                     }
                 })

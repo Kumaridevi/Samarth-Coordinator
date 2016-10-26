@@ -2,7 +2,7 @@
 angular.module("samarth-coordinator", ["ngMaterial",
     "ui.router",
     "ngMessages",
-    'samarth-webcomponents', 'angularMoment'
+    'samarth-webcomponents', 'angularMoment', 'simplePagination'
 ]);
 
 
