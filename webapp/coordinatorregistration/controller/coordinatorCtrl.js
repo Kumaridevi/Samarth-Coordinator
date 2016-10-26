@@ -3,7 +3,6 @@ angular.module('samarth-coordinator')
 
         return {
             registercoordinator: function(newcoordinator) {
-                alert("Registration Successful");
                 return $http.post('http://localhost:8081/coordinatorregister/createcoordinator', newcoordinator);
             }
         }
