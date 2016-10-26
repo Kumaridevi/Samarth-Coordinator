@@ -1,5 +1,6 @@
 <div layout="row" layout-align="center center">
     <md-input-container>
+        <label>Search Job</label>
         <input type="text" name="searchBox" ng-model="searchText" class="md-block">
     </md-input-container>
     <md-button class="md-raised md-primary" ng-click="searchJob()">search</md-button>
@@ -8,7 +9,7 @@
     <span>{{message}}</span>
 </div>
 <div layout class="md-padding" layout-align="center center">
-    <div ng-repeat="job in jobs | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" class="md-padding" flex-gt-sm="45" flex-sm="100">
+    <div ng-repeat="job in jobs | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" class="md-padding" flex-gt-sm="50" flex-sm="100">
         <job-card data='{"jobID":job.jobID,"employerID":job.employer.employerID}'>
             <md-menu>
                 <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
