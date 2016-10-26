@@ -10,7 +10,12 @@ angular.module('samarth-coordinator')
 
             updateverificationdata: function(typename, candidatedata) {
                 return $http.patch('http://localhost:8081/verification/updateverification/' + typename, candidatedata);
+            },
+
+            getcandidateprofession: function(candidateid) {
+                return $http.get('http://localhost:8081/profile/' + candidateid);
             }
+
 
         }
         // return {
