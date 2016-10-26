@@ -1,10 +1,10 @@
 <div layout layout-align="center center">
-    <md-card>
-        <md-card-header class="headerSection" layout layout-align="center center">
-            <span class="md-display-2">Employer Registration</span>
+    <md-card flex="80">
+        <md-card-header layout layout-align="center center">
+            <span class="md-headline">Employer Registration</span>
         </md-card-header>
         <div layout layout-align="center center" flex>
-            <div layout="column" flex>
+            <div layout="column">
                 <form name="employerRegistration" ng-submit="registerEmployer()" md-padding>
                     <div layout="column" layout-align="center center">
                         <md-input-container md-no-float class="md-block">
@@ -28,18 +28,11 @@
                                 </md-input-container>
                             </div>
                             <div flex="20">
-                                <span ng-show="availableShow" class="available"><i class="material-icons">verified_user</i>Employer ID is Available</span>
-                                <span ng-show="notAvailableShow" class="notAvailable"><i class="material-icons">security</i>Please try any other employer ID</span>
+                                <span ng-show="availableShow" class="available"><i class="material-icons">verified_user</i><!-- Employer ID is Available --></span>
+                                <span ng-show="notAvailableShow" class="notAvailable"><i class="material-icons">security</i><!-- Please try any other employer ID
+ --></span>
                             </div>
                         </div>
-                        <md-input-container md-no-float class="md-block">
-                            <md-icon class="material-icons">group_work</md-icon>
-                            <label>About Employer</label>
-                            <textarea name="aboutEmployer" ng-model="employer.aboutEmployer"></textarea>
-                            <div ng-messages="employerRegistration.aboutEmployer.$error">
-                                <div ng-message="required">Please enter something about employer</div>
-                            </div>
-                        </md-input-container>
                         <md-input-container md-no-float class="md-block">
                             <md-icon class="material-icons">email</md-icon>
                             <label>Employer mail ID</label>
@@ -62,6 +55,14 @@
                             <md-icon class="material-icons">account_circle</md-icon>
                             <label>Employer logo</label>
                             <input type="text" name="employerLogo" ng-model="employer.employerLogo">
+                        </md-input-container>
+                        <md-input-container md-no-float class="md-block">
+                            <md-icon class="material-icons">group_work</md-icon>
+                            <label>About Employer</label>
+                            <textarea name="aboutEmployer" ng-model="employer.aboutEmployer"></textarea>
+                            <div ng-messages="employerRegistration.aboutEmployer.$error">
+                                <div ng-message="required">Please enter something about employer</div>
+                            </div>
                         </md-input-container>
                         <div layout="row">
                             <md-button class="md-raised md-primary" type="submit">Register</md-button>

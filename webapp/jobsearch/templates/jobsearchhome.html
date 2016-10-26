@@ -8,7 +8,7 @@
 <div class="md-padding md-display-2" layout layout-align="center center">
     <span>{{message}}</span>
 </div>
-<div layout class="md-padding" layout-align="center center">
+<div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding" layout-align="center center">
     <div ng-repeat="job in jobs | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" class="md-padding" flex-gt-sm="50" flex-sm="100">
         <job-card data='{"jobID":job.jobID,"employerID":job.employer.employerID}'>
             <md-menu>
@@ -43,12 +43,12 @@
     </div>
     <!-- <div ui-view="results"></div>
  -->
-    <div layout class="md-padding" flex>
-        <div layout layout-align="start start" flex="50">
-            <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
-        </div>
-        <div layout layout-align="end end" flex="50">
-            <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
-        </div>
+</div>
+<div layout class="md-padding" flex>
+    <div layout layout-align="start start" flex="50">
+        <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+    </div>
+    <div layout layout-align="end end" flex="50">
+        <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
     </div>
 </div>

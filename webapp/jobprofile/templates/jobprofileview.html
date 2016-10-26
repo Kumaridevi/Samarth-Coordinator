@@ -74,13 +74,16 @@
                                 <div layout="column">
                                     <span class="md-subhead">Education Required</span>
                                     <div layout="column" layout-padding>
-                                        <md-grid-list md-cols-xs="1" md-cols-sm="3" md-cols-gt-sm="5" md-row-height-xs="1:1" md-row-height-sm="1:1" md-row-height-gt-sm="1:1" md-gutter="4">
+                                        <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3" md-row-height-xs="1:1" md-row-height-sm="1:1" md-row-height-gt-sm="1:1" md-gutter="4">
                                             <md-grid-tile ng-repeat="education in job.educationRequired" class="headerSection">
                                                 <md-grid-tile-content>
+                                                    <md-icon class="material-icons">layers</md-icon>
                                                     <span>{{education.courseName}}</span>
                                                     <br>
+                                                    <md-icon class="material-icons">access_time</md-icon>
                                                     <span>Passed on {{education.yearOfPassing}}</span>
                                                     <br>
+                                                    <md-icon class="material-icons">content_cut</md-icon>
                                                     <span>Minimum {{education.minimumPercentage}}% aggregate </span>
                                                 </md-grid-tile-content>
                                             </md-grid-tile>
@@ -110,7 +113,7 @@
                         <div layout="column">
                             <span class="md-subhead">Employer Contact Details</span>
                             <div layout="column" layout-padding>
-                                <md-grid-list md-cols-sm="3" md-cols-xs="1" md-cols-gt-sm="3" md-row-height="1:1" md-gutter="4">
+                                <md-grid-list md-cols-sm="2" md-cols-xs="1" md-cols-gt-sm="3" md-row-height="1:1" md-gutter="4">
                                     <md-grid-tile ng-repeat="contacts in job.contactDetails" class="headerSection">
                                         <md-grid-tile-content layout-align="center center" layout-padding>
                                             <span><i class="material-icons">contacts</i>{{contacts.contactPerson}}</span>
