@@ -2,11 +2,13 @@ angular.module('samarth-coordinator').controller('candidateregistrationctrl',['$
 	'registrationservice',
 	'$state',
 	'professionservice',
-	function($scope,registrationservice,professionservice,$state) {
+	function($scope,registrationservice,$state,professionservice) {
 
 		console.log("Inside candidate register ");
+		
 		professionservice.getProfession().then(function(professions) {
-			$scope.profession = profession;
+			$scope.profession = professions.data;
+			console.log($scope.profession);
 		}),function(err) {
 			console.log("Cannot get the professions",err);
 		};
