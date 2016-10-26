@@ -22,7 +22,6 @@
                             </div>
                         </md-autocomplete>
                     </div>
-                    <div ng-hide="editDisabled"><a href="" ui-sref="index.registerEmployer">Not Register? Click here to register.</a></div>
                     <div layout="row">
                         <div flex="60" layout>
                             <md-icon flex="10" class="material-icons">label</md-icon>
@@ -43,7 +42,7 @@
                         <div ng-message="minlength">jobID should have atleast 4 letters</div>
                     </div>
                     <md-input-container class="md-block" md-no-float flex>
-                        <md-icon class="material-icons">layer</md-icon>
+                        <md-icon class="material-icons">layers</md-icon>
                         <label>Job Profession</label>
                         <input required name="jobProfession" ng-model="job.jobProfession" />
                         <div ng-messages="jobPosting.jobProfession.$error">
@@ -242,10 +241,10 @@
                             </md-input-container>
                         </div>
                     </div>
-                    <div layout="row" layout-align="center center" layout-padding>
+                    <div layout="row" layout-align="end center" layout-padding>
                         <md-button class="md-raised md-primary" ng-click="jobPosting.$valid && postJob()" type="submit" ng-show="postButtonShow">Post</md-button>
                         <md-button class="md-raised md-primary" ng-click="jobPosting.$valid && updateJob()" type="submit" ng-show="updateButtonShow">Update</md-button>
-                        <md-button class="md-warn" ui-sref="home">Cancel</md-button>
+                        <md-button class="md-raised" ui-sref="home">Cancel</md-button>
                     </div>
                 </form>
                 <div>

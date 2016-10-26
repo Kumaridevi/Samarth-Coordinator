@@ -7,8 +7,8 @@
 <div class="md-padding md-display-2" layout layout-align="center center">
     <span>{{message}}</span>
 </div>
-<div class="md-padding">
-    <div ng-repeat="job in jobs | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" class="md-padding">
+<div layout class="md-padding" layout-align="center center">
+    <div ng-repeat="job in jobs | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" class="md-padding" flex-gt-sm="45" flex-sm="100">
         <job-card data='{"jobID":job.jobID,"employerID":job.employer.employerID}'>
             <md-menu>
                 <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
