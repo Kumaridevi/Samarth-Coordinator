@@ -28,9 +28,10 @@ angular.module('samarth-coordinator')
         getProfession : function() {
             return $http({
                 method:'get',
-                url:'http://localhost:8081/candidate/professions'
+                url:'http://localhost:8081/candidate/profession'
             }).then(function success(professions) {
-                console.log("",professions);
+                console.log("from service",professions);
+
                 return professions;
             });
         }
