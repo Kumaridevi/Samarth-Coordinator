@@ -218,9 +218,9 @@ angular.module('samarth-coordinator')
     })
     .controller('Fullverifiy', function($scope, $mdDialog, candidatename, updated_on, perval, perrem, sklval, sklrem, qulval, qulrem, pjctval, pjctrem, wrkval, wrkrem) {
         //use them to make a new object
-        ;
 
 
+        $scope.comments = "";
         $scope.candidatename = candidatename;
         console.log(candidatename);
         $scope.updated_on = updated_on;
@@ -243,3 +243,5 @@ angular.module('samarth-coordinator')
             $mdDialog.cancel();
         };
     });
+//ontology
+//taxonomy

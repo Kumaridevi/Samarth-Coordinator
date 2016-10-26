@@ -26,57 +26,57 @@
                 <md-card-content>
                     <md-table-container>
                         <table md-table class="tableclass">
-                            <tr md-row>
-                                <div>
+                            <!--  <tr md-row> -->
+                            <!-- <div>
                                     <td flex="10" class="md-title">Criteria</td>
-                                </div>
-                                <div>
+                                </div> -->
+                            <!-- <div>
                                     <td flex layout-padding class="md-title">Remarks</td>
                                     <td flex layout-padding class="md-title">Ratings</td>
-                                </div>
-                            </tr>
+                                </div> -->
+                            <!--  </tr> -->
                             <tr md-row>
                                 <div>
-                                    <td flex="10">Personal Information</td>
+                                    <td flex="40">Personal Information</td>
                                 </div>
                                 <div>
-                                    <td flex layout-padding>{{perrem}}</td>
+                                    <!-- <td flex layout-padding>{{perrem}}</td> -->
                                     <td flex layout-padding>{{perval}}</td>
                                 </div>
                             </tr>
                             <tr md-row>
                                 <div>
-                                    <td flex="10">Skills</td>
+                                    <td flex="40">Skills</td>
                                 </div>
                                 <div>
-                                    <td flex layout-padding>{{sklrem}}</td>
+                                    <!--  <td flex layout-padding>{{sklrem}}</td> -->
                                     <td flex layout-padding>{{sklval}}</td>
                                 </div>
                             </tr>
                             <tr md-row>
                                 <div>
-                                    <td flex="10">Qualification</td>
+                                    <td flex="40">Qualification</td>
                                 </div>
                                 <div>
-                                    <td flex layout-padding>{{qulrem}}</td>
+                                    <!--  <td flex layout-padding>{{qulrem}}</td> -->
                                     <td flex layout-padding>{{qulval}}</td>
                                 </div>
                             </tr>
                             <tr md-row>
                                 <div>
-                                    <td flex="10">Project</td>
+                                    <td flex="40">Project</td>
                                 </div>
                                 <div>
-                                    <td flex layout-padding>{{pjctrem}}</td>
+                                    <!--   <td flex layout-padding>{{pjctrem}}</td> -->
                                     <td flex layout-padding>{{pjctval}}</td>
                                 </div>
                             </tr>
                             <tr md-row>
                                 <div>
-                                    <td flex="10">Work History</td>
+                                    <td flex="40">Work History</td>
                                 </div>
                                 <div>
-                                    <td flex layout-padding>{{wrkrem}}</td>
+                                    <!--  <td flex layout-padding>{{wrkrem}}</td> -->
                                     <td flex layout-padding>{{wrkval}}</td>
                                 </div>
                             </tr>
@@ -86,8 +86,22 @@
             </div>
         </md-card>
     </div>
-    <div layout="row">
-        <span flex></span>
+    <div layout="column">
+        <h4 layout-align="center center">Comments</h4>
+        <ul>
+            <li>
+                {{perrem}}</li>
+            <li> {{sklrem}}</li>
+            <li> {{qulrem}}</li>
+            <li> {{pjctrem}}</li>
+            <li> {{wrkrem}}</li>
+        </ul>
+        <!--  <label>
+            <md-input-container>
+                <textarea md-maxlength="20" rows="2" md-select-on-focus ng-model="comments"></textarea>
+            </md-input-container>
+        </label> -->
+        <!--  <span flex></span> -->
         <md-button ng-click="cancel()">
             Cancel
         </md-button>

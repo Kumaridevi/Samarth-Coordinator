@@ -1,6 +1,10 @@
 <div layout="row" layout-align="center center">
+    <div class="md-display-2" layout-margin>{{candidatename}}'s Profile</div>
 </div>
-<div layout="column">
+<div>
+    <md-button style="color:green" ng-click="showDialog(ev)">Full Verification Details</md-button>
+</div>
+<div layout="row" class="md-padding" layout-wrap>
     <my-personalinfocard candidateid="id">
         <verify>
             <md-button style="color:green" ng-click="showAdvanced($event,'Personal_Information')">Verify</md-button>
@@ -10,7 +14,7 @@
         <verify>
             <md-button style="color:green" ng-click="showAdvanced($event,'Skills')">Verify</md-button>
     </mysection-skill-card>
-    <my-educationcard candidateid="id">
+    <my-educationcard candidateid="id" flex="50">
         <verify>
             <md-button style="color:green" ng-click="showAdvanced($event,'Qualification')">Verify</md-button>
         </verify>
@@ -25,5 +29,4 @@
             <md-button style="color:green" ng-click="showAdvanced($event,'Work_History')">Verify</md-button>
         </verify>
     </my-workexperiencecard>
-    <md-button style="color:green" ng-click="showDialog(ev)">Full Verification Details</md-button>
 </div>
