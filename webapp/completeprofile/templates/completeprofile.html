@@ -1,18 +1,17 @@
-<div layout="row">
-    <div layout="column">
-        <div class="md-display-2" layout-gt-md flex="33" layout-margin>{{candidatename}}</div>
+<div layout="row" layout-wrap>
+    <div flex="80">
+        <div class="md-display-2">{{candidatename}}</div>
         <div class="md-padding">
             <div class="md-title">{{profession}}</div>
         </div>
     </div>
-    <!-- </div> -->
-    <div layout="row" class="md-padding" flex-offset="70">
+    <div layout="row" flex="20" class="md-padding">
         <verification-badge candidateid="id">
         </verification-badge>
     </div>
 </div>
-<div layout-padding flex-offset="85">
-    <md-link class=" md-no-ink fulllink " style="color:green " ng-click="showDialog(ev) ">Verification Details</md-link>
+<div>
+    <md-link class=" md-no-ink fulllink " style="color:green;margin-left: 81% " ng-click="showDialog(ev) ">Verification Details</md-link>
 </div>
 <div layout="row " layout-xs="column " layout-sm="column " class="md-padding " layout-wrap>
     <my-personalinfocard candidateid="id " flex="50 ">

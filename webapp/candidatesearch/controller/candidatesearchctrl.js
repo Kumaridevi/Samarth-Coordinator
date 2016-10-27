@@ -14,10 +14,12 @@ angular.module('samarth-coordinator')
             }
 
 
+            $scope.pagination = Pagination.getNew(5);
             allcandidateservice.allcandidates().then(function(response) {
                 $scope.results = response;
                 //console.log("all candidates ctrl",$scope.results[0].candidateid);
                 console.log(response);
+                $scope.pagination.numPages = Math.ceil($scope.results.length / $scope.pagination.perPage);
                 $state.go('index.candidatessearch.results');
             }, function(err) {
                 $scope.message = err;
@@ -32,19 +34,19 @@ angular.module('samarth-coordinator')
                     .then(function(candidates) {
                         $scope.results = candidates;
                         console.log("from ctrl", $scope.results);
+                        $scope.pagination.numPages = Math.ceil($scope.results.length / $scope.pagination.perPage);
                         $state.go('index.candidatessearch.results');
                     }, function(err) {
                         $scope.message = err;
                     })
             }
-            $scope.pagination = Pagination.getNew(5);
 
 
             $scope.search = function(text) {
 
                 var arr = text.split(/[ ,]+/);
                 // if($stateParams.circleName && $stateParams.circleDomain){
-                // 	arr.push($stateParams.circleName);	
+                //  arr.push($stateParams.circleName);  
                 // }
 
                 parseservice.parsetext(arr).then(function(results) {
