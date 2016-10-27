@@ -2,32 +2,32 @@ angular.module('samarth-coordinator').service('candidateservice', ['$http', func
 
     return {
         getcandidatedata: function(circle) {
-            console.log("Found in circle service",circle);
+            console.log("Found in circle service", circle);
             return $http({
                 method: 'get',
-                url: 'http://localhost:8081/skillcard/searchcandidate/'+ circle,
+                url: 'http://localhost:8081/skillcard/searchcandidate/' + circle,
             }).then(function success(response) {
-                console.log("from service",response.data);
+                console.log("from service", response.data);
                 return response.data;
             }, function error(err) {
-                console.log("error",err);
+                console.log("error", err);
             });
         }
     }
 }]);
 
 angular.module('samarth-coordinator').service('parseservice', ['$http', function($http) {
-    return{
+    return {
 
         parsetext: function(arr) {
             return $http({
-                method:'post',
-                url:'http://localhost:8081/candidate/parse',
-                data:arr
+                method: 'post',
+                url: 'http://localhost:8081/candidate/parse',
+                data: arr
             }).then(function success(response) {
-                console.log("parsetext",response.data);
+                console.log("parsetext", response.data);
                 return response.data;
-            },function error(err) {
+            }, function error(err) {
                 console.log(err);
             });
         }
@@ -44,11 +44,12 @@ angular.module('samarth-coordinator').service('parseservice', ['$http', function
 
         allcandidates: function() {
             return $http({
-                method:'get',
-                url:'http://localhost:8081/skillcard/allcandidates',
+                method: 'get',
+                url: 'http://localhost:8081/skillcard/allcandidates',
             }).then(function success(response) {
-                console.log("all candidates service",response.data.results);
-            },function error(err) {
+                console.log("all candidates service", response.data.results);
+                return response.data.results;
+            }, function error(err) {
                 console.log(err);
             });
         }
