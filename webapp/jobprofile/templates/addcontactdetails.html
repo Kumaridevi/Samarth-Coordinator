@@ -1,0 +1,27 @@
+<md-dialog flex="50" class="md-padding" layout layout-align="center center">
+    <form name="addContact">
+        <md-dialog-content>
+            <div layout="column">
+                <md-input-container class="md-block">
+                    <md-icon class="material-icons">contacts</md-icon>
+                    <label>Contact Person Name</label>
+                    <input ng-model="newContact.contactPerson" name="contactPerson" required>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-icon class="material-icons">contact_phone</md-icon>
+                    <label>Contact Number</label>
+                    <input ng-model="newContact.contactNumber" name="contactNumber" pattern="[0-9]{10}" required>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-icon class="material-icons">contact_mail</md-icon>
+                    <label>Contact Email ID</label>
+                    <input type="email" ng-model="newContact.emailID" name="emailID" required>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="md-primary" ng-click='addNew() && addContact.$valid'>Add</md-button>
+            <md-button class="md-primary" ng-click="cancel()">Cancel</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

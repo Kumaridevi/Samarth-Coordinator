@@ -1,0 +1,256 @@
+<div layout layout-align="center center">
+    <md-card>
+        <md-card-header class="headerSection" layout layout-align="center center">
+            <span class="md-display-2">Job Registration</span>
+        </md-card-header>
+        <div layout="row" layout-padding>
+            <div flex layout="column">
+                <form name="jobPosting" layout-align="center center">
+                    <div layout flex>
+                        <md-icon flex="10" class="material-icons">business</md-icon>
+                        <md-autocomplete flex="90" md-input-name="companyName" md-selected-item="company" md-search-text="searchCompany" md-items="company in Querycompanies(searchCompany)" md-item-text="company.employerName" md-selected-item-change="selectedCompany(company)" md-floating-label="Employer Name" md-require-match required md-min-length="2" placeholder="Search company here(first 2 letter)" ng-disabled="editDisabled">
+                            <md-item-template>
+                                <span md-highlight-text="searchCompany" md-highlight-flags="^i">{{company.employerName}}({{company.employerID}})</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No company matching "{{searchCompany}}" were found.
+                            </md-not-found>
+                            <div ng-messages="jobPosting.companyName.$error">
+                                <div ng-message="required">You <b>must</b> select the company.</div>
+                                <div ng-message="md-require-match">Please select an existing company.</div>
+                                <div ng-message="minlength">Your entry is not long enough to search.</div>
+                            </div>
+                        </md-autocomplete>
+                    </div>
+                    <div layout="row">
+                        <div flex="60" layout>
+                            <md-icon flex="10" class="material-icons">label</md-icon>
+                            <div flex="90">
+                                <md-input-container flex>
+                                    <label>Job Code</label>
+                                    <input required name="jobID" ng-model="job.jobID" ng-disabled="editDisabled || jobPosting.companyName.$pristine || jobPosting.companyName.$invalid" ng-change="checkAvailabilitilty()" ng-minlength="4" />
+                                </md-input-container>
+                            </div>
+                        </div>
+                        <div flex="40">
+                            <span ng-show="availableShow" class="available"><i class="material-icons">verified_user</i>Job ID is Available</span>
+                            <span ng-show="notAvailableShow" class="notAvailable"><i class="material-icons">security</i>Please try any other jobID</span>
+                        </div>
+                    </div>
+                    <div ng-messages="jobPosting.jobID.$error && jobPosting.jobID.$touched">
+                        <div ng-message="required">Job ID is required.</div>
+                        <div ng-message="minlength">jobID should have atleast 4 letters</div>
+                    </div>
+                    <md-input-container class="md-block" md-no-float flex>
+                        <md-icon class="material-icons">layers</md-icon>
+                        <label>Job Profession</label>
+                        <input required name="jobProfession" ng-model="job.jobProfession" />
+                        <div ng-messages="jobPosting.jobProfession.$error">
+                            <div ng-message="required">Please specify the job role</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" md-no-float flex>
+                        <md-icon class="material-icons">school</md-icon>
+                        <label>Job Role</label>
+                        <input required name="jobRole" ng-model="job.jobRole" />
+                        <div ng-messages="jobPosting.jobRole.$error">
+                            <div ng-message="required">Please specify the job role</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" md-no-float flex>
+                        <md-icon class="material-icons">group_work</md-icon>
+                        <label>Job Department</label>
+                        <input required name="departmentName" ng-model="job.departmentName" />
+                        <div ng-messages="jobPosting.departmentName.$error">
+                            <div ng-message="required">Please enter the department.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" md-no-float flex>
+                        <md-icon class="material-icons">assignment_ind</md-icon>
+                        <label>Role Description</label>
+                        <textarea ng-model="job.roleDescription"></textarea>
+                    </md-input-container>
+                    <md-input-container class="md-block" md-no-float flex>
+                        <md-icon class="material-icons">location_on</md-icon>
+                        <label>Location</label>
+                        <input required name="location" ng-model="job.jobLocation" />
+                        <div ng-messages="jobPosting.location.$error">
+                            <div ng-message="required">Please specify the location of the job</div>
+                        </div>
+                    </md-input-container>
+                    <md-divider></md-divider>
+                    <div layout="column" class="md-padding">
+                        <label>Skills Required</label>
+                        <div layout="row" flex>
+                            <div flex-gt-xs="90" flex layout-gt-xs="row" layout-xs="column">
+                                <md-chips ng-model="job.skillsRequired" md-removable='false' required>
+                                    <md-chip-template layout="row" layout-align="start center">
+                                        <strong>{{$chip.skillName}}</strong>
+                                        <em>({{$chip.experience}}months)</em>
+                                        <span ng-click="removeSkill($chip)"><i class="material-icons">cancel</i></span>
+                                    </md-chip-template>
+                                </md-chips>
+                                <md-button class="md-icon-button" ng-click="addNewSkill($event)">
+                                    <md-tooltip md-direction="right">
+                                        Click to add Skill
+                                    </md-tooltip>
+                                    <md-icon class="material-icons">add_circle</md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout-gt-xs layout-xs="column">
+                        <md-input-container class="md-block" md-no-float flex>
+                            <md-icon class="material-icons">next_week</md-icon>
+                            <label>Salary offered : (per month) &#8377; </label>
+                            <input required name="salaryOffered" ng-model="job.salaryOffered" />
+                            <div ng-messages="jobPosting.salaryOffered.$error">
+                                <div ng-message="required">Please specify the salary offering for the job</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>Enter Last date to apply</label>
+                            <md-datepicker ng-model="job.jobLastDate" name="jobLastDate" md-min-date="minDate" required></md-datepicker>
+                            <div ng-messages="jobPosting.jobLastDate.$error" ng-show="jobPosting.jobLastDate.$invalid">
+                                <div ng-message="valid">The entered value is not a date!</div>
+                                <div ng-message="required">The last date is required!</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout="row" flex>
+                        <md-input-container class="md-block" flex="50">
+                            <md-icon class="material-icons">donut_small</md-icon>
+                            <label>Experience year</label>
+                            <input required name="experienceYear" ng-model="job.experience.experienceYear" pattern="[0-9]*" />
+                            <div ng-messages="jobPosting.experienceYear.$error">
+                                <div ng-message="required">Please specify the experience year required for the job</div>
+                                <div ng-message="pattern">Please enter a number</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block=" flex="50">
+                            <md-icon class="material-icons">donut_large</md-icon>
+                            <label>Experience month</label>
+                            <input required name="experienceMonth" ng-model="job.experience.experienceMonth" pattern="[0-9]*" />
+                            <div ng-messages="jobPosting.experienceMonth.$error">
+                                <div ng-message="required">Please specify the experience month required for the job</div>
+                                <div ng-message="pattern">Please enter a number</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <md-divider></md-divider>
+                    <div flex layout="column">
+                        <span>Eligibility required</span>
+                        <div layout="row">
+                            <div flex="5"></div>
+                            <div flex="95">
+                                <div layout="column">
+                                    <span>Education Required</span>
+                                    <div layout="column" layout-padding>
+                                        <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3" md-row-height-xs="1:1" md-row-height-sm="1:1" md-row-height-gt-sm="1:1" md-gutter="4">
+                                            <md-grid-tile ng-repeat="education in job.educationRequired" class="headerSection">
+                                                <md-grid-tile-content>
+                                                    <div layout="column">
+                                                        <div layout layout-align="end start">
+                                                            <i class="material-icons">close</i>
+                                                        </div>
+                                                        <div class="md-block">
+                                                            <md-icon class="material-icons">layers</md-icon>
+                                                            <span>{{education.courseName}}</span>
+                                                        </div>
+                                                        <div class="md-block">
+                                                            <md-icon class="material-icons">access_time</md-icon>
+                                                            <span>Passed on {{education.yearOfPassing}}</span>
+                                                        </div>
+                                                        <div class="md-block">
+                                                            <md-icon class="material-icons">content_cut</md-icon>
+                                                            <span>Minimum {{education.minimumPercentage}}% aggregate </span>
+                                                        </div>
+                                                    </div>
+                                                </md-grid-tile-content>
+                                            </md-grid-tile>
+                                        </md-grid-list>
+                                        <md-button class="md-icon-button" ng-click="addNewEducationDetails($event)">
+                                            <md-tooltip md-direction="right">
+                                                Click to add Education details
+                                            </md-tooltip>
+                                            <md-icon class="material-icons">add_circle</md-icon>
+                                        </md-button>
+                                    </div>
+                                    <md-divider></md-divider>
+                                    <span class="md-subhead">Certification Required</span>
+                                    <div layout="row">
+                                        <md-chips ng-model="job.certificationRequired" md-transform-chip="newCertification($chip)" md-removable="false">
+                                            <md-chip-template>
+                                                <span layout="row" layout-align="start center">
+                                    <strong>{{$chip}}</strong>
+                                    <span ng-click="removeCertification($chip)"><i class="material-icons">cancel</i></span>
+                                                </span>
+                                            </md-chip-template>
+                                        </md-chips>
+                                        <md-button class="md-icon-button" ng-click="addNewCertification($event)">
+                                            <md-tooltip md-direction="right">
+                                                Click to add Certification name
+                                            </md-tooltip>
+                                            <md-icon class="material-icons">add_circle</md-icon>
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+                    <div layout="column">
+                        <md-input-container class="md-block" flex>
+                            <md-icon class="material-icon">group</md-icon>
+                            <label>About Employer</label>
+                            <textarea ng-model="job.employer.aboutEmployer" readonly="true"></textarea>
+                        </md-input-container>
+                        <div layout="row">
+                            <div flex="5"></div>
+                            <div flex="95">
+                                <div layout="column">
+                                    <span class="md-subhead">Employer Contact Details</span>
+                                    <div layout="column" layout-padding>
+                                        <md-grid-list md-cols-sm="2" md-cols-xs="1" md-cols-gt-sm="3" md-row-height="1:1" md-gutter="4">
+                                            <md-grid-tile ng-repeat="contacts in job.contactDetails" class="headerSection">
+                                                <md-grid-tile-content layout="column" layout-align="center start">
+                                                    <span layout="row"><i class="material-icons">contacts</i>&nbsp;{{contacts.contactPerson}}</span>
+                                                    <br>
+                                                    <span layout="row"><i class="material-icons">contact_phone</i>&nbsp;{{contacts.contactNumber}}</span>
+                                                    <br>
+                                                    <span layout="row"><i class="material-icons">contact_mail</i>&nbsp;{{contacts.emailID}}</span>
+                                                </md-grid-tile-content>
+                                            </md-grid-tile>
+                                        </md-grid-list>
+                                        <md-button class="md-icon-button" ng-click="addContactDetails($event)">
+                                            <md-tooltip md-direction="right">
+                                                Click to add Contact details
+                                            </md-tooltip>
+                                            <md-icon class="material-icons">add_circle</md-icon>
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <md-divider></md-divider>
+                        <div layout="column">
+                            <md-input-container>
+                                <md-icon class="material-icons">info</md-icon>
+                                <label>Any other Information</label>
+                                <textarea name="" ng-model="job.anyOtherInformation"></textarea>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div layout="row" layout-align="end center" layout-padding>
+                        <md-button class="md-raised md-primary" ng-click="jobPosting.$valid && postJob()" type="submit" ng-show="postButtonShow">Post</md-button>
+                        <md-button class="md-raised md-primary" ng-click="jobPosting.$valid && updateJob()" type="submit" ng-show="updateButtonShow">Update</md-button>
+                        <md-button class="md-raised" ui-sref="home">Cancel</md-button>
+                    </div>
+                </form>
+                <div>
+                    <p>{{message}}</p>
+                </div>
+            </div>
+        </div>
+    </md-card>
+</div>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Samarth-Coordinator | NIIT Foundation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="samarth-webcomponents/skillcard/css/skillcard.css">
+    <link rel="stylesheet" type="text/css" href="angular-material/angular-material.css">
+    <link rel="stylesheet" href="google-material-icons/dist/material-icons-font.css">
+    <link rel="stylesheet" href="home/css/style.css">
+    <link rel="stylesheet" href="samarth-webcomponents/rubric/css/style.css">
+    <!-- jobprofile style sheet -->
+    <link rel="stylesheet" type="text/css" href="jobprofile/css/style.css">
+    <link rel="stylesheet" type="text/css" href="completeprofile/css/style.css">
+    <!-- employer registration style sheet -->
+    <link rel="stylesheet" type="text/css" href="employerregistration/css/style.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionprojectcard/css/sectionprojectcard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionseducationcard/css/sectionseducationcard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionskillcard/css/sectionskillcard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionworkexperiencecard/css/workexpriencecard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionpersonalinfocard/css/sectionpersonalinfocard.css">
+    <link rel="stylesheet" type="text/css" href="samarth-webcomponents/jobcard/css/style.css">
+</head>
+
+<body ng-app="samarth-coordinator" ng-controller="approotctrl" ng-cloak>
+    <div ui-view="appbar"></div>
+    <div ui-view="content" layout-fill></div>
+    <div ui-view="footer"></div>
+    <!-- Vendor Scripts -->
+    <script type="text/javascript" src="angular/angular.js"></script>
+    <script src="angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script type="text/javascript" src="angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="angular-aria/angular-aria.js"></script>
+    <script src="angular-messages/angular-messages.min.js"></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="moment/min/moment.min.js"></script>
+    <script src="angular-moment/angular-moment.js"></script>
+    <script type="text/javascript" src="html2canvas/build/html2canvas.js"></script>
+    <script type="text/javascript" src="ng-simplePagination/simplePagination.js"></script>
+    <!-- Samarth-Coordinator Scripts -->
+    <script type="text/javascript" src="samarthcoordinator.js"></script>
+    <script src="home/controllers/approotctrl.js"></script>
+    <!-- Auth module -->
+    <script src="auth/authroute.js"></script>
+    <script src="auth/services/signinfactory.js"></script>
+    <script src="auth/controllers/signinctrl.js"></script>
+    <script src="auth/controllers/signoutctrl.js"></script>
+    <script src="auth/services/userinterceptor.js"></script>
+    <!-- Coordinator module -->
+    <script src="coordinator/coordinateroute.js"></script>
+    <script src="coordinator/controllers/crdtrdashboardctrl.js"></script>
+    <script src="coordinator/services/sidenavfactory.js"></script>
+    <!--candidatesearch module-->
+    <script type="text/javascript" src="candidatesearch/candidatesearch.js"></script>
+    <script type="text/javascript" src="candidatesearch/controller/candidatesearchctrl.js"></script>
+    <script type="text/javascript" src="candidatesearch/services/candidatesearchservice.js"></script>
+    <!-- JobProfile js files -->
+    <script type="text/javascript" src="jobprofile/services/jobprofileservices.js"></script>
+    <script type="text/javascript" src="jobprofile/controllers/jobpostcontroller.js"></script>
+    <script type="text/javascript" src="jobprofile/controllers/jobeditcontroller.js"></script>
+    <script type="text/javascript" src="jobprofile/controllers/jobprofilecontroller.js"></script>
+    <script type="text/javascript" src="jobprofile/jobprofile.js"></script>
+    <!-- Job search js files -->
+    <script type="text/javascript" src="jobsearch/services/jobsearchservices.js"></script>
+    <script type="text/javascript" src="jobsearch/controllers/jobsearchcontroller.js"></script>
+    <script type="text/javascript" src="jobsearch/jobsearch.js"></script>
+    <!-- employer register js files -->
+    <script type="text/javascript" src="employerregistration/employerregistration.js"></script>
+    <script type="text/javascript" src="employerregistration/controller/employeeregistrationctrl.js"></script>
+    <script type="text/javascript" src="employerregistration/services/employerservice.js"></script>
+    <!-- candidate registration -->
+    <script type="text/javascript" src="candidateregistration/candidateregistration.js"></script>
+    <script type="text/javascript" src="candidateregistration/controller/candidateregistrationctrl.js"></script>
+    <script type="text/javascript" src="candidateregistration/services/registrationservice.js"></script>
+    <!-- coordinator Module -->
+    <script type="text/javascript" src="coordinatorregistration/coordinatorroute.js"></script>
+    <script type="text/javascript" src="coordinatorregistration/controller/coordinatorCtrl.js"></script>
+    <!-- complete profile -->
+    <script type="text/javascript" src="completeprofile/services/candidateprofileservice.js">
+    </script>
+    <script type="text/javascript" src="completeprofile/controller/completeprofileCtrl.js"></script>
+    <script type="text/javascript" src="completeprofile/completeprofile.js"></script>
+    <!--Samarth-Webcomponents Scripts-->
+    <script type="text/javascript" src="samarth-webcomponents/samarth-webcomponents.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/skillcard/skillcard.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/skillcard/services/skillcardservice.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/rubric/rubriccomponent.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/jobcard/services/blob.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/jobcard/jobcard.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/jobcard/services/jobcardservices.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/rubric/services/rubricservice.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionpersonalinfocard/sectionpersonalinfocard.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionpersonalinfocard/services/sectionpersonalinfoservice.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionseducationcard/sectionseducationcard.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionseducationcard/services/sectioneducationservice.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionskillcard/sectionskillcard.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionskillcard/services/sectionskillservices.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionprojectcard/sectionprojectcard.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionprojectcard/services/sectionprojectservice.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionworkexperiencecard/sectionworkexperiencecard.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/sectionworkexperiencecard/service/sectionworkexperience.js"></script>
+    <script type="text/javascript" src="coordinator/services/circlesGetService.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/circle/circleCtrl.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/verificationbadge/services/verificationbadgeservice.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/verificationbadge/verificationbadge.js"></script>
+    <script type="text/javascript" src="samarth-webcomponents/skillcard/services/blob.js"></script>
+    <!-- Home module should come almost towards end, as it might be dependent on many other modules -->
+    <script src="home/homeroute.js"></script>
+    <script src="home/controllers/indexctrl.js"></script>
+    <script src="home/controllers/appbarctrl.js"></script>
+</body>
+
+</html>

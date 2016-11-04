@@ -1,0 +1,87 @@
+<div layout layout-align="center center" md-pading>
+	<md-card flex="40" flex-xs="100"  md-padding>
+
+		<div layout layout-align="center center">
+			<span class="md-display-1" hide-xs>Candidate Registration</span>
+			<span class="md-headline"  hide-gt-md hide-gt-xs>Candidate Registration</span>
+		</div>
+
+		<md-card-content md-padding>
+
+			<form name="registrationform" layout-gt-xs="column"  layout-align="center center">
+				
+				<div>
+					<md-input-container md-no-float class="md-block">
+						<md-icon class="material-icons"> person</md-icon>
+						<label>Name</label>
+						<input name="name" required ng-model="user.name" md-maxlength="25" md-minlength="5" md-select-on-focus>
+						<div ng-messages="registrationform.name.$error">
+							<div ng-message="required">Plese tell us  your name </div>
+							<div ng-message="md-maxlength">Your name is too long</div>
+							<div ng-message="md-minlength">Your name is too short</div>
+						</div>
+					</md-input-container>
+				</div>
+
+				<div>
+					<md-input-container md-no-float class="md-block">
+
+						<md-icon class="material-icons">phone</md-icon>
+						<label>Mobile</label>
+						<input name="phone" required ng-model="user.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+						<div ng-messages="registrationform.phone.$error">
+							<div ng-message="pattern">Please enter a valid phone number.</div>
+							<div ng-message="required">Please provide a  phone number</div>
+						</div> 
+					</md-input-container>
+				</div>
+
+				<div>
+					<md-input-container md-no-float class="md-block">
+						<md-icon class="material-icons"> email</md-icon>
+
+						<label>Email</label>
+						<input type="email" name="email" ng-model="user.email" required ng-pattern="/^.+@.+\..+$/">
+						<div ng-messages="registrationform.email.$error">
+							<div  ng-message="required">Please provide a email ID</div>
+							<div  ng-message="pattern">Please provide a valid email ID</div>
+							<div ng-message="email">Please provide a valid email ID</div>
+
+						</div>	
+					</md-input-container>
+				</div>
+
+				<div>
+					<md-input-container md-no-float class="md-block">
+						<md-icon class="material-icons"> place</md-icon>
+						<label>Location</label>
+						<input type="text" name="location" required ng-model="user.location">
+						<div ng-messages="registrationform.location.$error">
+							<div ng-message="required">Please tell us your location</div>
+						</div>
+					</md-input-container>
+				</div>
+
+				<div>
+					<md-input-container md-no-float class="md-block">
+						<label>Profession</label>
+						<md-icon class="material-icons">work</md-icon>
+						
+						<md-select ng-model="selected" placeholder="select a profession">
+							<md-option ng-value=selected ng-repeat="selected in profession">{{selected.professions}}</md-option>
+						</md-select>
+					</md-input-container>
+				</div> 
+			</md-card-content>
+			<md-card-actions layout="row" layout-align="center center">
+				<md-button type="submit" ng-click="signup()" aria-label="registercandidate" class="md-primary md-raised">
+					Register
+				</md-button>
+			</md-card-actions>
+			<span ng-model="signUpStatus" style="color:blue">{{signUpStatus}}</span>
+			<span ng-model="signUpStatus" style="color:red">{{error}}</span>
+
+		</form>
+
+	</md-card>
+</div>

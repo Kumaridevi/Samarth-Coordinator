@@ -1,0 +1,36 @@
+<div ng-repeat="job in jobs" class="md-padding">
+    <job-card data='{"jobID":job.jobID,"employerID":job.employer.employerID}'>
+        <badges>
+            <p>Not verified</p>
+        </badges>
+        <cardactions>
+            <md-menu>
+                <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
+                    <md-icon class="material-icons">more horiz</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ui-sref="index.jobProfileView({jobID:'{{job.jobID}}',employerID:'{{job.employer.employerID}}'})">
+                            View profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Verify profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Show Similar profiles
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Add to Circles
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </cardactions>
+    </job-card>
+</div>

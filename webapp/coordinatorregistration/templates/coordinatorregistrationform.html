@@ -1,0 +1,106 @@
+<div>
+    <md-content>
+        <!-- <div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"></div>
+        <div data-ng-show="progress.active()"> Sending… </div> -->
+        <form name="registrationform" layout="column" layout-align="center center" ng-submit="signin(coordinator)">
+            <md-toolbar layout="row">
+                <div class="md-toolbar-tools" layout-align="center center">
+                    <h2>Add Coordinator</h2>
+                </div>
+            </md-toolbar>
+            <div layout="row">
+                <md-input-container md-no-float class="md-block">
+                    <md-icon class="material-icons"> person</md-icon>
+                    <label>Name</label>
+                    <input type="text" ng-minlength="1" ng-maxlength="30" name="name" required ng-model="coordinator.name">
+                    <div ng-messages="registrationform.name.$error">
+                        <div ng-message="required">Plese provide username </div>
+                        <div ng-if="!registrationform.name.$valid">User name should be max of 30 characters</div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block" layout="row">
+                    <md-icon class="material-icons"> email</md-icon>
+                    <label>Email</label>
+                    <input type="text" name="email" ng-model="coordinator.email" required ng-pattern="/^.+@.+\..+$/">
+                    <div ng-messages="registrationform.email.$error">
+                        <div ng-message="required">Please provide a email ID</div>
+                        <div ng-message="pattern">Please provide a valid email ID</div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <md-icon class="material-icons">phone</md-icon>
+                    <label>Mobile</label>
+                    <input name="phone" required ng-model="coordinator.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+                    <div ng-messages="registrationform.phone.$error">
+                        <div ng-message="pattern">Please enter a valid phone number.</div>
+                        <div ng-message="required">Please provide a phone number</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container md-no-float class="md-block" layout="row">
+                    <label>password</label>
+                    <md-icon class="material-icons">lock</md-icon>
+                    <input ng-model="coordinator.pwd" type="password" name="password" required md-no-asterisk ng-required="true" minlength="8" maxlength="20" ng-pattern="/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^*()_+])[A-Za-z\d][A-Za-z\d!@#$%^*()_+]{7,19}$/">
+                    <div flex layout-align="right" ng-messages="registrationform.password.$error" class="error" role="alert">
+                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Password should be 8-20 characters </div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block" layout="row">
+                    <md-icon class="material-icons"> place</md-icon>
+                    <label>Location</label>
+                    <input type="text" name="location" required ng-model="coordinator.location">
+                    <div ng-messages="registrationform.location.$error">
+                        <div ng-message="required">Please enter your location</div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block" layout="row">
+                    <md-icon class="material-icons"> perm_identity</md-icon>
+                    <label>Select Profession</label>
+                    <md-select ng-model="selectedprof" placeholder="select a profession">
+                        <md-option ng-value=selectedprof ng-repeat="selectedprof in professions">{{selectedprof.professions}}</md-option>
+                    </md-select>
+                    <div ng-messages="registrationform.profession.$error">
+                        <div ng-message="required">Please select a profession.</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container md-no-float class="md-block" layout="row">
+                    <md-icon class="material-icons"> perm_identity</md-icon>
+                    <label>Select Role</label>
+                    <md-select ng-model="coordinator.role" value={{coordinator.role}}>
+                        <md-option value='coordinator'>
+                            Coordinator
+                        </md-option>
+                    </md-select>
+                    <div ng-messages="registrationform.role.$error">
+                        <div ng-message="required">Please select a role.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block" layout="row">
+                    <md-icon class="material-icons">supervisor_account</md-icon>
+                    <label>Gender</label>
+                    <md-select ng-model="coordinator.gender" value={{coordinator.gender}}>
+                        <md-option value='Male'>
+                            Male
+                        </md-option>
+                        <md-option value="Female">
+                            Female
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div layout-align="start">
+                <md-button type="submit" class="md-primary md-raised">
+                    Register
+                </md-button>
+                <p ng-model="status" style="color:red">{{status}}</p>
+            </div>
+            <div layout-align="start">
+                <a ui-sref="index">SIGN_IN</a>
+                <!-- <md-button class="button" ng-click="reset()">Reset</md-button> -->
+            </div>
+        </form>
+    </md-content>
+</div>

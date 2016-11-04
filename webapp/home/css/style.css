@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+
+body {
+    font-family: "Lato thin", "Open Sans", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
+    font-size: auto;
+    margin: auto;
+    /*background: url("../images/back5.jpg");*/
+}
+
+
+/*html {
+    background: url(../images/back5.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+*/
+
+
+/*.transparent {
+    background-color: transparent;
+    opacity: 0.7;
+
+}*/
+
+.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+    color: white;
+}
+
+.carddemoBasicUsage .card-media {
+    background-color: #999999;
+}
+
+
+/*.load {
+    background: url("../images/signin.jpg") no-repeat;
+    background-size: cover;
+}*/
+
+.loginform {
+    background-color: rgb(255, 255, 255);
+}
+
+
+/*.appbar {
+    position: fixed;
+}*/
+
+.main {
+    background-color: yellowgreen;
+    /*background: url("../images/img2.jpg") no-repeat;*/
+    /*background-size: cover;*/
+}
+
+
+/*.titletext {
+    text-align: center;
+    font-size: 50px;
+}*/
+
+
+/*.welcome {
+    background: url("../images/welcomeImg.jpg") no-repeat;
+    background-size: cover;
+}*/
+
+.appfooter {
+    background: #545454;
+    color: #919191;
+    padding: 5px;
+    /*margin-top: 100px;*/
+}
+
+
+/*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);*/
+
+
+/*body {*/
+
+
+/*font-family: "Lato";*/
+
+
+/*    font-family: "Open Sans";
+    color: #666;
+}*/
