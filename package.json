@@ -4,7 +4,8 @@
   "description": "Client for Samarth Platform, provides clientside interface for Placement Coordinator",
   "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "lint": "node node_modules/gulp/bin/gulp.js lint"
   },
   "repository": {
     "type": "git",
