@@ -1,9 +1,10 @@
 var http = require('http');
 var express = require('express');
 var path = require('path');
+let proxy = require('http-proxy');
 var favicon = require('serve-favicon');
 var morgan = require('morgan');
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 
@@ -14,8 +15,13 @@ var apiauthroute = require('./webserver/authenticate/routes');
 // var authByToken = require('./webserver/auth/authbytoken');
 
 //Express App created
+let resourcebundle = require('./webserver/resourcebundle/resourcebundlerouter.js');
 var app = express();
+
 mongoose.connect('mongodb://localhost:27017/samarthplatformdb');
+
+// Creating proxy object
+let platformProxy = proxy.createProxyServer();
 
 app.onAppStart = function(addr) {
 
@@ -24,10 +30,10 @@ app.onAppStart = function(addr) {
 }
 
 app.use(morgan('dev'));
-app.use(bodyParser.json());
+/*app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
-}));
+}));*/
 // app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'bower_components')));
@@ -65,8 +71,30 @@ app.use(express.static(path.join(__dirname, 'webapp')));
 
 //     }
 // });
-
+app.use('/resource', resourcebundle);
 app.use('/auth', apiauthroute);
+
+/* ============================================
+=            proxy implementation            =
+============================================*/
+
+// The below app route config should be placed after all the local resources have ended
+app.use('/', function(req, res) {
+    let options = {
+        target: {
+            host: 'localhost',
+            port: 8081
+        }
+    };
+    platformProxy.web(req, res, options);
+});
+
+platformProxy.on('error', function(err, req, res) {
+    console.error('Error in proxy pass: ', err);
+});
+
+
+/* =====  End of proxy implementation  ======*/
 
 app.use(function(req, res, next) {
     var err = new Error('Resource not found');

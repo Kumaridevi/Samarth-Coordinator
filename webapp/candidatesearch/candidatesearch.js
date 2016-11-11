@@ -4,6 +4,7 @@ angular.module('samarth-coordinator')
 
         $stateProvider
         .state('index.candidatessearch', {
+            
             url: '/candidatessearch/:circleDomain?circleName',
             views: {
                 "appbar@": {
