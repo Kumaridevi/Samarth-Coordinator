@@ -14,7 +14,7 @@ angular.module('samarth-coordinator')
             }
 
 
-            $scope.pagination = Pagination.getNew(5);
+            $scope.pagination = Pagination.getNew(4);
             allcandidateservice.allcandidates().then(function(response) {
                 $scope.results = response;
                 //console.log("all candidates ctrl",$scope.results[0].candidateid);
