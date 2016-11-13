@@ -45,15 +45,14 @@ angular.module('samarth-coordinator')
 
             $scope.search = function(text) {
 
-                var arr = text.split(/[ ,]+/);
+                //var arr = text.split(/[ ,]+/);
                 // if($stateParams.circleName && $stateParams.circleDomain){
                 //  arr.push($stateParams.circleName);  
                 // }
                 
-                parseservice.parsetext(arr).then(function(results) {
+                parseservice.parsetext(text).then(function(results) {
 
                     $scope.results = results;
-                    
                     $scope.pagination.numPages = Math.ceil(results.length / $scope.pagination.perPage);
                 }, function err(err) {
                     $scope.message = err;

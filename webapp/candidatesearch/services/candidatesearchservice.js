@@ -22,13 +22,14 @@ angular.module('samarth-coordinator').service('parseservice', ['$http', function
         parsetext: function(arr) {
             return $http({
                 method: 'post',
-                url: 'http://localhost:8081/candidate/parse',
-                data: arr
+                url: '/candidate/search',
+                data: {searchquery:arr}
             }).then(function success(response) {
                 console.log("parsetext", response.data);
                 return response.data;
             }, function error(err) {
                 console.log(err);
+                return [];
             });
         }
     }
