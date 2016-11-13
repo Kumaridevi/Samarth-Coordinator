@@ -4,12 +4,18 @@ var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var apiRoutes = require('express').Router();
 var authByToken = require("./authbytoken");
+let bodyParser = require('body-parser');
+
+var jsonBodyParser = bodyParser.json();
+var urlEncodedParser = bodyParser.urlencoded({
+    extended: false
+});
 
 // var login = mongoose.model('login', UserModel.login);
 var sidenavcontent = mongoose.model('sidenavcontent', UserModel.sidenavcontent);
 
 //Effective url /auth/user/
-apiRoutes.post('/user/', function(req, res) {
+apiRoutes.post('/user/',jsonBodyParser,urlEncodedParser, function(req, res) {
 
     if (!req.body.email || !req.body.pwd) {
         res.json({
@@ -52,7 +58,9 @@ apiRoutes.post('/user/', function(req, res) {
 }); // signin post ends
 
 //Effective url /auth/role/:role
-apiRoutes.get('/role/:role', function(req, res) {
+apiRoutes.get('/role/:role',jsonBodyParser,urlEncodedParser, function(req, res) {
+
+    console.log(req.params.role);
 
     if (!req.params.role) {
         res.json({
@@ -81,7 +89,7 @@ apiRoutes.get('/role/:role', function(req, res) {
 }); // get sidenav ends
 
 //Effective url /auth/signout/
-apiRoutes.get('/signout/', function(req, res) {
+apiRoutes.get('/signout/',jsonBodyParser,urlEncodedParser, function(req, res) {
     res.json({ message: 'Signing out...' });
 
 });
