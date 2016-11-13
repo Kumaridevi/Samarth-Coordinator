@@ -43,6 +43,7 @@ angular.module('samarth-coordinator')
     .then(function success(response) {
                 //console.log(response);
                 $scope.professions = response.data;
+                console.log("----------",$scope.professions);
             }, function error(error) {
                 console.log("Error on inserting data");
             });
