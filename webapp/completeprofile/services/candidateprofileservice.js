@@ -4,16 +4,17 @@ angular.module('samarth-coordinator')
 
         return {
             getverificationdata: function(candidateid) {
-                return $http.get('http://localhost:8081/verification/' + candidateid);
+                return $http.get('/verification/' + candidateid);
             },
 
 
             updateverificationdata: function(typename, candidatedata) {
-                return $http.patch('http://localhost:8081/verification/updateverification/' + typename, candidatedata);
+                return $http.patch('/verification/updateverification/' + typename,
+                    candidatedata);
             },
 
             getcandidateprofession: function(candidateid) {
-                return $http.get('http://localhost:8081/profile/' + candidateid);
+                return $http.get('/profile/' + candidateid);
             }
 
 

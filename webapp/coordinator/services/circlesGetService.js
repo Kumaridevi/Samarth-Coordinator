@@ -9,7 +9,7 @@ angular.module('samarth-webcomponents')
             var userdata = signinfactory.getUser();
             // console.log("ger citcle", userdata);
 
-            return $http.get('http://localhost:8081/circle/' + userdata.email)
+            return $http.get('/circle/' + userdata.email)
                 .then(function(res) {
                     //console.log("got circles data");
                     return res;
@@ -23,7 +23,7 @@ angular.module('samarth-webcomponents')
         objcircle.addCircle = function(circle) {
             console.log("service circle", circle);
             return $http({
-                    url: "http://localhost:8081/circle/",
+                    url: "/circle/",
                     method: "POST",
                     data: circle
                 })
